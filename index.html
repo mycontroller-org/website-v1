@@ -1,7 +1,66 @@
-<object data="document.pdf" type="application/pdf" width="100%" height="100%">
- 
-  <p>It appears you don't have a PDF plugin for this browser.
-  No biggie... you can <a href="document.pdf">click here to
-  download the PDF file.</a></p>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="jkandasa">
+    <link rel="icon" href="images/favicon.ico">
+    <title>MyController.org - The Open Source Controller</title>
   
-</object>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>    
+
+  </head>
+
+  <body>
+    <style>
+body { padding-top: 75px; padding-bottom: 70px;}
+//body {padding-bottom: 70px;}
+.tick line { display: none; }
+</style>
+  <!-- Fixed navbar -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="http://www.mycontroller.org">MyController.org</a>
+        </div>
+        
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Docs</a></li>
+            <li><a href="https://github.com/mycontroller-org/mycontroller">Source Code</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="container theme-showcase" role="main">
+      <div class="well well-lg">Welcome to <a href="http://www.mycontroller.org">MyController.org</a> :) This page is under development. But still you can access documents</div>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Documents</h3>
+        </div>
+        <div class="panel-body">
+          <h5><a href="docs/document_0_0_2-alpha2.pdf">0.0.2-alpha2 </a><span class="label label-default">New</span></h5>
+        </div>
+      </div>
+    </div>
+    
+  </body>
+
+</html>
