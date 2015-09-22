@@ -1,0 +1,119 @@
+      <div class="page-header">
+        <h3><b><i class="fa fa-download"></i> Downloads</b> <small><a href="https://github.com/mycontroller-org/mycontroller/releases">Github Releases Page</a></small></h3>
+      </div>
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">0.0.2-alpha3 <span class="label label-default">Pre-release</span> <span class="label label-default">New</span> <span class="label label-default">Recommended</span></h3>
+    </div>
+    <div class="panel-body">
+      <h5>New Features</h5>
+    <ul type="circle">
+      <li>Added support MySensors sensor Request type handler</li>
+    </ul>
+    <h5>Dependency Upgrade</h5>
+    <ul type="circle">
+      <li>AngularJS upgraded to version 1.4.5 and other GUI dependencies to their latest version</li>
+    </ul>
+    <h5>Bug Fixes</h5>
+    <ul type="circle">
+      <li>Accept sensor id 0, new sensor id limit 0~254</li>
+      <li>Action board issue for mobile device</li>
+      <li>NULL pointer exception on closing EthernetGateway</li>
+      <li>NULL pointer exception on startup</li>
+      <li>Removing firmware type before removing firmware fails <a href="https://github.com/mycontroller-org/mycontroller/issues/9">#9</a></li>
+      <li>Provide option to feed Firmware Type and Version id manually <a href="https://github.com/mycontroller-org/mycontroller/issues/11">#11</a></li>
+      <li>Shows client time stamp in GUI <a href="https://github.com/mycontroller-org/mycontroller/issues/9">#2</a>, now server timezone on client side, no more confusion</li>
+    </ul>
+    <h5>Steps to upgrade 0.0.2-alpha2 to 0.0.2-alpha3</h5>
+    <ul type="circle">
+      <li>Manually backup/copy existing database from <code>mycontroller/conf/mycontroller.h2.db</code> and <code>mycontroller/conf/mycontroller.properties</code> file.</li>
+      <li>Delete mycontroller directory</li>
+      <li>Extract 0.0.2-alpha3 bundle</li>
+      <li>Place backed-up <code>mycontroller.h2.db</code> file in to <code>mycontroller/conf/</code></li>
+      <li>Modify <code>mycontroller/conf/mycontroller.properties</code> file based on existing configuration.</li>
+      <li>Start MyController.org server -> <code>bin/start.sh</code></li>
+    </ul>
+    <h5>Downloads</h5>
+    <ul type="circle">
+      <li><a href="https://github.com/mycontroller-org/mycontroller/releases/download/0.0.2-alpha3/mycontroller-standalone-0.0.2-alpha3-bundle.tar.gz">mycontroller-standalone-0.0.2-alpha3-bundle.tar.gz</a></li>
+      <li><a href="https://github.com/mycontroller-org/mycontroller/releases/download/0.0.2-alpha3/mycontroller-standalone-0.0.2-alpha3-bundle.zip">mycontroller-standalone-0.0.2-alpha3-bundle.zip</a></li>
+    </ul>
+    </div>
+  </div>
+  
+    <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">0.0.2-alpha2 <span class="label label-default">Pre-release</span></h3>
+    </div>
+    <div class="panel-body">
+      <h5>New Features</h5>
+    <ul type="circle">
+      <li>Added support for Ethernet Gateway</li>
+      <li>Added support for MQTT Gateway</li>
+    </ul>
+    <h5>Bug Fixes</h5>
+    <ul type="circle">
+      <li>Fix - Sensor Id should be in the range of 1~254 <a href="https://github.com/mycontroller-org/mycontroller/issues/1">#1</a></li>
+    </ul>
+    <h5>Steps to upgrade 0.0.2-alpha1 to 0.0.2-alpha2</h5>
+    <ul type="circle">
+      <li>Manually backup/copy existing database from <code>mycontroller/conf/mycontroller.h2.db</code> and <code>mycontroller/conf/mycontroller.properties</code> file.</li>
+      <li>Delete mycontroller directory</li>
+      <li>Extract 0.0.2-alpha2 bundle</li>
+      <li>Place backed-up <code>mycontroller.h2.db</code> file in to <code>mycontroller/conf/</code></li>
+      <li>Modify <code>mycontroller/conf/mycontroller.properties</code> file based on existing configuration.</li>
+      <li>Start MyController.org server -> <code>bin/start.sh</code></li>
+    </ul>
+    <h5>Downloads</h5>
+    <ul type="circle">
+      <li><a href="https://github.com/mycontroller-org/mycontroller/releases/download/0.0.2-alpha2/mycontroller-standalone-0.0.2-alpha2-bundle.tar.gz">mycontroller-standalone-0.0.2-alpha3-bundle.tar.gz</a></li>
+      <li><a href="https://github.com/mycontroller-org/mycontroller/releases/download/0.0.2-alpha2/mycontroller-standalone-0.0.2-alpha2-bundle.zip">mycontroller-standalone-0.0.2-alpha3-bundle.zip</a></li>
+    </ul>
+    </div>
+  </div>
+  
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">0.0.2-alpha1 <span class="label label-default">Pre-release</span></h3>
+    </div>
+    <div class="panel-body">
+      <h5>New Features</h5>
+    <ul type="circle">
+      <li>Added new field in alarm called IgnoreDuplicate</li>
+    </ul>
+    <h5>Bug Fixes</h5>
+    <ul type="circle">
+      <li>Fixed Erase EEPROM function</li>
+      <li>Default serial driver on 'auto' mode - JSERIALCOMM</li>
+      <li>Changed H2DB database version to 1.3.176 (last stable)</li>
+    </ul>
+    <h5>Upgrade from 0.0.1</h5>
+    <ul type="circle">
+      <li>This release will not support for upgrade from 0.0.1 to 0.0.2-alpha2, as database version has been downgraded.</li>
+    </ul>
+    <h5>Downloads</h5>
+    <ul type="circle">
+      <li><a href="https://github.com/mycontroller-org/mycontroller/releases/download/0.0.2-alpha1/mycontroller-standalone-0.0.2-alpha1-bundle.tar.gz">mycontroller-standalone-0.0.2-alpha3-bundle.tar.gz</a></li>
+      <li><a href="https://github.com/mycontroller-org/mycontroller/releases/download/0.0.2-alpha1/mycontroller-standalone-0.0.2-alpha1-bundle.zip">mycontroller-standalone-0.0.2-alpha3-bundle.zip</a></li>
+    </ul>
+    </div>
+  </div>
+  
+    <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">0.0.1</h3>
+    </div>
+    <div class="panel-body">
+    <h5>Entering in to the real world!</h5>
+    <p>This is the first release of mycontroller.org.
+       Target audience: mysensors.org users
+    </p>
+    <h5>Downloads</h5>
+    <ul type="circle">
+      <li><a href="https://github.com/mycontroller-org/mycontroller/releases/download/0.0.1/mycontroller-standalone-0.0.1-bundle.tar.gz">mycontroller-standalone-0.0.1-bundle.tar.gz</a></li>
+      <li><a href="https://github.com/mycontroller-org/mycontroller/releases/download/0.0.1/mycontroller-standalone-0.0.1-bundle.zip">mycontroller-standalone-0.0.1-bundle.zip</a></li>
+    </ul>
+    </div>
+  </div>
+
