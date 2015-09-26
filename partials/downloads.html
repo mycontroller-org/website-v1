@@ -1,10 +1,50 @@
       <div class="page-header">
         <h3><b><i class="fa fa-download"></i> Downloads</b> <small><a href="https://github.com/mycontroller-org/mycontroller/releases">Github Releases Page</a></small></h3>
       </div>
+      
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">0.0.2-alpha4 <span class="label label-default">Pre-release</span> <span class="label label-default">New</span> <span class="label label-default">Recommended</span></h3>
+    </div>
+    <div class="panel-body">
+      <h5>New Features</h5>
+    <ul type="circle">
+      <li>Support special operations for timer and alarm module. Supported Operations: Invert, Increment, Decrements, addition, subtraction, division, multiplication, modulus, Reboot-Node</li>
+      <li>Added MyController.org server timezone and version information on footer(only on desktop browser)</li>
+      <li>Support line chart graph for various interpolate options <a href="https://github.com/mycontroller-org/mycontroller/issues/16">#16</a></li>
+      <li>Option to discover nodes automatically on the mysensors network <a href="https://github.com/mycontroller-org/mycontroller/issues/15">#15</a></li>
+      <li>Graph report for node battery usage <a href="https://github.com/mycontroller-org/mycontroller/issues/14">#14</a></li>
+      <li>Support for direct NRF24L01+ gateway via PiGatewaySerial (<a href="https://github.com/mysensors/Raspberry">https://github.com/mysensors/Raspberry</a>) on Raspberry PI</li>
+    </ul>
+    <h5>Bug Fixes</h5>
+    <ul type="circle">
+      <li>Log truncate null pointer exception</li>
+      <li>Timer bug fix</li>
+      <li>Displays only node types on Nodes table <a href="https://github.com/mycontroller-org/mycontroller/issues/18">#18</a></li>
+      <li>List senor types and sensor variable type in order <a href="https://github.com/mycontroller-org/mycontroller/issues/19">#19</a></li>
+      <li>When stop MyController.org server in RPI throws exception <a href="https://github.com/mycontroller-org/mycontroller/issues/21">#21</a></li>
+    </ul>
+    <h5>Steps to upgrade 0.0.2-alpha3 to 0.0.2-alpha4</h5>
+    <ul type="circle">
+      <li>Manually backup/copy existing database from <code>mycontroller/conf/mycontroller.h2.db</code> and <code>mycontroller/conf/mycontroller.properties</code> file.</li>
+      <li>Delete mycontroller directory</li>
+      <li>Extract 0.0.2-alpha4 bundle</li>
+      <li>Place backed-up <code>mycontroller.h2.db</code> file in to <code>mycontroller/conf/</code></li>
+      <li>Modify <code>mycontroller/conf/mycontroller.properties</code> file based on existing configuration.</li>
+      <li>Start MyController.org server -> <code>bin/start.sh</code></li>
+    </ul>
+    <h5>Downloads</h5>
+    <ul type="circle">
+      <li><a href="https://github.com/mycontroller-org/mycontroller/releases/download/0.0.2-alpha4/mycontroller-standalone-0.0.2-alpha4-bundle.tar.gz">mycontroller-standalone-0.0.2-alpha4-bundle.tar.gz</a></li>
+      <li><a href="https://github.com/mycontroller-org/mycontroller/releases/download/0.0.2-alpha4/mycontroller-standalone-0.0.2-alpha4-bundle.zip">mycontroller-standalone-0.0.2-alpha4-bundle.zip</a></li>
+    </ul>
+    </div>
+  </div>
+      
 
   <div class="panel panel-default">
     <div class="panel-heading">
-      <h3 class="panel-title">0.0.2-alpha3 <span class="label label-default">Pre-release</span> <span class="label label-default">New</span> <span class="label label-default">Recommended</span></h3>
+      <h3 class="panel-title">0.0.2-alpha3 <span class="label label-default">Pre-release</span></h3>
     </div>
     <div class="panel-body">
       <h5>New Features</h5>
@@ -42,7 +82,7 @@
     </div>
   </div>
   
-    <div class="panel panel-default">
+  <div class="panel panel-default">
     <div class="panel-heading">
       <h3 class="panel-title">0.0.2-alpha2 <span class="label label-default">Pre-release</span></h3>
     </div>
@@ -100,7 +140,7 @@
     </div>
   </div>
   
-    <div class="panel panel-default">
+  <div class="panel panel-default">
     <div class="panel-heading">
       <h3 class="panel-title">0.0.1</h3>
     </div>
