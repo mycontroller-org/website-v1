@@ -21,7 +21,7 @@
     <style>
       body { padding-top: 35px; padding-bottom: 70px;}
       .tick line { display: none; }
-      .jumbotron{padding-top:18px;}
+      .jumbotron{padding-top:7px;}
     </style>
 
     <nav class="navbar navbar-default navbar-fixed-top" ng-controller="McPortalNavBarCtrl">
@@ -39,13 +39,12 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="mcMainMenu">
           <ul class="nav navbar-nav">
-            <li><a href="https://github.com/mycontroller-org/mycontroller" ><i class="fa fa-github fa-lg"></i> Fork me on GitHub</a></li>
             <li ng-class="{ active: isActive('/downloads')}"><a data-toggle="collapse" data-target="#mcMainMenu.in" href="#/downloads" ><i class="fa fa-download fa-lg"></i> Downloads</a></li>
             <li ng-class="{ active: isActive('/document')}"><a href="#/document" data-toggle="collapse" data-target="#mcMainMenu.in"><i class="fa fa-book fa-lg"></i> Document</a></li>
             <li><a href="http://demo.mycontroller.org"><i class="fa fa-desktop fa-lg"></i> Demo</a></li>
             <li><a href="https://github.com/mycontroller-org/mycontroller/issues"><i class="fa fa-bug fa-lg"></i> Issues</a></li>
             <li><a href="http://forum.mysensors.org/category/26/mycontroller-org"><i class="fa fa-comments fa-lg"></i> Discussions</a></li>
-            
+            <li><a href="https://github.com/mycontroller-org/mycontroller" ><i class="fa fa-github fa-lg"></i> Fork us on GitHub</a></li>            
           </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
