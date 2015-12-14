@@ -1,0 +1,23 @@
+/* app css stylesheet */
+
+body {
+}
+
+.page-header > h1 {
+  font-weight: bold;
+}
+
+.main-page-header > h2, .main-page-header > h3 {
+  font-weight: bold;
+  padding-bottom:9.5px;
+  margin:42px 0 21px;
+  border-bottom:1px solid #e6e6e6
+}
+
+.main-page-header > h4 {
+  font-weight: bold;
+}
+
+.icon > i {
+  font-size: 32px;
+}

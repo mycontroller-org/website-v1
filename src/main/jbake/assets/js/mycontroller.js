@@ -13,13 +13,20 @@ config(function($stateProvider, $urlRouterProvider) {
 	$stateProvider
     .state('home', {
       url:"/home",
-      templateUrl: "partials/about.html"
+      templateUrl: "files/pages/about.html"
     }).state('downloads', {
       url:"/downloads",
-      templateUrl: "partials/downloads.html"
-    }).state('document', {
-      url:"/document",
-      templateUrl: "partials/document.html"
+      templateUrl: "files/pages/downloads.html"
+    }).state('documents', {
+      url:"/documents/:docPage",
+      templateUrl: function ($stateParams){
+        return 'files/pages/documents/' + $stateParams.docPage;
+        }
+    }).state('blog', {
+      url:"/blog/:blogPage",
+      templateUrl: function ($stateParams){
+        return 'blog/' + $stateParams.blogPage;
+        }
     });
 });
 

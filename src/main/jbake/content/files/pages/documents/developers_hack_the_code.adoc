@@ -1,0 +1,21 @@
+:description: Hack the source code
+:jbake-type: spage
+:jbake-status: published
+:icons: font
+:imagesdir: ../../images/
+:keywords: eclipse,mycontroller
+:link_doc_path: #/documents
+
+= Contribute on the code
+Jeeva Kandasamy
+2015-12-12
+
+When you decide you want to start coding on MyController.og,
+please visit the link:{link_doc_path}/developers_ide-configuration.html[ide-config] section and download
+the respective settings file for your IDE. This settings file will help you applying the coding standards
+that are checked on mvn install runs. To work on the code, it is best to fork the MyController
+repository and then work there on your changes. Once you have made a change ready to go, go
+to the GitHub repository and open a pull-request.
+
+NOTE: Click link:https://github.com/mycontroller-org/mycontroller/fork[here] to fork
+link:https://github.com/mycontroller-org/mycontroller[MyController repository].

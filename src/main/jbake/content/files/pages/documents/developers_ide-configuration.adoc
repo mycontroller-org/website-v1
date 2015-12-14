@@ -1,0 +1,41 @@
+:description: Settings for IDE eclipse
+:jbake-type: spage
+:jbake-status: published
+:icons: font
+:imagesdir: ../../images/
+:keywords: eclipse,mycontroller
+
+= Settings and Preferences for Eclipse IDE for JAVA Developers (Luna)
+Jeeva Kandasamy
+2015-12-12
+
+To maintain code style and format across developers contribution,
+we have to use the following style files on ecplise IDE for MyController Java codes.
+
+[role="main-page-header"]
+=== Import Code Templates
+File: link:files/eclipse/mycontroller-eclipse-preferences-java-codestyle-cleanup.xml[mycontroller-eclipse-preferences-java-codestyle-cleanup.xml^]
+
+* Window -> Preferences -> Java -> Code Style -> Clean Up -> Import…
+* Select `mycontroller-eclipse-preferences-java-codestyle-cleanup.xml` -> and click *OK*
+
+[role="main-page-header"]
+=== Import Code Templates
+File: link:files/eclipse/mycontroller-eclipse-preferences-java-codestyle-codetemplates.xml[mycontroller-eclipse-preferences-java-codestyle-codetemplates.xml^]
+
+* Window -> Preferences -> Java -> Code Style -> Code Templates -> Import…
+* Select `mycontroller-eclipse-preferences-java-codestyle-codetemplates.xml` and click *OK*
+
+[role="main-page-header"]
+=== Import Formatter
+File: link:files/eclipse/mycontroller-eclipse-preferences-java-codestyle-formatter.xml[mycontroller-eclipse-preferences-java-codestyle-formatter.xml^]
+
+* Window -> Preferences -> Java -> Code Style -> Formatter-> Import…
+* Select `mycontroller-eclipse-preferences-java-codestyle-formatter.xml` and click *OK*
+
+[role="main-page-header"]
+=== Import correct import order settings
+File: link:files/eclipse/mycontroller-eclipse-preferences-java-codestyle-organizeimports.importorder[mycontroller-eclipse-preferences-java-codestyle-organizeimports.importorder^]
+
+* Window -> Preferences -> Java -> Code Style -> Organize Imports -> Import…
+* Select `mycontroller-eclipse-preferences-java-codestyle-organizeimports.importorder` and click *OK*

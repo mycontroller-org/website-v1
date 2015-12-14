@@ -1,0 +1,14 @@
+:description: Developers documents
+:jbake-type: spage
+:jbake-status: published
+:icons: font
+:imagesdir: /images/
+:keywords: developers,mycontroller
+:link_doc_path: #/documents
+
+= Developers Corner
+Jeeva Kandasamy
+2015-12-12
+
+* link:{link_doc_path}/developers_ide-configuration.html[Settings and Preferences for Eclipse IDE for JAVA Developers (Luna)]
+* link:{link_doc_path}/developers_hack_the_code.html[Contribute on the code]

@@ -14,6 +14,9 @@
     <link href="https://bootswatch.com/cosmo/bootstrap.min.css" rel="stylesheet" >
         
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/mycontroller.css">
+    <link rel="stylesheet" href="/css/asciidoctor.css">
+    <link rel="stylesheet" href="/css/prettify.css">
 
   </head>
 
@@ -40,11 +43,21 @@
         <div class="collapse navbar-collapse" id="mcMainMenu">
           <ul class="nav navbar-nav">
             <li ng-class="{ active: isActive('/downloads')}"><a data-toggle="collapse" data-target="#mcMainMenu.in" href="#/downloads" ><i class="fa fa-download fa-lg"></i> Downloads</a></li>
-            <li ng-class="{ active: isActive('/document')}"><a href="#/document" data-toggle="collapse" data-target="#mcMainMenu.in"><i class="fa fa-book fa-lg"></i> Document</a></li>
+            
+            <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href=""><i class="fa fa-book fa-lg"></i> Documents <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li ng-class="{ active: isActive('/documents')}"><a href="#/documents/developers.html" data-toggle="collapse" data-target="#mcMainMenu.in"><i class="fa fa-book fa-lg"></i> Developers</a></li>
+                <li ng-class="{ active: isActive('/documents')}"><a href="#/documents/users.html" data-toggle="collapse" data-target="#mcMainMenu.in"><i class="fa fa-book fa-lg"></i> Users</a></li>
+              </ul>
+            </li>
+            
+            <li ng-class="{ active: isActive('/blog')}"><a data-toggle="collapse" data-target="#mcMainMenu.in" href="#/blog/blog.html" ><i class="fa fa-files-o fa-lg"></i> Blog</a></li>
+            
             <li><a href="http://demo.mycontroller.org"><i class="fa fa-desktop fa-lg"></i> Demo</a></li>
             <li><a href="https://github.com/mycontroller-org/mycontroller/issues"><i class="fa fa-bug fa-lg"></i> Issues</a></li>
             <li><a href="http://forum.mysensors.org/category/26/mycontroller-org"><i class="fa fa-comments fa-lg"></i> Discussions</a></li>
-            <li><a href="https://github.com/mycontroller-org/mycontroller" ><i class="fa fa-github fa-lg"></i> Fork us on GitHub</a></li>            
+            <li><a href="https://github.com/mycontroller-org/mycontroller" ><i class="fa fa-github fa-lg"></i> Fork us on GitHub</a></li>          
           </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
@@ -70,7 +83,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-beta.0/angular-resource.min.js"></script>
     
     <!-- Application js-->
-    <script src="app.js"></script>
+    <script src="/js/mycontroller.js"></script>
     
   </body>
 
