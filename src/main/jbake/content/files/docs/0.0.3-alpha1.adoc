@@ -10,7 +10,7 @@ Jeeva Kandasamy
 :imagesdir: 0.0.3-alpha1
 :keywords: MyController, MySensors, automation, homeautomation, wireless
 
-image::../../logo-mycontroller.org_full.png[align="left"]
+image::../../images/logo-mycontroller.org_full.png[align="left"]
 
 [cols="1,1,1", options="header"]
 |===
@@ -25,7 +25,6 @@ image::../../logo-mycontroller.org_full.png[align="left"]
 
 _Copyright ©2015-2016, All Rights Reserved, http://www.mycontroller.org_
 
-toc::[]
 
 == Introduction
 MyController.org is a controller for the sensors world! Primarily it was developed to

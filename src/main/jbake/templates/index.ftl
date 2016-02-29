@@ -69,7 +69,7 @@
       <hr>
       <div>
         <div class="pull-right">
-          <p class="navbar-text">Copyright ©2015, All Rights Reserved</p>
+          <p class="navbar-text">Copyright ©2015-2016, All Rights Reserved</p>
         </div>  
       </div>
     </div>
