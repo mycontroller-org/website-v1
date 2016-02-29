@@ -1,0 +1,1607 @@
+
+	
+	<div class="page-header">
+		<h1>Project documentation</h1>
+	</div>
+
+	<p><div id="preamble">
+<div class="sectionbody">
+<div class="imageblock" style="text-align: left">
+<div class="content">
+<img src="../logo-mycontroller.org_full.png" alt="logo mycontroller.org full">
+</div>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 33%;">
+<col style="width: 33%;">
+<col style="width: 33%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Author(s)</th>
+<th class="tableblock halign-left valign-top">Product Version</th>
+<th class="tableblock halign-left valign-top">Date</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://github.com/jkandasa">Jeeva Kandasamy</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0.0.3-alpha1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">February-2016</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p><em>Copyright ©2015-2016, All Rights Reserved, <a href="http://www.mycontroller.org" class="bare">http://www.mycontroller.org</a></em></p>
+</div>
+<div id="toc" class="toc">
+<div id="toctitle" class="title">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_introduction">Introduction</a></li>
+<li><a href="#_technology">Technology</a></li>
+<li><a href="#_installation">Installation</a>
+<ul class="sectlevel2">
+<li><a href="#_system_requirements">System Requirements</a></li>
+<li><a href="#_supported_platforms">Supported Platforms</a></li>
+<li><a href="#_download">Download</a></li>
+<li><a href="#_configuration">Configuration</a></li>
+</ul>
+</li>
+<li><a href="#_login">Login</a></li>
+<li><a href="#_menus">Menus</a></li>
+<li><a href="#_across_pages">Across pages</a></li>
+<li><a href="#_language_locale">Language (locale)</a></li>
+<li><a href="#_support">Support</a></li>
+<li><a href="#_utility_menu">Utility menu</a></li>
+<li><a href="#_resources">Resources</a>
+<ul class="sectlevel2">
+<li><a href="#_gateway">Gateway</a></li>
+<li><a href="#_node">Node</a></li>
+<li><a href="#_sensors">Sensors</a></li>
+<li><a href="#_alarms">Alarms</a></li>
+<li><a href="#_notifications">Notifications</a></li>
+<li><a href="#_timers">Timers</a></li>
+<li><a href="#_special_operations">Special operations</a></li>
+<li><a href="#_forward_payload">Forward Payload</a></li>
+<li><a href="#_resources_logs">Resources logs</a></li>
+</ul>
+</li>
+<li><a href="#_source_code">Source Code</a>
+<ul class="sectlevel2">
+<li><a href="#_issue_management">Issue management</a></li>
+<li><a href="#_license">License</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_introduction">Introduction</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>MyController.org is a controller for the sensors world! Primarily it was developed to
+ MySensors.org project. Later changed has design architecture to support other project also.
+ Considered system resources in mind on development. As a result even we can run it on
+Raspberry PI very first model.</p>
+</div>
+<div class="paragraph">
+<p>You can control/monitor various sensors with this controller. As this
+controller is a web application server you can access from anywhere if you have internet
+connection. It has various features like, firmware control for nodes, alarms, timers., etc.
+For further details dig into each section.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_technology">Technology</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>MyController.org is Java based web application server.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Web Server  : <a href="http://tjws.sourceforge.net/">TJWS</a></p>
+</li>
+<li>
+<p>REST-API    : <a href="http://resteasy.jboss.org/">Jboss RestEasy</a></p>
+</li>
+<li>
+<p>Database    : <a href="http://www.h2database.com/">h2 database</a></p>
+</li>
+<li>
+<p>Front-end   : <a href="https://angularjs.org/">AngularJS</a>, <a href="https://www.patternfly.org/">PatternFly</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_installation">Installation</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_system_requirements">System Requirements</h3>
+<div class="paragraph">
+<p>MyController.org server is very lightweight, It required very less resource,</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Disk : 30 MB (may require more space, when we store metrics data for long time)</p>
+</li>
+<li>
+<p>RAM : 40 MB</p>
+</li>
+<li>
+<p>Java SE : 1.8 or later</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Test done up to 5 nodes and 30 sensors with the above configuration._
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_supported_platforms">Supported Platforms</h3>
+<div class="paragraph">
+<p>We can run it in any platform which supports Java. So far it has been tested in the
+following platforms, Kindly share your success stories on other platforms we can add it
+here.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Linux</p>
+</li>
+<li>
+<p>Windows</p>
+</li>
+<li>
+<p>Raspberry PI (Oracle Java recommend)</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_download">Download</h3>
+<div class="paragraph">
+<p>Executable download is available in two formats, zip and tar.gz. You can download
+suitable compressed flavor for you.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://github.com/mycontroller-org/mycontroller/releases/download/0.0.3-alpha1/mycontroller-standalone-0.0.3-alpha1-bundle.zip">mycontroller-standalone-0.0.3-alpha1-bundle.zip</a></p>
+</li>
+<li>
+<p><a href="https://github.com/mycontroller-org/mycontroller/releases/download/0.0.3-alpha1/mycontroller-standalone-0.0.3-alpha1-bundle.tar.gz">mycontroller-standalone-0.0.3-alpha1-bundle.tar.gz</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Kindly visit <a href="https://github.com/mycontroller-org/mycontroller/releases">releases page</a> of MyController.org to get latest version.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_configuration">Configuration</h3>
+<div class="paragraph">
+<p>Extract downloaded bundle where exactly do you want to run. Configuration file is located in <code>mycontroller/conf</code></p>
+</div>
+<div class="paragraph">
+<p>File name: <code>mycontroller.properties</code></p>
+</div>
+<div class="sect3">
+<h4 id="_temporary_file">Temporary file</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code>mcc.tmp.location=tmp/</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You can change default location and file name. This file used as server temporery location. Used for the operation such as backup, restore, etc.,</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_database_configuration">Database Configuration</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code>mcc.db.h2db.location=../conf/mycontroller <i class="conum" data-value="1"></i><b>(1)</b></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>You can change default location and file name. File will be stored with the file extension
+<code>.h2.db</code>. Do not add file extension.</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_web_server_configuration">Web server configuration</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code>mcc.web.bind.address=0.0.0.0 <i class="conum" data-value="1"></i><b>(1)</b>
+mcc.web.enable.https=true  <i class="conum" data-value="2"></i><b>(2)</b>
+mcc.web.http.port=8443  <i class="conum" data-value="3"></i><b>(3)</b>
+mcc.web.file.location=../www/  <i class="conum" data-value="4"></i><b>(4)</b>
+mcc.web.ssl.keystore.file=../conf/keystore.jks  <i class="conum" data-value="5"></i><b>(5)</b>
+mcc.web.ssl.keystore.password=mycontroller  <i class="conum" data-value="5"></i><b>(5)</b>
+mcc.web.ssl.keystore.type=JKS  <i class="conum" data-value="5"></i><b>(5)</b></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>bind interface address. by default it will bind with all the available interface.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Enable/disable https. Only one protocol supported at a time. true - <code>https</code>, false - <code>http</code>.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>Port number of <code>http/https</code> to access MyController.org server.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td>web files location, no need to touch this one.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="5"></i><b>5</b></td>
+<td>If <code>https</code> is enabled these fields are mandatory.</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Default URL: <code><a href="https://&lt;ip&gt;:8443" class="bare">https://&lt;ip&gt;:8443</a></code> (ex: <code><a href="https://localhost:8443" class="bare">https://localhost:8443</a></code>)</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Default username/password: <code>admin/admin</code>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><strong>Important</strong>: Change default <code>mcc.web.ssl.keystore.file</code> and <code>mcc.web.ssl.keystore.password</code> and <code>https</code> protocol is
+recommended</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_mqtt_broker_configuration">MQTT broker configuration</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code>mcc.mqtt.broker.enable=true <i class="conum" data-value="1"></i><b>(1)</b>
+mcc.mqtt.broker.bind.address=0.0.0.0 <i class="conum" data-value="2"></i><b>(2)</b>
+mcc.mqtt.broker.port=1883 <i class="conum" data-value="3"></i><b>(3)</b>
+mcc.mqtt.broker.websocket.port=7080 <i class="conum" data-value="4"></i><b>(4)</b>
+mcc.mqtt.broker.persistent.store=../conf/moquette/moquette_store.mapdb <i class="conum" data-value="5"></i><b>(5)</b></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Enable/disable inbuilt MQTT broker. by default it will be enabled. <code>true</code>- enabled, <code>false</code> - disabled</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>bind interface address. by default it will bind with all the available interface.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>MQTT broker port</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td>websoicket port</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="5"></i><b>5</b></td>
+<td>internal use. no need to touch this one.</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_logger_configuration">Logger configuration</h4>
+<div class="paragraph">
+<p>Configuration File Name: <code>logback.xml</code></p>
+</div>
+<div class="paragraph">
+<p>Default log file location: <code>logs/mycontroller.log</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_start_stop_server">Start/Stop Server</h4>
+<div class="paragraph">
+<p>Executable scripts are located in <code>mycontroller/bin/</code></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Linux</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Start : <code>./start.sh</code></p>
+</li>
+<li>
+<p>Stop : <code>./stop.sh</code></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Windows</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Start : Double click on <code>start.bat</code></p>
+</li>
+<li>
+<p>Stop : <code>Ctrl+C</code></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Other Platforms</p>
+<div class="ulist">
+<ul>
+<li>
+<p>navigate to 'mycontroller/bin/'</p>
+</li>
+<li>
+<p><code>java -Xms8m -Xmx40m -Dlogback.configurationFile=../conf/logback.xml -Dmc.conf.file=../conf/mycontroller.properties -jar ../lib/mycontroller-standalone-0.0.3-alpha1-single.jar</code></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_login">Login</h2>
+<div class="sectionbody">
+<div class="imageblock" style="text-align: left">
+<div class="content">
+<img src="0.0.3-alpha1/login.png" alt="login">
+</div>
+</div>
+<div class="paragraph">
+<p>Enter valid username and password to log in to MyController.org server.</p>
+</div>
+<div class="paragraph">
+<p>Default username is <code>admin</code> and password is <code>admin</code></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_menus">Menus</h2>
+<div class="sectionbody">
+<div class="imageblock" style="text-align: left">
+<div class="content">
+<img src="0.0.3-alpha1/main-menu.png" alt="main menu">
+</div>
+</div>
+<div class="paragraph">
+<p>Menu divided in to two parts.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Main menu</p>
+</li>
+<li>
+<p>Sub menu</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>If you navigate to main menu you will see sub menus.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_across_pages">Across pages</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You can see the following icons across pages.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><span class="image"><img src="0.0.3-alpha1/filter-menu.png" alt="filter-menu"></span> - Filters</p>
+<div class="ulist">
+<ul>
+<li>
+<p>You change filter with available options.</p>
+</li>
+<li>
+<p>Filter works with AND operation and case sensitive.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><span class="image"><img src="0.0.3-alpha1/sort-menu.png" alt="sort-menu"></span> - Sort</p>
+<div class="ulist">
+<ul>
+<li>
+<p>you can sort based on fields listed in this menu</p>
+</li>
+<li>
+<p><span class="image"><img src="0.0.3-alpha1/sort-ascending.png" alt="sort-ascending"></span> - Ascending order</p>
+</li>
+<li>
+<p><span class="image"><img src="0.0.3-alpha1/sort-descending.png" alt="sort-descending"></span> - Descending order</p>
+</li>
+<li>
+<p>To change order click on this icon</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><span class="image"><img src="0.0.3-alpha1/view-details-icon.png" alt="view-details-icon"></span> - View details</p>
+<div class="ulist">
+<ul>
+<li>
+<p>click this icon to know more about specified item</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><span class="image"><img src="0.0.3-alpha1/actions-menu.png" alt="actions-menu"></span> - Actions</p>
+<div class="ulist">
+<ul>
+<li>
+<p>page to page list of actions will be different</p>
+</li>
+<li>
+<p>Select item(s) and perform action with this menu</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Icons</p>
+<div class="ulist">
+<ul>
+<li>
+<p><span class="image"><img src="0.0.3-alpha1/enabled.png" alt="enabled"></span> - Enabled</p>
+</li>
+<li>
+<p><span class="image"><img src="0.0.3-alpha1/disabled.png" alt="disabled"></span> - Disabled</p>
+</li>
+<li>
+<p><span class="image"><img src="0.0.3-alpha1/up.png" alt="up"></span> - Up</p>
+</li>
+<li>
+<p><span class="image"><img src="0.0.3-alpha1/down.png" alt="down"></span> - Down</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_language_locale">Language (locale)</h2>
+<div class="sectionbody">
+<div class="imageblock" style="text-align: left">
+<div class="content">
+<img src="0.0.3-alpha1/locale-main.png" alt="locale main">
+</div>
+</div>
+<div class="paragraph">
+<p>MyController supports multiple locales. You can change to your language by selecting top right corner of language menu.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_support">Support</h2>
+<div class="sectionbody">
+<div class="imageblock" style="text-align: left">
+<div class="content">
+<img src="0.0.3-alpha1/support.png" alt="support">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Releases</code> - take you to MyController.org releases page</p>
+</li>
+<li>
+<p><code>Documents</code> - take you to MyController.org documents page</p>
+</li>
+<li>
+<p><code>Source code</code> - take you to MyController.org source code page</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_utility_menu">Utility menu</h2>
+<div class="sectionbody">
+<div class="imageblock" style="text-align: left">
+<div class="content">
+<img src="0.0.3-alpha1/utility-menu.png" alt="utility menu">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Profile</code> - take you to profile page. you can change password, email id and name.</p>
+</li>
+<li>
+<p><code>Log out</code> - safely log out from MyController.org server</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_resources">Resources</h2>
+<div class="sectionbody">
+<div class="imageblock" style="text-align: left">
+<div class="content">
+<img src="0.0.3-alpha1/resources.png" alt="resources">
+</div>
+</div>
+<div class="paragraph">
+<p>Under resources you can do almost all actions related to sensors. Like adding gateway, node, sensors, alarms, timers, firmwares, rooms, etc.,</p>
+</div>
+<div class="sect2">
+<h3 id="_gateway">Gateway</h3>
+<div class="imageblock" style="text-align: left">
+<div class="content">
+<img src="0.0.3-alpha1/gateway-menu.png" alt="gateway menu">
+</div>
+</div>
+<div class="paragraph">
+<p>You can add remove any number of gateways. Supports 3 type of gateways</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Serial gateway</p>
+</li>
+<li>
+<p>Ethernet gateway</p>
+</li>
+<li>
+<p>MQTT gateway</p>
+</li>
+</ol>
+</div>
+<div class="sect3">
+<h4 id="_add_gateway">Add gateway</h4>
+<div class="imageblock" style="text-align: left">
+<div class="content">
+<img src="0.0.3-alpha1/gateway-add.png" alt="gateway add">
+</div>
+</div>
+<div class="paragraph">
+<p>Navigate to <code>Gateways</code> menu and click <code>Add gateway</code>.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_gateways_actions">Gateways actions</h4>
+<div class="imageblock" style="text-align: left">
+<div class="content">
+<img src="0.0.3-alpha1/gateway-actions.png" alt="gateway actions">
+</div>
+</div>
+<div class="paragraph">
+<p>Gateway supports multiple actions. Select an item from the list and choose the desired action.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Reload</code> - reload operation performs stop and start of the gateways.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<code>Reload</code> can happen only for enabled gateways.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+When you delete gateway. All the resources belongs to the gateways will be removed permanently. Always do backup when you perform this kind of operation.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_auto_discover">Auto discover</h4>
+<div class="imageblock" style="text-align: left">
+<div class="content">
+<img src="0.0.3-alpha1/gateway-discover.png" alt="gateway discover">
+</div>
+</div>
+<div class="paragraph">
+<p>Discovers available nodes on this gateway. Select a gateway, under actions select <code>Discover</code>.
+If your gateways supports discover available nodes will be added automatically.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_node">Node</h3>
+<div class="imageblock" style="text-align: left">
+<div class="content">
+<img src="0.0.3-alpha1/nodes-menu.png" alt="nodes menu">
+</div>
+</div>
+<div class="paragraph">
+<p>Under this page you can see node information&#8217;s like, Node EUI(Node Id), Node Name, Node Type,
+Firmware Version, MySensors Version, Battery Level, Assigned firmware, etc.,</p>
+</div>
+<div class="sect3">
+<h4 id="_add_manually">Add manually</h4>
+<div class="paragraph">
+<p>Navigate to node page, by clicking <span class="image"><img src="0.0.3-alpha1/node-add.png" alt="node-add"></span> button you can add new node.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_actions">Actions</h4>
+<div class="imageblock" style="text-align: left">
+<div class="content">
+<img src="0.0.3-alpha1/node-actions.png" alt="node actions">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Delete</code> - delete node</p>
+</li>
+<li>
+<p><code>Erase configuration</code> - Ask node to erase complete configuration.</p>
+</li>
+<li>
+<p><code>Reboot</code> - reboot the node</p>
+</li>
+<li>
+<p><code>Upload firmware</code> - Request node to get firmware update</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+When you delete a node. All the resources belongs to the node will be removed permanently. Always do backup when you perform this kind of operation.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_node_details">Node details</h4>
+<div class="paragraph">
+<p>When you click <span class="image"><img src="0.0.3-alpha1/view-details-icon.png" alt="view-details-icon"></span> icon you will complete node details. includes battery usage report.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_mapping_firmware">Mapping Firmware</h4>
+<div class="paragraph">
+<p>Before doing this action, firmware should be added in MyController.org. Refer Firmware section to add new firmware.
+To update selected firmware in to selected node perform <code>Reboot</code> or <code>Update firmware</code> action.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_sensors">Sensors</h3>
+<div class="imageblock">
+<div class="content">
+<img src="0.0.3-alpha1/sensors-menu.png" alt="sensors menu">
+</div>
+</div>
+<div class="paragraph">
+<p>Navigate to sensors Page. In this page you see sensor details like Gateway Id, Node EUI, Sensor Id, Name, Type, Variable Type, Last seen.
+You can add, edit and delete sensors from here.</p>
+</div>
+<div class="sect3">
+<h4 id="_add_sensor">Add sensor</h4>
+<div class="paragraph">
+<p>We can add sensors in two methods, via node and manually.
+If node sends any data related to sensors and if the sensor detail is not available in MyController.org new sensor will added automatically.
+To add new sensor manually click on the buttom <span class="image"><img src="0.0.3-alpha1/sensor-add.png" alt="sensor-add"></span></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If MyController.org receives any data related to sensor that you have added already will be overwritten.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_actions_2">Actions</h4>
+<div class="imageblock">
+<div class="content">
+<img src="0.0.3-alpha1/sensor-action.png" alt="sensor action">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Delete</code> - delete selected sensor</p>
+</li>
+<li>
+<p><code>Edit</code> - edit selected sensor</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+Deletion sensor will delete all the data relevance to that sensor. We cannot recover it back.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_alarms">Alarms</h3>
+<div class="imageblock">
+<div class="content">
+<img src="0.0.3-alpha1/alarms-menu.png" alt="alarms menu">
+</div>
+</div>
+<div class="paragraph">
+<p>Click on the button <span class="image"><img src="0.0.3-alpha1/alarm-add.png" alt="alarm-add"></span> to add new alarm.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Name</code> - name of the alarm definition</p>
+</li>
+<li>
+<p><code>Enabled</code> - enable/disable this alarm definition</p>
+</li>
+<li>
+<p><code>Disable when trigger</code> - will be disabled automatically when trigger</p>
+</li>
+<li>
+<p><code>Ignore duplicate</code> - ignore subsequent triggers. Will trigger again at least condition should not satisfy once.</p>
+</li>
+<li>
+<p><code>Resource</code> - Select a resource, Supported resources,</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Gateway</code> - based on gateway status</p>
+</li>
+<li>
+<p><code>Node</code> - based on node status</p>
+</li>
+<li>
+<p><code>Sensor variable</code> - based on sensor variable value</p>
+</li>
+<li>
+<p><code>Resources group</code> - based on resources group status</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>Trigger when</code> - is a condition.</p>
+</li>
+<li>
+<p><code>Dampening</code> - With dampening feature we can control trigger further. Types,</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>None</code> - dampening option disabled</p>
+</li>
+<li>
+<p><code>Consecutive</code> - If the condition satisfies continuously for N occurrences.</p>
+</li>
+<li>
+<p><code>Last N evaluations</code> - If the condition mets N occurrences in X evaluations.</p>
+</li>
+<li>
+<p><code>Active time</code> - If the condition stays active in the specified time.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>Notifications</code> - We can add any number of notifications for a alarm definition.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+For <code>Gateway</code> and <code>Node</code> operations will be monitored every 30 seconds once. Changes will not reflect immediately in alarm. It take maximum of 30 seconds.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+For ON/OFF device <code>0</code> and <code>1</code> should be a threshold value. If you enter ON or OFF will treat as string and it never fire.
+</td>
+</tr>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_actions_3">Actions</h4>
+<div class="imageblock">
+<div class="content">
+<img src="0.0.3-alpha1/alarm-actions.png" alt="alarm actions">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Enable</code> - enable selected items</p>
+</li>
+<li>
+<p><code>Disable</code> - disable selected items</p>
+</li>
+<li>
+<p><code>Delete</code> - delete selected item</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_notifications">Notifications</h3>
+<div class="imageblock">
+<div class="content">
+<img src="0.0.3-alpha1/alarms-menu.png" alt="alarms menu">
+</div>
+</div>
+<div class="paragraph">
+<p>Navigate to alarm page and click on <span class="image"><img src="0.0.3-alpha1/notifications.png" alt="notifications"></span> button.</p>
+</div>
+<div class="sect3">
+<h4 id="_add_notifications">Add notifications</h4>
+<div class="paragraph">
+<p>To add new notification click on the button <span class="image"><img src="0.0.3-alpha1/notification-add.png" alt="notification-add"></span></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Name</code> - name of the notification</p>
+</li>
+<li>
+<p><code>Enabled</code> - enable/disable notification.</p>
+</li>
+<li>
+<p><code>Public access</code> - allow to use other users</p>
+</li>
+<li>
+<p><code>Type</code> - type of notification</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Send payload</code> - Do resource operations.</p>
+</li>
+<li>
+<p><code>Send SMS</code> - send SMS</p>
+</li>
+<li>
+<p><code>Send email</code> - send email</p>
+</li>
+<li>
+<p><code>Pushbullet note</code> - send pushbullet note</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="sect4">
+<h5 id="_send_payload">Send payload</h5>
+<div class="ulist">
+<ul>
+<li>
+<p>Select resource and update payload</p>
+</li>
+<li>
+<p><code>delay time in seconds</code> update this field with delay time. Using this option payload will send to the resource after x seconds of delay. If you do not want delay leave this field as blank.</p>
+</li>
+<li>
+<p>on the payload you can use <code>Special operations</code>. Refer Special operations section for further details.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_send_sms">Send SMS</h5>
+<div class="paragraph">
+<p>For SMS we can use <a href="https://www.plivo.com/">Plivo</a> or <a href="https://www.twilio.com/">Twilio</a> vendors. When you create trail account you will get some credit.
+To use SMS notifications you should configure either Plivo or Twilio SMS API settings
+under “Settings-&#8594;Notifications-&#8594;SMS.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Phone numbers</code> - Give destination numbers with '+' with country code then mobile number without any space. If you want to give more than one number use comma(,)</p>
+</li>
+<li>
+<p><code>Custom message</code> - If you leave this field blank, default message will be generated. You can apply <code>keys</code> for this filed.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_send_email">Send email</h5>
+<div class="paragraph">
+<p>To send email, SMTP email settings should be configured under "Settings-&#8594;Notifications-&#8594;Email"</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Subject</code> - subject of this email. Mandatory field. You can apply <code>keys</code> for this filed.</p>
+</li>
+<li>
+<p><code>Email(s)</code> - list of email address with comma(,) separated.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_pushbullet_note">Pushbullet note</h5>
+<div class="paragraph">
+<p>To send pushbullet note, Pushbullet settings should be configured under  "Settings-&#8594;Notifications-&#8594;Pushbullet"</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Devices</code> - comma(,) separated device <code>iden</code>. If you leave blank will send to all the devices.</p>
+</li>
+<li>
+<p><code>Title</code> - Title of the pushbullet note. You can apply <code>keys</code> for this filed.</p>
+</li>
+<li>
+<p><code>Custom message</code> - You can add your own custom message. If you leave this field blank default message will be taken. You can apply <code>keys</code> for this filed.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Notification supports custom messages.
+You can use the following keys on your message. This key will be replaced with real values.
+Example: "Alarm <code>${aName}</code> triggered."
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+When a notifications is in disabled state. Even alarm triggers with this notification. Notification will not be executed.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_supported_keys_on_message">Supported keys on message</h5>
+<div class="ulist">
+<ul>
+<li>
+<p><code>${aName}</code> - Alarm definition name</p>
+</li>
+<li>
+<p><code>${aResource}</code> - Resource name in alarm definition condition</p>
+</li>
+<li>
+<p><code>${aCondition}</code> - Alarm condition details</p>
+</li>
+<li>
+<p><code>${aValue}</code> - Actual value of the resource at the time of trigger</p>
+</li>
+<li>
+<p><code>${aTriggeredAt}</code> - Alarm triggered time</p>
+</li>
+<li>
+<p><code>${notificationName}</code> - Notification name</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_timers">Timers</h3>
+<div class="imageblock">
+<div class="content">
+<img src="0.0.3-alpha1/timers-menu.png" alt="timers menu">
+</div>
+</div>
+<div class="paragraph">
+<p>With the timer you can schedule timely operations for <code>Gateways</code>, <code>Nodes</code>, <code>Sensor variables</code>, <code>Resources group</code>, <code>Alarm definition</code> and <code>Timer</code>.
+Different types of timers are supported by MyController.org.
+You can schedule a timer till seconds. Means you can schedule a task for time <code>21:45:23</code> like that.
+By Clicking button <span class="image"><img src="0.0.3-alpha1/timer-add.png" alt="timer-add"></span> you will be taken to add timer page.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Name</code> - name of the timer</p>
+</li>
+<li>
+<p><code>Enabled</code> - enable/disable the timer</p>
+</li>
+<li>
+<p><code>Timer type</code> - type of the timer</p>
+</li>
+<li>
+<p><code>Resource</code> - do action on this resource</p>
+</li>
+<li>
+<p><code>Validity</code> - validity of the timer. If you leave blank never get expired.</p>
+</li>
+</ul>
+</div>
+<div class="sect3">
+<h4 id="_timer_types">Timer types</h4>
+<div class="imageblock">
+<div class="content">
+<img src="0.0.3-alpha1/timer-types.png" alt="timer types">
+</div>
+</div>
+<div class="sect4">
+<h5 id="_simple">Simple</h5>
+<div class="paragraph">
+<p>Simple timer operates with <code>Repeat interval</code> and <code>Repeat count</code>. Specify repeat interval in seconds. If you want to run this job count less specify <code>Repeact count</code> as <code>-1</code></p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_normal">Normal</h5>
+<div class="paragraph">
+<p>Normal is a very basic and classic timer. You can select "Normal" in the type drop down.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_cron">Cron</h5>
+<div class="paragraph">
+<p>Cron is for advanced users. It is simple and easy.
+After selected "Cron" if you put cursor on cron expression text box,
+you will get pop-up with detailed tips. Here we are using quartz-scheduler cron tab,
+visit <a href="http://www.quartz-scheduler.org/documentation/quartz-1.x/tutorials/crontrigger">Quartz-Scheduler</a> page for further detailed configuration</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Quartz-Scheduler cron supports from seconds.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_before_sunrise_after_sunrise_before_sunset_and_after_sunset">Before Sunrise, After Sunrise, Before Sunset and After Sunset</h5>
+<div class="paragraph">
+<p>If your task based on Sunrise and Sunset you have to go with this option.
+Say you want to control your garden light based on your sun rise and sun set time. You can use this option.
+You can specify time offset.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_frequency">Frequency</h5>
+<div class="paragraph">
+<p>3 types of frequencies supported by MyController.org</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Daily – you can select all the 7 days or day(s) only you want to run</p>
+</li>
+<li>
+<p>Weekly – Select a day in week</p>
+</li>
+<li>
+<p>Monthly – Select a day in month</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_time">Time</h5>
+<div class="paragraph">
+<p>Time format: <code>HH:mm:ss</code></p>
+</div>
+<div class="paragraph">
+<p><code>HH</code> – hour in 24 hours format (0~23)</p>
+</div>
+<div class="paragraph">
+<p><code>mm</code> – minutes (0~59)</p>
+</div>
+<div class="paragraph">
+<p><code>ss</code> – seconds (0~59)</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+For sunrise and sunset options "Time" will react differently.
+If you select After Sunrise and After Sunset time will be added with "Time"  mentioned in task + "Sunrise" or "Sunset" time.
+If you select "Before Sunrise or Before Sunset" "Time" mentioned in task will be subtracted from actual
+"Sunrise or Sunset" time.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_payload">Payload</h4>
+<div class="paragraph">
+<p>Set payload for that timer. When your timer triggers payload entered here will sent to selected resource. Payload supports special operations also, have look for detailed information of <code>Special operations</code></p>
+</div>
+<div class="sect4">
+<h5 id="_validity">Validity</h5>
+<div class="paragraph">
+<p>You may feel you do not want to run this job all the time and want to run only on particular window period. In that case you can select validity.
+You can select "Validity From" and "Validity To" or only either or nothing.
+If you do not select any validity that job will be treating like never end.
+If you select only "Validity From" job will run from that date and never end.
+If you select only "Validity To" that job will start immediately and will end on the specified date.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_special_operations">Special operations</h3>
+<div class="paragraph">
+<p>While defining payload you can assign following special operations,
+All the special operation reads last received/sent value from target senor and doing this operation on top of that value and sends to target sensor.</p>
+</div>
+<div class="sect3">
+<h4 id="_toggle">Toggle</h4>
+<div class="paragraph">
+<p>By assigning the value: <code>Toggle</code> You can select this operation. It is doing toggle operation.
+This will be useful for 'BINARY' devices. For example if switch is <code>ON</code> it will be turned <code>OFF</code> vise versa.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_increment">Increment</h4>
+<div class="paragraph">
+<p>By assigning the value: <code>++</code> You can select this operation. Adding 1 with the value.
+Example: last rx/tx value is 45, on resulting this operation will send 46 to target sensor.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_decrement">Decrement</h4>
+<div class="paragraph">
+<p>By assigning the value: <code>--</code> You can select this operation. Subtracting 1 with the value.
+Example: last rx/tx value is 45, on resulting this operation will send 44 to target sensor.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_addition">Addition</h4>
+<div class="paragraph">
+<p>By assigning the value: <code>+3</code> You can select this operation. Here + meant for addition and 3 is the value should add.
+Example: last rx/tx value is 45, on resulting this operation will send 48 to target sensor.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_subtraction">Subtraction</h4>
+<div class="paragraph">
+<p>By assigning the value: <code>-4</code> You can select this operation. Here - meant for addition and 3 is the value should add.
+Example: last rx/tx value is 45, on resulting this operation will send 48 to target sensor.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_multiplication">Multiplication</h4>
+<div class="paragraph">
+<p>By assigning the value: <code>*2</code> You can select this operation. Here * meant for multiplication and 2 is the value should multiple.
+Example: last rx/tx value is 45, on resulting this operation will send 90 to target sensor.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_division">Division</h4>
+<div class="paragraph">
+<p>By assigning the value: <code>/3</code> You can select this operation. Here / meant for division and 3 is the value should divide by.
+Example: last rx/tx value is 45, on resulting this operation will send 15 to target sensor.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_modulus">Modulus</h4>
+<div class="paragraph">
+<p>By assigning the value: <code>%4</code> You can select this operation. Here % meant for modulus and 3 is the value used for modulus.
+Example: last rx/tx value is 45, on resulting this operation will send 1 to target sensor.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_reboot">Reboot</h4>
+<div class="paragraph">
+<p>By assigning the value: <code>reboot</code> You can select this operation. On this operation target node will be rebooted.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_reload">Reload</h4>
+<div class="paragraph">
+<p>By assigning the value: <code>reload</code> You can select this operation. On this operation target resource will be rebooted.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_enable">Enable</h4>
+<div class="paragraph">
+<p>By assigning the value: <code>enable</code> You can select this operation. On this operation target resource will be enabled.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_disabled">Disabled</h4>
+<div class="paragraph">
+<p>By assigning the value: <code>disable</code> You can select this operation. On this operation target resource will be disabled.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_on">ON</h4>
+<div class="paragraph">
+<p>By assigning the value: <code>ON</code> You can select this operation. On this operation target resource will be ON.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_off">OFF</h4>
+<div class="paragraph">
+<p>By assigning the value: <code>OFF</code> You can select this operation. On this operation target resource will be OFF.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_forward_payload">Forward Payload</h3>
+<div class="imageblock">
+<div class="content">
+<img src="0.0.3-alpha1/forward-payload-menu.png" alt="forward payload menu">
+</div>
+</div>
+<div class="paragraph">
+<p>You can forward the data received by this sensor to another sensor directly without any condition.
+This will be useful when you want to send your sensor data to multiple sensors.
+No need to do any code change on sensor side. Simply add an entry in MyController.org and be
+happy, MyController.org will take care.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+This operation supported across gateways too.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_resources_logs">Resources logs</h3>
+<div class="imageblock">
+<div class="content">
+<img src="0.0.3-alpha1/resources-logs-menu.png" alt="resources logs menu">
+</div>
+</div>
+<div class="paragraph">
+<p>In this page you can understand whats going on about a particular resource.</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p><strong>STAY TUNED&#8230;&#8203; DOCUMENTS WILL BE UPDATED DAY BY DAY</strong></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_source_code">Source Code</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>MyController.org is an Open Source project. You can contribute/download source code on Github repository</p>
+</div>
+<div class="sect2">
+<h3 id="_issue_management">Issue management</h3>
+<div class="paragraph">
+<p>Are you facing issue? Wan to file new feature request? Want to give ideas?
+You are welcome to Github Issues page</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_license">License</h3>
+<div class="paragraph">
+<p><a href="http://www.apache.org/licenses/LICENSE-2.0">Apache License version 2.0</a></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code>                    Apache License
+             Version 2.0, January 2004
+           http://www.apache.org/licenses/
+
+  TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
+
+  1. Definitions.
+
+     "License" shall mean the terms and conditions for use, reproduction,
+     and distribution as defined by Sections 1 through 9 of this document.
+
+     "Licensor" shall mean the copyright owner or entity authorized by
+     the copyright owner that is granting the License.
+
+     "Legal Entity" shall mean the union of the acting entity and all
+     other entities that control, are controlled by, or are under common
+     control with that entity. For the purposes of this definition,
+     "control" means (i) the power, direct or indirect, to cause the
+     direction or management of such entity, whether by contract or
+     otherwise, or (ii) ownership of fifty percent (50%) or more of the
+     outstanding shares, or (iii) beneficial ownership of such entity.
+
+     "You" (or "Your") shall mean an individual or Legal Entity
+     exercising permissions granted by this License.
+
+     "Source" form shall mean the preferred form for making modifications,
+     including but not limited to software source code, documentation
+     source, and configuration files.
+
+     "Object" form shall mean any form resulting from mechanical
+     transformation or translation of a Source form, including but
+     not limited to compiled object code, generated documentation,
+     and conversions to other media types.
+
+     "Work" shall mean the work of authorship, whether in Source or
+     Object form, made available under the License, as indicated by a
+     copyright notice that is included in or attached to the work
+     (an example is provided in the Appendix below).
+
+     "Derivative Works" shall mean any work, whether in Source or Object
+     form, that is based on (or derived from) the Work and for which the
+     editorial revisions, annotations, elaborations, or other modifications
+     represent, as a whole, an original work of authorship. For the purposes
+     of this License, Derivative Works shall not include works that remain
+     separable from, or merely link (or bind by name) to the interfaces of,
+     the Work and Derivative Works thereof.
+
+     "Contribution" shall mean any work of authorship, including
+     the original version of the Work and any modifications or additions
+     to that Work or Derivative Works thereof, that is intentionally
+     submitted to Licensor for inclusion in the Work by the copyright owner
+     or by an individual or Legal Entity authorized to submit on behalf of
+     the copyright owner. For the purposes of this definition, "submitted"
+     means any form of electronic, verbal, or written communication sent
+     to the Licensor or its representatives, including but not limited to
+     communication on electronic mailing lists, source code control systems,
+     and issue tracking systems that are managed by, or on behalf of, the
+     Licensor for the purpose of discussing and improving the Work, but
+     excluding communication that is conspicuously marked or otherwise
+     designated in writing by the copyright owner as "Not a Contribution."
+
+     "Contributor" shall mean Licensor and any individual or Legal Entity
+     on behalf of whom a Contribution has been received by Licensor and
+     subsequently incorporated within the Work.
+
+  2. Grant of Copyright License. Subject to the terms and conditions of
+     this License, each Contributor hereby grants to You a perpetual,
+     worldwide, non-exclusive, no-charge, royalty-free, irrevocable
+     copyright license to reproduce, prepare Derivative Works of,
+     publicly display, publicly perform, sublicense, and distribute the
+     Work and such Derivative Works in Source or Object form.
+
+  3. Grant of Patent License. Subject to the terms and conditions of
+     this License, each Contributor hereby grants to You a perpetual,
+     worldwide, non-exclusive, no-charge, royalty-free, irrevocable
+     (except as stated in this section) patent license to make, have made,
+     use, offer to sell, sell, import, and otherwise transfer the Work,
+     where such license applies only to those patent claims licensable
+     by such Contributor that are necessarily infringed by their
+     Contribution(s) alone or by combination of their Contribution(s)
+     with the Work to which such Contribution(s) was submitted. If You
+     institute patent litigation against any entity (including a
+     cross-claim or counterclaim in a lawsuit) alleging that the Work
+     or a Contribution incorporated within the Work constitutes direct
+     or contributory patent infringement, then any patent licenses
+     granted to You under this License for that Work shall terminate
+     as of the date such litigation is filed.
+
+  4. Redistribution. You may reproduce and distribute copies of the
+     Work or Derivative Works thereof in any medium, with or without
+     modifications, and in Source or Object form, provided that You
+     meet the following conditions:
+
+     (a) You must give any other recipients of the Work or
+         Derivative Works a copy of this License; and
+
+     (b) You must cause any modified files to carry prominent notices
+         stating that You changed the files; and
+
+     (c) You must retain, in the Source form of any Derivative Works
+         that You distribute, all copyright, patent, trademark, and
+         attribution notices from the Source form of the Work,
+         excluding those notices that do not pertain to any part of
+         the Derivative Works; and
+
+     (d) If the Work includes a "NOTICE" text file as part of its
+         distribution, then any Derivative Works that You distribute must
+         include a readable copy of the attribution notices contained
+         within such NOTICE file, excluding those notices that do not
+         pertain to any part of the Derivative Works, in at least one
+         of the following places: within a NOTICE text file distributed
+         as part of the Derivative Works; within the Source form or
+         documentation, if provided along with the Derivative Works; or,
+         within a display generated by the Derivative Works, if and
+         wherever such third-party notices normally appear. The contents
+         of the NOTICE file are for informational purposes only and
+         do not modify the License. You may add Your own attribution
+         notices within Derivative Works that You distribute, alongside
+         or as an addendum to the NOTICE text from the Work, provided
+         that such additional attribution notices cannot be construed
+         as modifying the License.
+
+     You may add Your own copyright statement to Your modifications and
+     may provide additional or different license terms and conditions
+     for use, reproduction, or distribution of Your modifications, or
+     for any such Derivative Works as a whole, provided Your use,
+     reproduction, and distribution of the Work otherwise complies with
+     the conditions stated in this License.
+
+  5. Submission of Contributions. Unless You explicitly state otherwise,
+     any Contribution intentionally submitted for inclusion in the Work
+     by You to the Licensor shall be under the terms and conditions of
+     this License, without any additional terms or conditions.
+     Notwithstanding the above, nothing herein shall supersede or modify
+     the terms of any separate license agreement you may have executed
+     with Licensor regarding such Contributions.
+
+  6. Trademarks. This License does not grant permission to use the trade
+     names, trademarks, service marks, or product names of the Licensor,
+     except as required for reasonable and customary use in describing the
+     origin of the Work and reproducing the content of the NOTICE file.
+
+  7. Disclaimer of Warranty. Unless required by applicable law or
+     agreed to in writing, Licensor provides the Work (and each
+     Contributor provides its Contributions) on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+     implied, including, without limitation, any warranties or conditions
+     of TITLE, NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A
+     PARTICULAR PURPOSE. You are solely responsible for determining the
+     appropriateness of using or redistributing the Work and assume any
+     risks associated with Your exercise of permissions under this License.
+
+  8. Limitation of Liability. In no event and under no legal theory,
+     whether in tort (including negligence), contract, or otherwise,
+     unless required by applicable law (such as deliberate and grossly
+     negligent acts) or agreed to in writing, shall any Contributor be
+     liable to You for damages, including any direct, indirect, special,
+     incidental, or consequential damages of any character arising as a
+     result of this License or out of the use or inability to use the
+     Work (including but not limited to damages for loss of goodwill,
+     work stoppage, computer failure or malfunction, or any and all
+     other commercial damages or losses), even if such Contributor
+     has been advised of the possibility of such damages.
+
+  9. Accepting Warranty or Additional Liability. While redistributing
+     the Work or Derivative Works thereof, You may choose to offer,
+     and charge a fee for, acceptance of support, warranty, indemnity,
+     or other liability obligations and/or rights consistent with this
+     License. However, in accepting such obligations, You may act only
+     on Your own behalf and on Your sole responsibility, not on behalf
+     of any other Contributor, and only if You agree to indemnify,
+     defend, and hold each Contributor harmless for any liability
+     incurred by, or claims asserted against, such Contributor by reason
+     of your accepting any such warranty or additional liability.
+
+  END OF TERMS AND CONDITIONS
+
+  APPENDIX: How to apply the Apache License to your work.
+
+     To apply the Apache License to your work, attach the following
+     boilerplate notice, with the fields enclosed by brackets "{}"
+     replaced with your own identifying information. (Don't include
+     the brackets!)  The text should be enclosed in the appropriate
+     comment syntax for the file format. We also recommend that a
+     file or class name and description of purpose be included on the
+     same "printed page" as the copyright notice for easier
+     identification within third-party archives.
+
+  Copyright {yyyy} {name of copyright owner}
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><em>Copyright ©2015-2016, All Rights Reserved, <a href="http://www.mycontroller.org" class="bare">http://www.mycontroller.org</a></em></p>
+</div>
+</div>
+</div>
+</div></p>
+
+	<hr />
+
