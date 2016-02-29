@@ -1,0 +1,729 @@
+= Project documentation
+Jeeva Kandasamy
+2016-02-29
+:description: This guide is a reference for MyController.org users
+:jbake-type: page
+:jbake-status: published
+:icons: font
+:toc: macro
+:imagesdir: ../../images/releases/0.0.3-alpha1
+:imagesdir: 0.0.3-alpha1
+:keywords: MyController, MySensors, automation, homeautomation, wireless
+
+image::../../logo-mycontroller.org_full.png[align="left"]
+
+[cols="1,1,1", options="header"]
+|===
+|Author(s)
+|Product Version
+|Date
+
+|https://github.com/jkandasa[Jeeva Kandasamy]
+|0.0.3-alpha1
+|February-2016
+|===
+
+_Copyright ©2015-2016, All Rights Reserved, http://www.mycontroller.org_
+
+toc::[]
+
+== Introduction
+MyController.org is a controller for the sensors world! Primarily it was developed to
+ MySensors.org project. Later changed has design architecture to support other project also.
+ Considered system resources in mind on development. As a result even we can run it on
+Raspberry PI very first model.
+
+You can control/monitor various sensors with this controller. As this
+controller is a web application server you can access from anywhere if you have internet
+connection. It has various features like, firmware control for nodes, alarms, timers., etc.
+For further details dig into each section.
+
+== Technology
+MyController.org is Java based web application server.
+
+* Web Server  : http://tjws.sourceforge.net/[TJWS]
+* REST-API    : http://resteasy.jboss.org/[Jboss RestEasy]
+* Database    : http://www.h2database.com/[h2 database]
+* Front-end   : https://angularjs.org/[AngularJS], https://www.patternfly.org/[PatternFly]
+
+== Installation
+=== System Requirements
+MyController.org server is very lightweight, It required very less resource,
+
+* Disk : 30 MB (may require more space, when we store metrics data for long time)
+* RAM : 40 MB
+* Java SE : 1.8 or later
+
+NOTE: Test done up to 5 nodes and 30 sensors with the above configuration._
+
+=== Supported Platforms
+We can run it in any platform which supports Java. So far it has been tested in the
+following platforms, Kindly share your success stories on other platforms we can add it
+here.
+
+* Linux
+* Windows
+* Raspberry PI (Oracle Java recommend)
+
+=== Download
+Executable download is available in two formats, zip and tar.gz. You can download
+suitable compressed flavor for you.
+
+* https://github.com/mycontroller-org/mycontroller/releases/download/0.0.3-alpha1/mycontroller-standalone-0.0.3-alpha1-bundle.zip[mycontroller-standalone-0.0.3-alpha1-bundle.zip]
+* https://github.com/mycontroller-org/mycontroller/releases/download/0.0.3-alpha1/mycontroller-standalone-0.0.3-alpha1-bundle.tar.gz[mycontroller-standalone-0.0.3-alpha1-bundle.tar.gz]
+
+Kindly visit https://github.com/mycontroller-org/mycontroller/releases[releases page] of MyController.org to get latest version.
+
+=== Configuration
+Extract downloaded bundle where exactly do you want to run. Configuration file is located in `mycontroller/conf`
+
+File name: `mycontroller.properties`
+
+==== Temporary file
+```
+mcc.tmp.location=tmp/
+```
+You can change default location and file name. This file used as server temporery location. Used for the operation such as backup, restore, etc.,
+
+==== Database Configuration
+[source]
+----
+mcc.db.h2db.location=../conf/mycontroller # <1>
+----
+<1> You can change default location and file name. File will be stored with the file extension
+`.h2.db`. Do not add file extension.
+
+==== Web server configuration
+[source]
+----
+mcc.web.bind.address=0.0.0.0 # <1>
+mcc.web.enable.https=true  # <2>
+mcc.web.http.port=8443  # <3>
+mcc.web.file.location=../www/  # <4>
+mcc.web.ssl.keystore.file=../conf/keystore.jks  # <5>
+mcc.web.ssl.keystore.password=mycontroller  # <5>
+mcc.web.ssl.keystore.type=JKS  # <5>
+----
+
+<1> bind interface address. by default it will bind with all the available interface.
+<2> Enable/disable https. Only one protocol supported at a time. true - `https`, false - `http`.
+<3> Port number of `http/https` to access MyController.org server.
+<4> web files location, no need to touch this one.
+<5> If `https` is enabled these fields are mandatory.
+
+Default URL: `https://<ip>:8443` (ex: `https://localhost:8443`)
+
+NOTE: Default username/password: `admin/admin`
+
+*Important*: Change default `mcc.web.ssl.keystore.file` and `mcc.web.ssl.keystore.password` and `https` protocol is
+recommended
+
+==== MQTT broker configuration
+[source]
+----
+mcc.mqtt.broker.enable=true # <1>
+mcc.mqtt.broker.bind.address=0.0.0.0 # <2>
+mcc.mqtt.broker.port=1883 # <3>
+mcc.mqtt.broker.websocket.port=7080 # <4>
+mcc.mqtt.broker.persistent.store=../conf/moquette/moquette_store.mapdb # <5>
+----
+
+<1> Enable/disable inbuilt MQTT broker. by default it will be enabled. `true`- enabled, `false` - disabled
+<2> bind interface address. by default it will bind with all the available interface.
+<3> MQTT broker port
+<4> websoicket port
+<5> internal use. no need to touch this one.
+
+==== Logger configuration
+Configuration File Name: `logback.xml`
+
+Default log file location: `logs/mycontroller.log`
+
+==== Start/Stop Server
+Executable scripts are located in `mycontroller/bin/`
+
+* Linux
+- Start : `./start.sh`
+- Stop : `./stop.sh`
+* Windows
+- Start : Double click on `start.bat`
+- Stop : `Ctrl+C`
+* Other Platforms
+- navigate to 'mycontroller/bin/'
+- `java -Xms8m -Xmx40m -Dlogback.configurationFile=../conf/logback.xml -Dmc.conf.file=../conf/mycontroller.properties -jar ../lib/mycontroller-standalone-0.0.3-alpha1-single.jar`
+
+== Login
+image::login.png[align="left"]
+Enter valid username and password to log in to MyController.org server.
+
+Default username is `admin` and password is `admin`
+
+
+== Menus
+image::main-menu.png[align="left"]
+Menu divided in to two parts.
+
+1. Main menu
+2. Sub menu
+
+If you navigate to main menu you will see sub menus.
+
+== Across pages
+You can see the following icons across pages.
+
+- image:filter-menu.png[] - Filters
+  * You change filter with available options.
+  * Filter works with AND operation and case sensitive.
+- image:sort-menu.png[] - Sort
+  * you can sort based on fields listed in this menu
+  * image:sort-ascending.png[] - Ascending order
+  * image:sort-descending.png[] - Descending order
+  * To change order click on this icon
+- image:view-details-icon.png[] - View details
+  * click this icon to know more about specified item
+- image:actions-menu.png[] - Actions
+  * page to page list of actions will be different
+  * Select item(s) and perform action with this menu
+- Icons
+  * image:enabled.png[] - Enabled
+  * image:disabled.png[] - Disabled
+  * image:up.png[] - Up
+  * image:down.png[] - Down
+
+
+== Language (locale)
+image::locale-main.png[align="left"]
+MyController supports multiple locales. You can change to your language by selecting top right corner of language menu.
+
+== Support
+image::support.png[align="left"]
+* `Releases` - take you to MyController.org releases page
+* `Documents` - take you to MyController.org documents page
+* `Source code` - take you to MyController.org source code page
+
+== Utility menu
+image::utility-menu.png[align="left"]
+
+* `Profile` - take you to profile page. you can change password, email id and name.
+* `Log out` - safely log out from MyController.org server
+
+== Resources
+image::resources.png[align="left"]
+Under resources you can do almost all actions related to sensors. Like adding gateway, node, sensors, alarms, timers, firmwares, rooms, etc.,
+
+=== Gateway
+image::gateway-menu.png[align="left"]
+You can add remove any number of gateways. Supports 3 type of gateways
+
+1. Serial gateway
+2. Ethernet gateway
+3. MQTT gateway
+
+==== Add gateway
+image::gateway-add.png[align="left"]
+Navigate to `Gateways` menu and click `Add gateway`.
+
+==== Gateways actions
+image::gateway-actions.png[align="left"]
+Gateway supports multiple actions. Select an item from the list and choose the desired action.
+
+* `Reload` - reload operation performs stop and start of the gateways.
+
+NOTE: `Reload` can happen only for enabled gateways.
+
+IMPORTANT: When you delete gateway. All the resources belongs to the gateways will be removed permanently. Always do backup when you perform this kind of operation.
+
+==== Auto discover
+image::gateway-discover.png[align="left"]
+Discovers available nodes on this gateway. Select a gateway, under actions select `Discover`.
+If your gateways supports discover available nodes will be added automatically.
+
+=== Node
+image::nodes-menu.png[align="left"]
+Under this page you can see node information's like, Node EUI(Node Id), Node Name, Node Type,
+Firmware Version, MySensors Version, Battery Level, Assigned firmware, etc.,
+
+==== Add manually
+Navigate to node page, by clicking image:node-add.png[] button you can add new node.
+
+==== Actions
+image::node-actions.png[align="left"]
+- `Delete` - delete node
+- `Erase configuration` - Ask node to erase complete configuration.
+- `Reboot` - reboot the node
+- `Upload firmware` - Request node to get firmware update
+
+IMPORTANT: When you delete a node. All the resources belongs to the node will be removed permanently. Always do backup when you perform this kind of operation.
+
+==== Node details
+When you click image:view-details-icon.png[] icon you will complete node details. includes battery usage report.
+
+==== Mapping Firmware
+Before doing this action, firmware should be added in MyController.org. Refer Firmware section to add new firmware.
+To update selected firmware in to selected node perform `Reboot` or `Update firmware` action.
+
+=== Sensors
+image::sensors-menu.png[]
+Navigate to sensors Page. In this page you see sensor details like Gateway Id, Node EUI, Sensor Id, Name, Type, Variable Type, Last seen.
+You can add, edit and delete sensors from here.
+
+==== Add sensor
+We can add sensors in two methods, via node and manually.
+If node sends any data related to sensors and if the sensor detail is not available in MyController.org new sensor will added automatically.
+To add new sensor manually click on the buttom image:sensor-add.png[]
+
+NOTE: If MyController.org receives any data related to sensor that you have added already will be overwritten.
+
+==== Actions
+image::sensor-action.png[]
+
+- `Delete` - delete selected sensor
+- `Edit` - edit selected sensor
+
+IMPORTANT: Deletion sensor will delete all the data relevance to that sensor. We cannot recover it back.
+
+=== Alarms
+image::alarms-menu.png[]
+
+Click on the button image:alarm-add.png[] to add new alarm.
+
+- `Name` - name of the alarm definition
+- `Enabled` - enable/disable this alarm definition
+- `Disable when trigger` - will be disabled automatically when trigger
+- `Ignore duplicate` - ignore subsequent triggers. Will trigger again at least condition should not satisfy once.
+- `Resource` - Select a resource, Supported resources,
+    * `Gateway` - based on gateway status
+    * `Node` - based on node status
+    * `Sensor variable` - based on sensor variable value
+    * `Resources group` - based on resources group status
+- `Trigger when` - is a condition.
+- `Dampening` - With dampening feature we can control trigger further. Types,
+    * `None` - dampening option disabled
+    * `Consecutive` - If the condition satisfies continuously for N occurrences.
+    * `Last N evaluations` - If the condition mets N occurrences in X evaluations.
+    * `Active time` - If the condition stays active in the specified time.
+- `Notifications` - We can add any number of notifications for a alarm definition.
+
+NOTE: For `Gateway` and `Node` operations will be monitored every 30 seconds once. Changes will not reflect immediately in alarm. It take maximum of 30 seconds.
+
+NOTE: For ON/OFF device `0` and `1` should be a threshold value. If you enter ON or OFF will treat as string and it never fire.
+
+==== Actions
+image::alarm-actions.png[]
+
+- `Enable` - enable selected items
+- `Disable` - disable selected items
+- `Delete` - delete selected item
+
+=== Notifications
+image::alarms-menu.png[]
+Navigate to alarm page and click on image:notifications.png[] button.
+
+==== Add notifications
+To add new notification click on the button image:notification-add.png[]
+
+- `Name` - name of the notification
+- `Enabled` - enable/disable notification.
+- `Public access` - allow to use other users
+- `Type` - type of notification
+    * `Send payload` - Do resource operations.
+    * `Send SMS` - send SMS
+    * `Send email` - send email
+    * `Pushbullet note` - send pushbullet note
+
+===== Send payload
+* Select resource and update payload
+* `delay time in seconds` update this field with delay time. Using this option payload will send to the resource after x seconds of delay. If you do not want delay leave this field as blank.
+* on the payload you can use `Special operations`. Refer Special operations section for further details.
+
+===== Send SMS
+For SMS we can use https://www.plivo.com/[Plivo] or https://www.twilio.com/[Twilio] vendors. When you create trail account you will get some credit.
+To use SMS notifications you should configure either Plivo or Twilio SMS API settings
+under “Settings-->Notifications-->SMS.
+
+- `Phone numbers` - Give destination numbers with '+' with country code then mobile number without any space. If you want to give more than one number use comma(,)
+- `Custom message` - If you leave this field blank, default message will be generated. You can apply `keys` for this filed.
+
+===== Send email
+To send email, SMTP email settings should be configured under "Settings-->Notifications-->Email"
+
+- `Subject` - subject of this email. Mandatory field. You can apply `keys` for this filed.
+- `Email(s)` - list of email address with comma(,) separated.
+
+===== Pushbullet note
+To send pushbullet note, Pushbullet settings should be configured under  "Settings-->Notifications-->Pushbullet"
+
+- `Devices` - comma(,) separated device `iden`. If you leave blank will send to all the devices.
+- `Title` - Title of the pushbullet note. You can apply `keys` for this filed.
+- `Custom message` - You can add your own custom message. If you leave this field blank default message will be taken. You can apply `keys` for this filed.
+
+NOTE: Notification supports custom messages.
+You can use the following keys on your message. This key will be replaced with real values.
+Example: "Alarm `${aName}` triggered."
+
+WARNING: When a notifications is in disabled state. Even alarm triggers with this notification. Notification will not be executed.
+
+===== Supported keys on message
+- `${aName}` - Alarm definition name
+- `${aResource}` - Resource name in alarm definition condition
+- `${aCondition}` - Alarm condition details
+- `${aValue}` - Actual value of the resource at the time of trigger
+- `${aTriggeredAt}` - Alarm triggered time
+- `${notificationName}` - Notification name
+
+=== Timers
+image::timers-menu.png[]
+With the timer you can schedule timely operations for `Gateways`, `Nodes`, `Sensor variables`, `Resources group`, `Alarm definition` and `Timer`.
+Different types of timers are supported by MyController.org.
+You can schedule a timer till seconds. Means you can schedule a task for time `21:45:23` like that.
+By Clicking button image:timer-add.png[] you will be taken to add timer page.
+
+- `Name` - name of the timer
+- `Enabled` - enable/disable the timer
+- `Timer type` - type of the timer
+- `Resource` - do action on this resource
+- `Validity` - validity of the timer. If you leave blank never get expired.
+
+==== Timer types
+image::timer-types.png[]
+
+===== Simple
+Simple timer operates with `Repeat interval` and `Repeat count`. Specify repeat interval in seconds. If you want to run this job count less specify `Repeact count` as `-1`
+
+===== Normal
+Normal is a very basic and classic timer. You can select "Normal" in the type drop down.
+
+===== Cron
+Cron is for advanced users. It is simple and easy.
+After selected "Cron" if you put cursor on cron expression text box,
+you will get pop-up with detailed tips. Here we are using quartz-scheduler cron tab,
+visit http://www.quartz-scheduler.org/documentation/quartz-1.x/tutorials/crontrigger[Quartz-Scheduler] page for further detailed configuration
+
+NOTE: Quartz-Scheduler cron supports from seconds.
+
+===== Before Sunrise, After Sunrise, Before Sunset and After Sunset
+If your task based on Sunrise and Sunset you have to go with this option.
+Say you want to control your garden light based on your sun rise and sun set time. You can use this option.
+You can specify time offset.
+
+===== Frequency
+3 types of frequencies supported by MyController.org
+
+1. Daily – you can select all the 7 days or day(s) only you want to run
+2. Weekly – Select a day in week
+3. Monthly – Select a day in month
+
+===== Time
+Time format: `HH:mm:ss`
+
+`HH` – hour in 24 hours format (0~23)
+
+`mm` – minutes (0~59)
+
+`ss` – seconds (0~59)
+
+NOTE: For sunrise and sunset options "Time" will react differently.
+If you select After Sunrise and After Sunset time will be added with "Time"  mentioned in task + "Sunrise" or "Sunset" time.
+If you select "Before Sunrise or Before Sunset" "Time" mentioned in task will be subtracted from actual
+"Sunrise or Sunset" time.
+
+==== Payload
+Set payload for that timer. When your timer triggers payload entered here will sent to selected resource. Payload supports special operations also, have look for detailed information of `Special operations`
+
+===== Validity
+You may feel you do not want to run this job all the time and want to run only on particular window period. In that case you can select validity.
+You can select "Validity From" and "Validity To" or only either or nothing.
+If you do not select any validity that job will be treating like never end.
+If you select only "Validity From" job will run from that date and never end.
+If you select only "Validity To" that job will start immediately and will end on the specified date.
+
+=== Special operations
+While defining payload you can assign following special operations,
+All the special operation reads last received/sent value from target senor and doing this operation on top of that value and sends to target sensor.
+
+==== Toggle
+By assigning the value: `Toggle` You can select this operation. It is doing toggle operation.
+This will be useful for 'BINARY' devices. For example if switch is `ON` it will be turned `OFF` vise versa.
+
+==== Increment
+By assigning the value: `++` You can select this operation. Adding 1 with the value.
+Example: last rx/tx value is 45, on resulting this operation will send 46 to target sensor.
+
+==== Decrement
+By assigning the value: `--` You can select this operation. Subtracting 1 with the value.
+Example: last rx/tx value is 45, on resulting this operation will send 44 to target sensor.
+
+==== Addition
+By assigning the value: `+3` You can select this operation. Here + meant for addition and 3 is the value should add.
+Example: last rx/tx value is 45, on resulting this operation will send 48 to target sensor.
+
+==== Subtraction
+By assigning the value: `-4` You can select this operation. Here - meant for addition and 3 is the value should add.
+Example: last rx/tx value is 45, on resulting this operation will send 48 to target sensor.
+
+==== Multiplication
+By assigning the value: `*2` You can select this operation. Here * meant for multiplication and 2 is the value should multiple.
+Example: last rx/tx value is 45, on resulting this operation will send 90 to target sensor.
+
+==== Division
+By assigning the value: `/3` You can select this operation. Here / meant for division and 3 is the value should divide by.
+Example: last rx/tx value is 45, on resulting this operation will send 15 to target sensor.
+
+==== Modulus
+By assigning the value: `%4` You can select this operation. Here % meant for modulus and 3 is the value used for modulus.
+Example: last rx/tx value is 45, on resulting this operation will send 1 to target sensor.
+
+==== Reboot
+By assigning the value: `reboot` You can select this operation. On this operation target node will be rebooted.
+
+==== Reload
+By assigning the value: `reload` You can select this operation. On this operation target resource will be rebooted.
+
+==== Enable
+By assigning the value: `enable` You can select this operation. On this operation target resource will be enabled.
+
+==== Disabled
+By assigning the value: `disable` You can select this operation. On this operation target resource will be disabled.
+
+==== ON
+By assigning the value: `ON` You can select this operation. On this operation target resource will be ON.
+
+==== OFF
+By assigning the value: `OFF` You can select this operation. On this operation target resource will be OFF.
+
+
+=== Forward Payload
+image::forward-payload-menu.png[]
+
+You can forward the data received by this sensor to another sensor directly without any condition.
+This will be useful when you want to send your sensor data to multiple sensors.
+No need to do any code change on sensor side. Simply add an entry in MyController.org and be
+happy, MyController.org will take care.
+
+NOTE: This operation supported across gateways too.
+
+=== Resources logs
+image::resources-logs-menu.png[]
+In this page you can understand whats going on about a particular resource.
+
+=======
+*STAY TUNED... DOCUMENTS WILL BE UPDATED DAY BY DAY*
+=======
+
+== Source Code
+
+MyController.org is an Open Source project. You can contribute/download source code on Github repository
+
+
+=== Issue management
+Are you facing issue? Wan to file new feature request? Want to give ideas?
+You are welcome to Github Issues page
+
+=== License
+
+http://www.apache.org/licenses/LICENSE-2.0[Apache License version 2.0]
+
+```
+                    Apache License
+             Version 2.0, January 2004
+           http://www.apache.org/licenses/
+
+  TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
+
+  1. Definitions.
+
+     "License" shall mean the terms and conditions for use, reproduction,
+     and distribution as defined by Sections 1 through 9 of this document.
+
+     "Licensor" shall mean the copyright owner or entity authorized by
+     the copyright owner that is granting the License.
+
+     "Legal Entity" shall mean the union of the acting entity and all
+     other entities that control, are controlled by, or are under common
+     control with that entity. For the purposes of this definition,
+     "control" means (i) the power, direct or indirect, to cause the
+     direction or management of such entity, whether by contract or
+     otherwise, or (ii) ownership of fifty percent (50%) or more of the
+     outstanding shares, or (iii) beneficial ownership of such entity.
+
+     "You" (or "Your") shall mean an individual or Legal Entity
+     exercising permissions granted by this License.
+
+     "Source" form shall mean the preferred form for making modifications,
+     including but not limited to software source code, documentation
+     source, and configuration files.
+
+     "Object" form shall mean any form resulting from mechanical
+     transformation or translation of a Source form, including but
+     not limited to compiled object code, generated documentation,
+     and conversions to other media types.
+
+     "Work" shall mean the work of authorship, whether in Source or
+     Object form, made available under the License, as indicated by a
+     copyright notice that is included in or attached to the work
+     (an example is provided in the Appendix below).
+
+     "Derivative Works" shall mean any work, whether in Source or Object
+     form, that is based on (or derived from) the Work and for which the
+     editorial revisions, annotations, elaborations, or other modifications
+     represent, as a whole, an original work of authorship. For the purposes
+     of this License, Derivative Works shall not include works that remain
+     separable from, or merely link (or bind by name) to the interfaces of,
+     the Work and Derivative Works thereof.
+
+     "Contribution" shall mean any work of authorship, including
+     the original version of the Work and any modifications or additions
+     to that Work or Derivative Works thereof, that is intentionally
+     submitted to Licensor for inclusion in the Work by the copyright owner
+     or by an individual or Legal Entity authorized to submit on behalf of
+     the copyright owner. For the purposes of this definition, "submitted"
+     means any form of electronic, verbal, or written communication sent
+     to the Licensor or its representatives, including but not limited to
+     communication on electronic mailing lists, source code control systems,
+     and issue tracking systems that are managed by, or on behalf of, the
+     Licensor for the purpose of discussing and improving the Work, but
+     excluding communication that is conspicuously marked or otherwise
+     designated in writing by the copyright owner as "Not a Contribution."
+
+     "Contributor" shall mean Licensor and any individual or Legal Entity
+     on behalf of whom a Contribution has been received by Licensor and
+     subsequently incorporated within the Work.
+
+  2. Grant of Copyright License. Subject to the terms and conditions of
+     this License, each Contributor hereby grants to You a perpetual,
+     worldwide, non-exclusive, no-charge, royalty-free, irrevocable
+     copyright license to reproduce, prepare Derivative Works of,
+     publicly display, publicly perform, sublicense, and distribute the
+     Work and such Derivative Works in Source or Object form.
+
+  3. Grant of Patent License. Subject to the terms and conditions of
+     this License, each Contributor hereby grants to You a perpetual,
+     worldwide, non-exclusive, no-charge, royalty-free, irrevocable
+     (except as stated in this section) patent license to make, have made,
+     use, offer to sell, sell, import, and otherwise transfer the Work,
+     where such license applies only to those patent claims licensable
+     by such Contributor that are necessarily infringed by their
+     Contribution(s) alone or by combination of their Contribution(s)
+     with the Work to which such Contribution(s) was submitted. If You
+     institute patent litigation against any entity (including a
+     cross-claim or counterclaim in a lawsuit) alleging that the Work
+     or a Contribution incorporated within the Work constitutes direct
+     or contributory patent infringement, then any patent licenses
+     granted to You under this License for that Work shall terminate
+     as of the date such litigation is filed.
+
+  4. Redistribution. You may reproduce and distribute copies of the
+     Work or Derivative Works thereof in any medium, with or without
+     modifications, and in Source or Object form, provided that You
+     meet the following conditions:
+
+     (a) You must give any other recipients of the Work or
+         Derivative Works a copy of this License; and
+
+     (b) You must cause any modified files to carry prominent notices
+         stating that You changed the files; and
+
+     (c) You must retain, in the Source form of any Derivative Works
+         that You distribute, all copyright, patent, trademark, and
+         attribution notices from the Source form of the Work,
+         excluding those notices that do not pertain to any part of
+         the Derivative Works; and
+
+     (d) If the Work includes a "NOTICE" text file as part of its
+         distribution, then any Derivative Works that You distribute must
+         include a readable copy of the attribution notices contained
+         within such NOTICE file, excluding those notices that do not
+         pertain to any part of the Derivative Works, in at least one
+         of the following places: within a NOTICE text file distributed
+         as part of the Derivative Works; within the Source form or
+         documentation, if provided along with the Derivative Works; or,
+         within a display generated by the Derivative Works, if and
+         wherever such third-party notices normally appear. The contents
+         of the NOTICE file are for informational purposes only and
+         do not modify the License. You may add Your own attribution
+         notices within Derivative Works that You distribute, alongside
+         or as an addendum to the NOTICE text from the Work, provided
+         that such additional attribution notices cannot be construed
+         as modifying the License.
+
+     You may add Your own copyright statement to Your modifications and
+     may provide additional or different license terms and conditions
+     for use, reproduction, or distribution of Your modifications, or
+     for any such Derivative Works as a whole, provided Your use,
+     reproduction, and distribution of the Work otherwise complies with
+     the conditions stated in this License.
+
+  5. Submission of Contributions. Unless You explicitly state otherwise,
+     any Contribution intentionally submitted for inclusion in the Work
+     by You to the Licensor shall be under the terms and conditions of
+     this License, without any additional terms or conditions.
+     Notwithstanding the above, nothing herein shall supersede or modify
+     the terms of any separate license agreement you may have executed
+     with Licensor regarding such Contributions.
+
+  6. Trademarks. This License does not grant permission to use the trade
+     names, trademarks, service marks, or product names of the Licensor,
+     except as required for reasonable and customary use in describing the
+     origin of the Work and reproducing the content of the NOTICE file.
+
+  7. Disclaimer of Warranty. Unless required by applicable law or
+     agreed to in writing, Licensor provides the Work (and each
+     Contributor provides its Contributions) on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+     implied, including, without limitation, any warranties or conditions
+     of TITLE, NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A
+     PARTICULAR PURPOSE. You are solely responsible for determining the
+     appropriateness of using or redistributing the Work and assume any
+     risks associated with Your exercise of permissions under this License.
+
+  8. Limitation of Liability. In no event and under no legal theory,
+     whether in tort (including negligence), contract, or otherwise,
+     unless required by applicable law (such as deliberate and grossly
+     negligent acts) or agreed to in writing, shall any Contributor be
+     liable to You for damages, including any direct, indirect, special,
+     incidental, or consequential damages of any character arising as a
+     result of this License or out of the use or inability to use the
+     Work (including but not limited to damages for loss of goodwill,
+     work stoppage, computer failure or malfunction, or any and all
+     other commercial damages or losses), even if such Contributor
+     has been advised of the possibility of such damages.
+
+  9. Accepting Warranty or Additional Liability. While redistributing
+     the Work or Derivative Works thereof, You may choose to offer,
+     and charge a fee for, acceptance of support, warranty, indemnity,
+     or other liability obligations and/or rights consistent with this
+     License. However, in accepting such obligations, You may act only
+     on Your own behalf and on Your sole responsibility, not on behalf
+     of any other Contributor, and only if You agree to indemnify,
+     defend, and hold each Contributor harmless for any liability
+     incurred by, or claims asserted against, such Contributor by reason
+     of your accepting any such warranty or additional liability.
+
+  END OF TERMS AND CONDITIONS
+
+  APPENDIX: How to apply the Apache License to your work.
+
+     To apply the Apache License to your work, attach the following
+     boilerplate notice, with the fields enclosed by brackets "{}"
+     replaced with your own identifying information. (Don't include
+     the brackets!)  The text should be enclosed in the appropriate
+     comment syntax for the file format. We also recommend that a
+     file or class name and description of purpose be included on the
+     same "printed page" as the copyright notice for easier
+     identification within third-party archives.
+
+  Copyright {yyyy} {name of copyright owner}
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+```
+_Copyright ©2015-2016, All Rights Reserved, http://www.mycontroller.org_
