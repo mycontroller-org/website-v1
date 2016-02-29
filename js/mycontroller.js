@@ -22,6 +22,11 @@ config(function($stateProvider, $urlRouterProvider) {
       templateUrl: function ($stateParams){
         return 'files/pages/documents/' + $stateParams.docPage;
         }
+    }).state('projectDocuments', {
+      url:"/documents/:docPage",
+      templateUrl: function ($stateParams){
+        return 'files/docs/' + $stateParams.docPage;
+        }
     }).state('blog', {
       url:"/blog/:blogPage",
       templateUrl: function ($stateParams){
