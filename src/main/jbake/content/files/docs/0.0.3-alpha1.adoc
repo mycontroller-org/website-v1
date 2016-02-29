@@ -9,7 +9,7 @@ Jeeva Kandasamy
 :imagesdir: ../../images/releases/0.0.3-alpha1
 :keywords: MyController, MySensors, automation, homeautomation, wireless
 
-image::../../images/logo-mycontroller.org_full.png[align="left"]
+image::../../logo-mycontroller.org_full.png[align="left"]
 
 [cols="1,1,1", options="header"]
 |===
