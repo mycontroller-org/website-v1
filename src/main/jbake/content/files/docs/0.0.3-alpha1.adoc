@@ -7,7 +7,6 @@ Jeeva Kandasamy
 :icons: font
 :toc: macro
 :imagesdir: ../../images/releases/0.0.3-alpha1
-:imagesdir: 0.0.3-alpha1
 :keywords: MyController, MySensors, automation, homeautomation, wireless
 
 image::../../images/logo-mycontroller.org_full.png[align="left"]
