@@ -16,7 +16,8 @@ config(function($stateProvider, $urlRouterProvider) {
       templateUrl: "files/pages/about.html"
     }).state('downloads', {
       url:"/downloads",
-      templateUrl: "files/pages/downloads.html"
+      templateUrl: "files/pages/downloads.html",
+      controller: "DownloadsController"
     }).state('documents', {
       url:"/documents/:docPage",
       templateUrl: function ($stateParams){
@@ -36,6 +37,7 @@ config(function($stateProvider, $urlRouterProvider) {
 });
 
 
+
 //McNavCtrl
 myControllerModule.controller('McPortalNavBarCtrl', ['$scope', '$location', function($scope, $location) {
    $scope.isCollapsed = true;
@@ -43,3 +45,34 @@ myControllerModule.controller('McPortalNavBarCtrl', ['$scope', '$location', func
         return viewLocation === $location.path();
     };
 }]);
+
+
+//Downlaods controller
+myControllerModule.controller('DownloadsController', function($scope, GithubFactory) {
+  $scope.releaseItems = GithubFactory.getAllReleases();
+});
+
+
+
+//Read json files
+myControllerModule.factory('GithubFactory', function ($resource,$http) {
+  $http.defaults.useXDomain = true;
+  return $resource('https://api.github.com/repos/mycontroller-org/mycontroller/releases/:filter', {}, {
+   getAllReleases: { method: 'GET', isArray: true, params: {filter:'@filter'} },
+  })
+});
+
+myControllerModule.filter('byteToFriendlyConvertor', function() {
+  return function(sizeInByte) {
+    if(sizeInByte < 0){
+      return "n/a";
+    }else if((sizeInByte /(1024 * 1024)) > 1024){
+      return (sizeInByte /(1024 * 1024 * 1024)).toFixed(2) + " GB";
+    }else if((sizeInByte /(1024)) > 1024){
+      return (sizeInByte /(1024 * 1024)).toFixed(2) + " MB";
+    }else if(sizeInByte > 1024){
+    return (sizeInByte /1024).toFixed(2) + " KB";
+    }
+    return sizeInByte + " Bytes";
+  }
+});

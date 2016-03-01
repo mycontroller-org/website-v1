@@ -48,7 +48,7 @@
               <a class="dropdown-toggle" data-toggle="dropdown" href=""><i class="fa fa-book fa-lg"></i> Documents <span class="caret"></span></a>
               <ul class="dropdown-menu">
                 <li ng-class="{ active: isActive('/documents')}"><a href="#/documents/developers.html" data-toggle="collapse" data-target="#mcMainMenu.in"><i class="fa fa-book fa-lg"></i> Developers</a></li>
-                <li ng-class="{ active: isActive('/documents')}"><a href="#/documents/users.html" data-toggle="collapse" data-target="#mcMainMenu.in"><i class="fa fa-book fa-lg"></i> Users</a></li>
+                <li ng-class="{ active: isActive('/documents')}"><a href="#/documents/users.html" data-toggle="collapse" data-target="#mcMainMenu.in"><i class="fa fa-book fa-lg"></i> User manuals</a></li>
               </ul>
             </li>
             
@@ -78,9 +78,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.5/angular.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.13.4/ui-bootstrap-tpls.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/1.2.1/ui-bootstrap-tpls.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-beta.0/angular-resource.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.5/angular-resource.min.js"></script>
     
     <!-- Application js-->
     <script src="/js/mycontroller.js"></script>
