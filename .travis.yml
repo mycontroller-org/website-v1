@@ -18,12 +18,14 @@ script:
 
 after_success:
 - echo -e "\nstatic pages created successfully\n";
-- echo -e "\nPushing changes to master\n";
-- git checkout master
-- cp target/website/* .
-# inside this git repo we'll pretend to be a new user
 - git config user.name "Travis CI"
 - git config user.email ${TRAVIS_CI_EMAIL}
+- echo -e "\nPushing changes to master\n";
+- git checkout master
+- cp target/website/* . -r
+- rm target/ -rf
+- git status
+# inside this git repo we'll pretend to be a new user
 - git add *
 - git commit -m "MyController.org pages"
 - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master > /dev/null 2>&1
