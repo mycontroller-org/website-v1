@@ -21,3 +21,12 @@ body {
 .icon > i {
   font-size: 32px;
 }
+
+.mc-margin {
+  margin-left:5px;
+  margin-right:5px;
+}
+
+.mc-table-link {
+  
+}
