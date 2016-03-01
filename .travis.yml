@@ -1,0 +1,29 @@
+language: java
+jdk:
+- oraclejdk8
+env:
+  global:
+  - GH_REF: github.com/mycontroller-org/mycontroller-org.github.io.git
+  - secure: "hUgQxGULeslqpcjbZmsuww+RYH9jGOtPUd8rPgRnkEZ80jPjKrdQotY5bF1AZfWyVjJ3H7W0EexV0eG8CwUzGbnU54Uba0OrflvDfoptjcHmcMTh2jCl/BqaG0h4Kp7Kw69WkVr2U6sL0rfRAGe1hvXTtlaiBn4aaX8fxrnJLng98R0juwrOKFfl7BLy8PqEuRM3BKpr+CJp+oo7GoEXBSXSaUWRWOyr29VFO3fD532wfY6Cl/2C9jMOmqJJqPGDOwHIq6oT4ZomOWTH9lHfnnIquTHalIs4m/FftwzIZStfeq1OSN5PlS+wcwH7FMNY+i9ieh7gtgIQmhjnbK2ZvwQ7SygVzTt4F4B/tnqPOOCoBUyGVhfr5ElDNK4M675sl0s4ZgBmeJ5ZbR2aQe1xE/HtEswTpSrWE27D6mri51hQ88Co8454F3aZE95aE3F3/i/Ont+GxDuAg6z8O28zlLp/HD3njRFHWeMf72BGnAkKPixaleBP3YeBi5zQO7j1eHZnZFDdmsWjKiKqHZoOQOZ1HGZHTIB8ic9QFnNhCAlkGPI5DPXBw30kpMaV43GILsG2PBXyzRmvGdi8uYrJFiAxiqkalA2lCVEi8VeaF1NXsMBIPEcmdY0XrTjlpiTfd/hrpjzcrXqAO5j4mwMSwtKBJlvkTXNsmS4x+qNr+i4="
+  - secure: "bLh/vJ4YXwaHCZTGoQShY435Y2nN8XGMUfOalDGu8zd73ElQuNLUkEMwHru61ue6f/3zS5Kt6RK2NNh6qXpQeIEYAsoITXSNU/CkXD1lDjpwplnNOcjH6EmEbJq2HaT/vqTo+q/W4PAeCYkv3UFN1Aj6Y7JH4e/CPvexgtikcf+VhC2tGHfcnPMUREFbzdMA+36thhq9zoPddLDQ5IdToo8uz1Q8hPTZvMwn4wIb6eU43mhdywdCOZbzAvWK6ChFa41+NRAKLt+KBr/adijYnJFNvpztA3dpjjKTQEWqQECwukRkddeWWTaQGiYhpybab6+1mL5xpnMB310kaJP0ch84XMUGuHDSyLzsgSSMXF3m7h+A7/G494z6UNOiNTVdXvftyD9zJHuTSt19dlWVNvtIvDbOSzpaf2RIr9Gd0GmjFO5t4egoQBrwWxlgSH8R4j1ec/O0RmO28DDcHn2pykgpI+hC/oMIgi88SG0L7QjfW1Gg94wISuLky8nmJwK+DHMeEzhzLPhJcQophnS4sM5nlGYZA5BUxZr3f/4SwrAy/EDGp5i8aMcicerenkeF3XQdW/ZgELlASeLb3TRL/+21xO+sejqpQL5oGwWwsKbjsQ7udM8u2f9c27Tn2q71sTINar05/ZzfeRVFTllNnMZ5Tdxor8PBuBNU98KeO+I="
+  
+branches:
+  only:
+  - pages
+install:
+- mvn -version -B
+script:
+- mvn install -B
+
+after_success:
+- echo -e "\nstatic pages created successfully\n";
+- echo -e "\nPushing changes to master\n";
+- git checkout master
+- cp target/website/* .
+# inside this git repo we'll pretend to be a new user
+- git config user.name "Travis CI"
+- git config user.email ${TRAVIS_CI_EMAIL}
+- git add *
+- git commit -m "MyController.org pages"
+- git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master > /dev/null 2>&1
+- echo -e "\n******* All done ********\n";
