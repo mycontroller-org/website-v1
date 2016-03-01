@@ -1,4 +1,4 @@
-= Project documentation
+= 0.0.3-alpha1 document
 Jeeva Kandasamy
 2016-02-29
 :description: This guide is a reference for MyController.org users
@@ -27,7 +27,7 @@ _Copyright ©2015-2016, All Rights Reserved, http://www.mycontroller.org_
 
 == Introduction
 MyController.org is a controller for the sensors world! Primarily it was developed to
- MySensors.org project. Later changed has design architecture to support other project also.
+ MySensors.org project. Later changed it's architecture to support other projects also.
  Considered system resources in mind on development. As a result even we can run it on
 Raspberry PI very first model.
 
