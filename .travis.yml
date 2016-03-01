@@ -18,20 +18,20 @@ script:
 
 after_success:
 - if [[ "${TRAVIS_BRANCH}" = "pages" ]] && [[ "${TRAVIS_PULL_REQUEST}" = "false" ]];
-    then
-      echo -e "\nStatic pages created successfully\n";
-      git config user.name "Travis CI";
-      git config user.email ${TRAVIS_CI_EMAIL};
-      echo -e "\nPushing changes to master\n";
-      git fetch origin;
-      git branch -v -a;
-      git checkout master;
-      cp target/website/* . -r;
-      rm target/ -rf;
-      git status;
-      # inside this git repo we'll pretend to be a new user
-      git add *;
-      git commit -m "MyController.org pages";
-      git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:master > /dev/null 2>&1;
-      echo -e "\n******* All done ********\n";
-    fi
+  then
+    echo -e "\nStatic pages created successfully\n";
+    git config user.name "Travis CI";
+    git config user.email ${TRAVIS_CI_EMAIL};
+    echo -e "\nPushing changes to master\n";
+    git fetch origin;
+    git branch -v -a;
+    git checkout master;
+    cp target/website/* . -r;
+    rm target/ -rf;
+    git status;
+    # inside this git repo we'll pretend to be a new user
+    git add *;
+    git commit -m "MyController.org pages";
+    git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:master > /dev/null 2>&1;
+    echo -e "\n******* All done ********\n";
+  fi
