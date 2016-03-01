@@ -2,4 +2,7 @@
 MyController.org web site contents
 2015-12-06
 
+image:https://travis-ci.org/mycontroller-org/mycontroller-org.github.io.svg?branch=master["Build Status", link="https://travis-ci.org/mycontroller-org/mycontroller-org.github.io"]
+
+
 Using this repository we are hosting http://www.MyController.org website.
