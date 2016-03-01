@@ -20,7 +20,7 @@ after_success:
 - echo -e "\nStatic pages created successfully\n";
 - echo -e "\nPushing changes to master\n";
 - rm final-out -rf
-- makdir final-out
+- mkdir final-out
 - cp target/website/*  final-out/ -r
 - rm target/ -rf
 - rm .git/ -rf
