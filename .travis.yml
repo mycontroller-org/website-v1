@@ -19,17 +19,9 @@ script:
 after_success:
 - echo -e "\nStatic pages created successfully\n";
 - echo -e "\nPushing changes to master\n";
-- rm final-out -rf
-- mkdir final-out
-- cp target/website/*  final-out/ -r
-- rm target/ -rf
-- rm .git/ -rf
-- cd final-out
-- git init
 - git config user.name "Travis CI";
 - git config user.email ${TRAVIS_CI_EMAIL};
 - # inside this git repo we'll pretend to be a new user
-- git add .
 - git commit -m "MyController.org pages"
-- git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:master > /dev/null 2>&1
+#- git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:master > /dev/null 2>&1
 - echo -e "\n******* All done ********\n";
