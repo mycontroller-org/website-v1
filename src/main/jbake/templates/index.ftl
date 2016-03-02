@@ -36,27 +36,19 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#/home"><b>MyController.org</b></a>
+          <a class="navbar-brand" href="#/home"><b>MYCONTROLLER.ORG</b></a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="mcMainMenu">
           <ul class="nav navbar-nav">
-            <li ng-class="{ active: isActive('/downloads')}"><a data-toggle="collapse" data-target="#mcMainMenu.in" href="#/downloads" ><i class="fa fa-download fa-lg"></i> Downloads</a></li>
-            
-            <li class="dropdown">
-              <a class="dropdown-toggle" data-toggle="dropdown" href=""><i class="fa fa-book fa-lg"></i> Documents <span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <li ng-class="{ active: isActive('/documents')}"><a href="#/documents/developers.html" data-toggle="collapse" data-target="#mcMainMenu.in"><i class="fa fa-book fa-lg"></i> Developers</a></li>
-                <li ng-class="{ active: isActive('/documents')}"><a href="#/documents/users.html" data-toggle="collapse" data-target="#mcMainMenu.in"><i class="fa fa-book fa-lg"></i> User manuals</a></li>
-              </ul>
-            </li>
-            
-            <li ng-class="{ active: isActive('/blog')}"><a data-toggle="collapse" data-target="#mcMainMenu.in" href="#/blog/blog.html" ><i class="fa fa-files-o fa-lg"></i> Blog</a></li>
-            
+            <li><a href="http://forum.mycontroller.org/category/6/getting-started" ><i class="fa fa-power-off fa-lg"></i> Getting Started</a></li>
+            <li><a href="http://forum.mycontroller.org/category/3/blogs" ><i class="fa fa-files-o fa-lg"></i> Blogs</a></li>
+            <li><a href="http://forum.mycontroller.org"><i class="fa fa-comments fa-lg"></i> Forum</a></li>
+            <li><a href="http://forum.mycontroller.org/category/7/developers-zone" ><i class="fa fa-file-code-o fa-lg"></i> Developers Zone</a></li>
+            <li ng-class="{ active: isActive('/downloads')}"><a data-toggle="collapse" data-target="#mcMainMenu.in" href="#/downloads" ><i class="fa fa-download fa-lg"></i> Downloads</a></li>            
             <li><a href="http://demo.mycontroller.org"><i class="fa fa-desktop fa-lg"></i> Demo</a></li>
             <li><a href="https://github.com/mycontroller-org/mycontroller/issues"><i class="fa fa-bug fa-lg"></i> Issues</a></li>
-            <li><a href="http://forum.mysensors.org/category/26/mycontroller-org"><i class="fa fa-comments fa-lg"></i> Discussions</a></li>
             <li><a href="https://github.com/mycontroller-org/mycontroller" ><i class="fa fa-github fa-lg"></i> Fork us on GitHub</a></li>          
           </ul>
         </div><!-- /.navbar-collapse -->
