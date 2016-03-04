@@ -4,7 +4,8 @@
 var myControllerModule = angular.module('myControllerPortal',[
   'ui.router',
   'ui.bootstrap',
-  'ngResource'
+  'ngResource',
+  'angularMoment'
 ]).
 config(function($stateProvider, $urlRouterProvider) {
   //For any unmatched url, redirect to /home
