@@ -5,14 +5,14 @@
   <table class="table table-bordered">
     <thead>
       <th>Version</th>
-      <th>Date</th>
+      <th>Released on</th>
       <th>Documents</th>
       <th>License</th>
       <th>Format</th>
     </thead>
     <tbody>
       <tr ng-repeat="item in releaseItems">
-        <td>{{item.tag_name}}</td><td>{{item.published_at | date : 'longDate'}}</td><td> 
+        <td>{{item.tag_name}}</td><td><span am-time-ago="item.published_at"></span><br>{{item.published_at | date : 'longDate'}}</td><td> 
           <span ng-if="item.id > 2322723">User manual [<a ui-sref="projectDocuments({ docPage: '{{item.tag_name}}.html' })">html</a>, <a href="/files/docs/{{item.tag_name}}.pdf">pdf</a>],</span>
           <span ng-if="item.id == 1997544 || item.id == 1854169 || item.id == 1832105 || item.id == 1786490">User manual [<a href="/files/docs/document_{{item.tag_name.replace('.','_').replace('.','_')}}.pdf">pdf</a>], </span>
           <a href="{{item.html_url}}">Release notes</a></td><td>Apache License, Version 2.0</td>
