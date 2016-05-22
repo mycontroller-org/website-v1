@@ -49,7 +49,8 @@
             <li ng-class="{ active: isActive('/downloads')}"><a data-toggle="collapse" data-target="#mcMainMenu.in" href="#/downloads" ><i class="fa fa-download fa-lg"></i> Downloads</a></li>            
             <li><a href="http://demo.mycontroller.org"><i class="fa fa-desktop fa-lg"></i> Demo</a></li>
             <li><a href="https://github.com/mycontroller-org/mycontroller/issues"><i class="fa fa-bug fa-lg"></i> Issues</a></li>
-            <li><a href="https://github.com/mycontroller-org/mycontroller" ><i class="fa fa-github fa-lg"></i> Fork us on GitHub</a></li>          
+            <li><a href="https://github.com/mycontroller-org/mycontroller" ><i class="fa fa-github fa-lg"></i> Fork us on GitHub</a></li>
+            <li><a href="files/docs/javadoc/apidocs/index.html" ><i class="fa fa-file-code-o fa-lg"></i> Javadoc</a></li>
           </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
