@@ -32,11 +32,11 @@
 === System Requirements
 MyController.org is a very lightweight server, It required very less resource!
 
-* Disk : 30 MB (may require more space, when we store metrics data for long time)
-* RAM : 40 MB
+* Disk : 50 MB (may require more space, when we store metrics data for long time)
+* RAM : 100 MB
 * Java SE : 1.8 or later
 
-NOTE: Test done up to 5 nodes and 30 sensors with the above configuration.
+NOTE: Test done up to 10 nodes and 30 sensors with the above configuration.
 
 [role="main-page-header"]
 ==== Supported Platforms (tested)
@@ -48,20 +48,22 @@ MyController.org is java based application server. We can run it in any platform
 
 [role="main-page-header"]
 === Available Features
-Features available in https://github.com/mycontroller-org/mycontroller/releases/tag/0.0.3-alpha1[0.0.3-alpha1] version,
+Features available in https://github.com/mycontroller-org/mycontroller/releases/tag/0.0.3.Alpha2[0.0.3.Aalpha2] version,
 
+- Supported networks
+  * MySensors.org
+  * Sparkfun (phant.io)
 - Supports multiple gateways with multiple protocols
   * Serial
   * Ethernet
   * MQTT
-- Auto discover and update nodes(upon nodes restart or receive any data)
+  * REST API (poll)
 - Timer - Help you to schedule time based operations. You can control till the seconds. Types,
   * Simple (with `repeat count` and `repeat interval`)
   * Normal (daily, weekly, monthly)</li>
   * Cron
   * Before/After Sun Rise and Sun Set
-- Alarm - based on information received/sent from/to based sensor, Node status or Gateway status
-  * An alarm can support multiple notifications
+- Rule engine - based on information received/sent from/to based sensor, Node status or Gateway status
 - Notifications - is a predefined action to be performed when a alarm triggered.
   * Send Payload to another sensor
   * Send SMS. Supports Plivo and Twilio
@@ -69,15 +71,13 @@ Features available in https://github.com/mycontroller-org/mycontroller/releases/
   * Pushbullet note
 - Graphical reports
   * you can keep your sensors metrics data as long as you want.
+- Push metrics data to external server like influxdb
 - Forward payload from one sensor to another sensor
   * supports across gateways also
-- Resources logs
-- Send Payload to sensor
 - Node actions
   * Reboot, Erase configuration, Update Firmware for any nodes which is support
   * can tag particular firmware for a node
   * Display battery level of node with graphical support
-  * Display battery level of node with graphical report
 - Interactive dashboards.
   * can create any number of dashboards
   * widgets
@@ -88,9 +88,14 @@ Features available in https://github.com/mycontroller-org/mycontroller/releases/
     . Group of sensors graph
     . Mixed sensors graph
     . Monitor and control sensor
+    . Heatmap charts
+    . Custom buttons
+    . Groups
+    . Display image file from disk and url
+    . Custom widget
 - Backup and restore via GUI
 - Version to version auto migration support. available from 0.0.3-alpha1
 - Role based authentication
   * Can map resources for particular user
-- Inbuilt MQTT broker
+- Inbuilt MQTT broker with authentication support, can restrict with topics
 - and many more
