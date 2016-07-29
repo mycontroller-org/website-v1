@@ -28,10 +28,10 @@
 <div class="ulist">
 <ul>
 <li>
-<p>Disk : 30 MB (may require more space, when we store metrics data for long time)</p>
+<p>Disk : 50 MB (may require more space, when we store metrics data for long time)</p>
 </li>
 <li>
-<p>RAM : 40 MB</p>
+<p>RAM : 100 MB</p>
 </li>
 <li>
 <p>Java SE : 1.8 or later</p>
@@ -45,7 +45,7 @@
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Test done up to 5 nodes and 30 sensors with the above configuration.
+Test done up to 10 nodes and 30 sensors with the above configuration.
 </td>
 </tr>
 </table>
@@ -73,10 +73,23 @@ Test done up to 5 nodes and 30 sensors with the above configuration.
 <div class="sect2 main-page-header">
 <h3 id="_available_features">Available Features</h3>
 <div class="paragraph">
-<p>Features available in <a href="https://github.com/mycontroller-org/mycontroller/releases/tag/0.0.3-alpha1">0.0.3-alpha1</a> version,</p>
+<p>Features available in <a href="https://github.com/mycontroller-org/mycontroller/releases/tag/0.0.3.Alpha2">0.0.3.Aalpha2</a> version,</p>
 </div>
 <div class="ulist">
 <ul>
+<li>
+<p>Supported networks</p>
+<div class="ulist">
+<ul>
+<li>
+<p>MySensors.org</p>
+</li>
+<li>
+<p>Sparkfun (phant.io)</p>
+</li>
+</ul>
+</div>
+</li>
 <li>
 <p>Supports multiple gateways with multiple protocols</p>
 <div class="ulist">
@@ -90,11 +103,11 @@ Test done up to 5 nodes and 30 sensors with the above configuration.
 <li>
 <p>MQTT</p>
 </li>
+<li>
+<p>REST API (poll)</p>
+</li>
 </ul>
 </div>
-</li>
-<li>
-<p>Auto discover and update nodes(upon nodes restart or receive any data)</p>
 </li>
 <li>
 <p>Timer - Help you to schedule time based operations. You can control till the seconds. Types,</p>
@@ -116,14 +129,7 @@ Test done up to 5 nodes and 30 sensors with the above configuration.
 </div>
 </li>
 <li>
-<p>Alarm - based on information received/sent from/to based sensor, Node status or Gateway status</p>
-<div class="ulist">
-<ul>
-<li>
-<p>An alarm can support multiple notifications</p>
-</li>
-</ul>
-</div>
+<p>Rule engine - based on information received/sent from/to based sensor, Node status or Gateway status</p>
 </li>
 <li>
 <p>Notifications - is a predefined action to be performed when a alarm triggered.</p>
@@ -155,6 +161,9 @@ Test done up to 5 nodes and 30 sensors with the above configuration.
 </div>
 </li>
 <li>
+<p>Push metrics data to external server like influxdb</p>
+</li>
+<li>
 <p>Forward payload from one sensor to another sensor</p>
 <div class="ulist">
 <ul>
@@ -163,12 +172,6 @@ Test done up to 5 nodes and 30 sensors with the above configuration.
 </li>
 </ul>
 </div>
-</li>
-<li>
-<p>Resources logs</p>
-</li>
-<li>
-<p>Send Payload to sensor</p>
 </li>
 <li>
 <p>Node actions</p>
@@ -182,9 +185,6 @@ Test done up to 5 nodes and 30 sensors with the above configuration.
 </li>
 <li>
 <p>Display battery level of node with graphical support</p>
-</li>
-<li>
-<p>Display battery level of node with graphical report</p>
 </li>
 </ul>
 </div>
@@ -221,6 +221,21 @@ Test done up to 5 nodes and 30 sensors with the above configuration.
 <li>
 <p>Monitor and control sensor</p>
 </li>
+<li>
+<p>Heatmap charts</p>
+</li>
+<li>
+<p>Custom buttons</p>
+</li>
+<li>
+<p>Groups</p>
+</li>
+<li>
+<p>Display image file from disk and url</p>
+</li>
+<li>
+<p>Custom widget</p>
+</li>
 </ol>
 </div>
 </li>
@@ -244,7 +259,7 @@ Test done up to 5 nodes and 30 sensors with the above configuration.
 </div>
 </li>
 <li>
-<p>Inbuilt MQTT broker</p>
+<p>Inbuilt MQTT broker with authentication support, can restrict with topics</p>
 </li>
 <li>
 <p>and many more</p>
