@@ -42,12 +42,12 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="mcMainMenu">
           <ul class="nav navbar-nav">
-            <li><a href="http://forum.mycontroller.org/category/6/getting-started" ><i class="fa fa-power-off fa-lg"></i> Getting Started</a></li>
-            <li><a href="http://forum.mycontroller.org/category/3/blogs" ><i class="fa fa-files-o fa-lg"></i> Blogs</a></li>
-            <li><a href="http://forum.mycontroller.org"><i class="fa fa-comments fa-lg"></i> Forum</a></li>
-            <li><a href="http://forum.mycontroller.org/category/7/developers-zone" ><i class="fa fa-file-code-o fa-lg"></i> Developers Zone</a></li>
+            <li><a href="https://forum.mycontroller.org/category/6/getting-started" ><i class="fa fa-power-off fa-lg"></i> Getting Started</a></li>
+            <li><a href="https://forum.mycontroller.org/category/3/blogs" ><i class="fa fa-files-o fa-lg"></i> Blogs</a></li>
+            <li><a href="https://forum.mycontroller.org"><i class="fa fa-comments fa-lg"></i> Forum</a></li>
+            <li><a href="https://forum.mycontroller.org/category/7/developers-zone" ><i class="fa fa-file-code-o fa-lg"></i> Developers Zone</a></li>
             <li ng-class="{ active: isActive('/downloads')}"><a data-toggle="collapse" data-target="#mcMainMenu.in" href="#/downloads" ><i class="fa fa-download fa-lg"></i> Downloads</a></li>            
-            <li><a href="http://demo.mycontroller.org"><i class="fa fa-desktop fa-lg"></i> Demo</a></li>
+            <li><a href="https://demo.mycontroller.org"><i class="fa fa-desktop fa-lg"></i> Demo</a></li>
             <li><a href="https://github.com/mycontroller-org/mycontroller/issues"><i class="fa fa-bug fa-lg"></i> Issues</a></li>
             <li><a href="https://github.com/mycontroller-org/mycontroller" ><i class="fa fa-github fa-lg"></i> Fork us on GitHub</a></li>
             <li><a href="files/docs/javadoc/apidocs/index.html" ><i class="fa fa-file-code-o fa-lg"></i> Javadoc</a></li>
@@ -62,7 +62,7 @@
       <hr>
       <div>
         <div class="pull-right">
-          <p class="navbar-text">Copyright ©2015-2016 <a href="http://mycontroller.org">MyController.org</a>, All Rights Reserved</p>
+          <p class="navbar-text">Copyright ©2015-2017 <a href="https://mycontroller.org">MyController.org</a>, All Rights Reserved</p>
         </div>  
       </div>
     </div>
