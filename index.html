@@ -11,7 +11,7 @@
     <title>MyController.org - The Open Source Controller</title>
   
     <!-- GUI theams -->
-    <link href="https://bootswatch.com/4/cosmo/bootstrap.min.css" rel="stylesheet" >
+    <link href="https://bootswatch.com/3/cosmo/bootstrap.min.css" rel="stylesheet" >
         
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="/css/mycontroller.css">
