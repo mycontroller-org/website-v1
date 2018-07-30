@@ -12,12 +12,7 @@
        <h1>Welcome to MyController.org <i class="fa fa-smile-o" style="vertical-align: middle;"></i>
        <br><b>Let's Have Fun!</b></h1>
        <p>
-          MyController.org is a controller for the sensors world! Primarily it was developed to
-          support <a href="http://www.mysensors.org/">MySensors.org</a> project.  Later changed it's architecture to support other projects also.
-          Considered system resources in mind on development. Even we can run it on Raspberry PI very first model.
-          <br>
-          <b>What can you do with MyController.org?</b>
-          <br>In simple words, You can  monitor and control your home from anywhere. It is home automation server. See the features provided by MyController.org.
+          MyController.org is an IoT automation controller for home, office or any place. Primarly this project was started to support  <a href="http://www.mysensors.org/">MySensors</a>. Later it was expanded to support other networks also. MyController.org was designed to run with limited resources. For instance, it can run on the first generation Raspberry Pi.
        </p>
        <div style="height:7px">
          <iframe class="pull-left" src="https://ghbtns.com/github-btn.html?user=mycontroller-org&repo=mycontroller&type=star&count=true&size=large" frameborder="0" scrolling="0" width="160px" height="30px"></iframe>
@@ -30,72 +25,56 @@
 
 [role="main-page-header"]
 === System Requirements
-MyController.org is a very lightweight server, It required very less resource!
+MyController.org is a very lightweight server. Its resource requirements are modest.
 
-* Disk : 50 MB (may require more space, when we store metrics data for long time)
-* RAM : 100 MB
+* Disk : ~100 MB (may require more space, when we store metrics data for many days)
+* Memory : 256 MB
 * Java SE : 1.8 or later
-
-NOTE: Test done up to 10 nodes and 30 sensors with the above configuration.
 
 [role="main-page-header"]
 ==== Supported Platforms (tested)
-MyController.org is java based application server. We can run it in any platform which supports Java.
+MyController.org is a Java-based application server. It can run on any platform where Java support is available.
 
 - Linux
 - Windows
 - Raspberry PI (Oracle Java recommend)
+- Orange PI
 
 [role="main-page-header"]
 === Available Features
-Features available in https://github.com/mycontroller-org/mycontroller/releases/tag/0.0.3.Alpha2[0.0.3.Aalpha2] version,
+Features available in https://github.com/mycontroller-org/mycontroller/releases/tag/1.3.0.Final[1.3.0.Final] version,
 
 - Supported networks
-  * MySensors.org
-  * Sparkfun (phant.io)
+  * https://www.mysensors.org[MySensors.org]
+  * MyController: https://github.com/mycontroller-org/MyControllerDevice[ESP8266], https://github.com/mycontroller-org/mcagent-rpi[Embedded boards]
+  * https://www.developers.meethue.com/philips-hue-api[Philips Hue]
+  * http://www.rflink.nl/blog2/[RFLink]
+  * https://www.wunderground.com[Weather Underground]
+
 - Supports multiple gateways with multiple protocols
   * Serial
   * Ethernet
   * MQTT
   * REST API (poll)
-- Timer - Help you to schedule time based operations. You can control till the seconds. Types,
+
+- Timer - Helps you to schedule time-based operations. You can control till the seconds. Types,
   * Simple (with `repeat count` and `repeat interval`)
   * Normal (daily, weekly, monthly)</li>
   * Cron
-  * Before/After Sun Rise and Sun Set
-- Rule engine - based on information received/sent from/to based sensor, Node status or Gateway status
-- Notifications - is a predefined action to be performed when a alarm triggered.
-  * Send Payload to another sensor
-  * Send SMS. Supports Plivo and Twilio
-  * Send Email
-  * Pushbullet note
-- Graphical reports
-  * you can keep your sensors metrics data as long as you want.
-- Push metrics data to external server like influxdb
-- Forward payload from one sensor to another sensor
-  * supports across gateways also
-- Node actions
-  * Reboot, Erase configuration, Update Firmware for any nodes which is support
-  * can tag particular firmware for a node
-  * Display battery level of node with graphical support
-- Interactive dashboards.
-  * can create any number of dashboards
-  * widgets
-    . Server time
-    . Sunrise and sunset time
-    . Sensors bullet graph
-    . A sensor graph
-    . Group of sensors graph
-    . Mixed sensors graph
-    . Monitor and control sensor
-    . Heatmap charts
-    . Custom buttons
-    . Groups
-    . Display image file from disk and url
-    . Custom widget
-- Backup and restore via GUI
-- Version to version auto migration support. available from 0.0.3-alpha1
-- Role based authentication
-  * Can map resources for particular user
-- Inbuilt MQTT broker with authentication support, can restrict with topics
-- and many more
+  * Sunrise and Sunset (Before/After)
+- Rule engine - based on information `received/sent` `from/to` on Gateway, Node and sensor. Also supports a user-defined scripts
+- Notifications - is a predefined action to be performed when an alarm triggered.
+  * SMS (https://www.plivo.com[Plivo] or https://www.twilio.com[Twilio])
+  * Email
+  * https://docs.pushbullet.com/[Pushbullet note]
+  * https://telegram.org/blog/bot-revolution[Telegram bot]
+- Metrics data can be stored in SQL database or in influxDB
+- It is possible to forward a sensor value to another sensor in a different gateway too.
+- OTA support: MySensors.org node firmware can be manageable from MyController GUI.
+- Interactive Dashboards.
+  * Supports multiple dashboards
+  * Widgets like, Server time, Sunrise and sunset time, Sensors bullet graph, a sensor graph(Single, Group, Mixed), Monitor and control sensor, Heatmap charts, Custom buttons, Groups actions, Display image, Custom widget
+- Backup and restore(needs manual interaction from console) via GUI
+- Auto database migration on a new release.
+- Inbuilt https://github.com/andsel/moquette[MQTT broker]
+- https://forum.mycontroller.org/category/24/scripts[Scripts] support(JavaScript, Python, Ruby, Groovy)
