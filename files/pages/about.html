@@ -6,12 +6,7 @@
        <h1>Welcome to MyController.org <i class="fa fa-smile-o" style="vertical-align: middle;"></i>
        <br><b>Let's Have Fun!</b></h1>
        <p>
-          MyController.org is a controller for the sensors world! Primarily it was developed to
-          support <a href="http://www.mysensors.org/">MySensors.org</a> project.  Later changed it's architecture to support other projects also.
-          Considered system resources in mind on development. Even we can run it on Raspberry PI very first model.
-          <br>
-          <b>What can you do with MyController.org?</b>
-          <br>In simple words, You can  monitor and control your home from anywhere. It is home automation server. See the features provided by MyController.org.
+          MyController.org is an IoT automation controller for home, office or any place. Primarly this project was started to support  <a href="http://www.mysensors.org/">MySensors</a>. Later it was expanded to support other networks also. MyController.org was designed to run with limited resources. For instance, it can run on the first generation Raspberry Pi.
        </p>
        <div style="height:7px">
          <iframe class="pull-left" src="https://ghbtns.com/github-btn.html?user=mycontroller-org&repo=mycontroller&type=star&count=true&size=large" frameborder="0" scrolling="0" width="160px" height="30px"></iframe>
@@ -23,37 +18,25 @@
 <div class="sect2 main-page-header">
 <h3 id="_system_requirements">System Requirements</h3>
 <div class="paragraph">
-<p>MyController.org is a very lightweight server, It required very less resource!</p>
+<p>MyController.org is a very lightweight server. Its resource requirements are modest.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Disk : 50 MB (may require more space, when we store metrics data for long time)</p>
+<p>Disk : ~100 MB (may require more space, when we store metrics data for many days)</p>
 </li>
 <li>
-<p>RAM : 100 MB</p>
+<p>Memory : 256 MB</p>
 </li>
 <li>
 <p>Java SE : 1.8 or later</p>
 </li>
 </ul>
 </div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-Test done up to 10 nodes and 30 sensors with the above configuration.
-</td>
-</tr>
-</table>
-</div>
 <div class="sect3 main-page-header">
 <h4 id="_supported_platforms_tested">Supported Platforms (tested)</h4>
 <div class="paragraph">
-<p>MyController.org is java based application server. We can run it in any platform which supports Java.</p>
+<p>MyController.org is a Java-based application server. It can run on any platform where Java support is available.</p>
 </div>
 <div class="ulist">
 <ul>
@@ -66,6 +49,9 @@ Test done up to 10 nodes and 30 sensors with the above configuration.
 <li>
 <p>Raspberry PI (Oracle Java recommend)</p>
 </li>
+<li>
+<p>Orange PI</p>
+</li>
 </ul>
 </div>
 </div>
@@ -73,7 +59,7 @@ Test done up to 10 nodes and 30 sensors with the above configuration.
 <div class="sect2 main-page-header">
 <h3 id="_available_features">Available Features</h3>
 <div class="paragraph">
-<p>Features available in <a href="https://github.com/mycontroller-org/mycontroller/releases/tag/0.0.3.Alpha2">0.0.3.Aalpha2</a> version,</p>
+<p>Features available in <a href="https://github.com/mycontroller-org/mycontroller/releases/tag/1.3.0.Final">1.3.0.Final</a> version,</p>
 </div>
 <div class="ulist">
 <ul>
@@ -82,10 +68,19 @@ Test done up to 10 nodes and 30 sensors with the above configuration.
 <div class="ulist">
 <ul>
 <li>
-<p>MySensors.org</p>
+<p><a href="https://www.mysensors.org">MySensors.org</a></p>
 </li>
 <li>
-<p>Sparkfun (phant.io)</p>
+<p>MyController: <a href="https://github.com/mycontroller-org/MyControllerDevice">ESP8266</a>, <a href="https://github.com/mycontroller-org/mcagent-rpi">Embedded boards</a></p>
+</li>
+<li>
+<p><a href="https://www.developers.meethue.com/philips-hue-api">Philips Hue</a></p>
+</li>
+<li>
+<p><a href="http://www.rflink.nl/blog2/">RFLink</a></p>
+</li>
+<li>
+<p><a href="https://www.wunderground.com">Weather Underground</a></p>
 </li>
 </ul>
 </div>
@@ -110,7 +105,7 @@ Test done up to 10 nodes and 30 sensors with the above configuration.
 </div>
 </li>
 <li>
-<p>Timer - Help you to schedule time based operations. You can control till the seconds. Types,</p>
+<p>Timer - Helps you to schedule time-based operations. You can control till the seconds. Types,</p>
 <div class="ulist">
 <ul>
 <li>
@@ -123,146 +118,66 @@ Test done up to 10 nodes and 30 sensors with the above configuration.
 <p>Cron</p>
 </li>
 <li>
-<p>Before/After Sun Rise and Sun Set</p>
+<p>Sunrise and Sunset (Before/After)</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p>Rule engine - based on information received/sent from/to based sensor, Node status or Gateway status</p>
+<p>Rule engine - based on information <code>received/sent</code> <code>from/to</code> on Gateway, Node and sensor. Also supports a user-defined scripts</p>
 </li>
 <li>
-<p>Notifications - is a predefined action to be performed when a alarm triggered.</p>
+<p>Notifications - is a predefined action to be performed when an alarm triggered.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Send Payload to another sensor</p>
+<p>SMS (<a href="https://www.plivo.com">Plivo</a> or <a href="https://www.twilio.com">Twilio</a>)</p>
 </li>
 <li>
-<p>Send SMS. Supports Plivo and Twilio</p>
+<p>Email</p>
 </li>
 <li>
-<p>Send Email</p>
+<p><a href="https://docs.pushbullet.com/">Pushbullet note</a></p>
 </li>
 <li>
-<p>Pushbullet note</p>
+<p><a href="https://telegram.org/blog/bot-revolution">Telegram bot</a></p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p>Graphical reports</p>
+<p>Metrics data can be stored in SQL database or in influxDB</p>
+</li>
+<li>
+<p>It is possible to forward a sensor value to another sensor in a different gateway too.</p>
+</li>
+<li>
+<p>OTA support: MySensors.org node firmware can be manageable from MyController GUI.</p>
+</li>
+<li>
+<p>Interactive Dashboards.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>you can keep your sensors metrics data as long as you want.</p>
+<p>Supports multiple dashboards</p>
+</li>
+<li>
+<p>Widgets like, Server time, Sunrise and sunset time, Sensors bullet graph, a sensor graph(Single, Group, Mixed), Monitor and control sensor, Heatmap charts, Custom buttons, Groups actions, Display image, Custom widget</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p>Push metrics data to external server like influxdb</p>
+<p>Backup and restore(needs manual interaction from console) via GUI</p>
 </li>
 <li>
-<p>Forward payload from one sensor to another sensor</p>
-<div class="ulist">
-<ul>
-<li>
-<p>supports across gateways also</p>
-</li>
-</ul>
-</div>
+<p>Auto database migration on a new release.</p>
 </li>
 <li>
-<p>Node actions</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Reboot, Erase configuration, Update Firmware for any nodes which is support</p>
+<p>Inbuilt <a href="https://github.com/andsel/moquette">MQTT broker</a></p>
 </li>
 <li>
-<p>can tag particular firmware for a node</p>
-</li>
-<li>
-<p>Display battery level of node with graphical support</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Interactive dashboards.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>can create any number of dashboards</p>
-</li>
-<li>
-<p>widgets</p>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Server time</p>
-</li>
-<li>
-<p>Sunrise and sunset time</p>
-</li>
-<li>
-<p>Sensors bullet graph</p>
-</li>
-<li>
-<p>A sensor graph</p>
-</li>
-<li>
-<p>Group of sensors graph</p>
-</li>
-<li>
-<p>Mixed sensors graph</p>
-</li>
-<li>
-<p>Monitor and control sensor</p>
-</li>
-<li>
-<p>Heatmap charts</p>
-</li>
-<li>
-<p>Custom buttons</p>
-</li>
-<li>
-<p>Groups</p>
-</li>
-<li>
-<p>Display image file from disk and url</p>
-</li>
-<li>
-<p>Custom widget</p>
-</li>
-</ol>
-</div>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Backup and restore via GUI</p>
-</li>
-<li>
-<p>Version to version auto migration support. available from 0.0.3-alpha1</p>
-</li>
-<li>
-<p>Role based authentication</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Can map resources for particular user</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Inbuilt MQTT broker with authentication support, can restrict with topics</p>
-</li>
-<li>
-<p>and many more</p>
+<p><a href="https://forum.mycontroller.org/category/24/scripts">Scripts</a> support(JavaScript, Python, Ruby, Groovy)</p>
 </li>
 </ul>
 </div>
