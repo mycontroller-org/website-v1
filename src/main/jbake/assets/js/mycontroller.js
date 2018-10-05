@@ -38,6 +38,15 @@ config(function($stateProvider, $urlRouterProvider) {
 });
 
 
+myControllerModule.run(function ($rootScope, $window, $location) {
+  // initialise google analytics
+  $window.ga('create', 'UA-126931459-1', 'auto');
+
+  $rootScope.$on('$stateChangeStart', function (event) {
+    // send to Google analytics
+    $window.ga('send', 'pageview', $location.path());
+  });
+});
 
 //McNavCtrl
 myControllerModule.controller('McPortalNavBarCtrl', ['$scope', '$location', function($scope, $location) {
