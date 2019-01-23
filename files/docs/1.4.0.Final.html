@@ -1,0 +1,3972 @@
+
+	
+	<div class="page-header">
+		<h1>0.0.3-alpha2 document</h1>
+	</div>
+
+	<p><div id="preamble">
+<div class="sectionbody">
+<div class="imageblock" style="text-align: left">
+<div class="content">
+<img src="../../images/logo-mycontroller.org_full.png" alt="logo mycontroller.org full">
+</div>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 33%;">
+<col style="width: 33%;">
+<col style="width: 33%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Author(s)</th>
+<th class="tableblock halign-left valign-top">Product Version</th>
+<th class="tableblock halign-left valign-top">Date</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://github.com/jkandasa">Jeeva Kandasamy</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0.0.3-alpha2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">July-2016</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p><em>Copyright ©2015-2018, All Rights Reserved, <a href="http://www.mycontroller.org" class="bare">http://www.mycontroller.org</a></em></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_introduction">Introduction</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>MyController.org is a controller for the sensors world! Primarily it was developed to
+ MySensors.org project. Later changed it&#8217;s architecture to support other projects also.
+ Currently supports for <a href="https://www.mysensors.org/">MySensors</a> and <a href="https://data.sparkfun.com">Sparkfun</a>.
+Considered system resources in mind on development. As a result even we can run it on
+Raspberry PI very first model.</p>
+</div>
+<div class="paragraph">
+<p>You can control/monitor various sensors with this controller. As this
+controller is a web application server you can access from anywhere if you have
+internet/intranet connection. It has various features like, firmware control for nodes,
+powerful rule engine, timers, custom scripts support(JavaScript, Python, Ruby, Groovy, etc.,).
+For further details dig into each section.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+If you think <a href="http://mycontroller.org">MyController.org</a> helps you someway on your daily life,
+kindly consider to <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=CHWAXCBVHTC64"><strong>donate</strong></a> something to MyController.
+Your donation will help MyController to keep growing. Thank you!
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Do you have question? Post your questions on <a href="http://forum.mycontroller.org/">forum</a> or you can ping at <a href="https://gitter.im/mycontroller-org/mycontroller?utm_source=badge&amp;utm_medium=badge&amp;utm_campaign=pr-badge&amp;utm_content=badge">gitter chat</a>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_technology">Technology</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>MyController.org is Java based web application server.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Web Server  : <a href="http://tjws.sourceforge.net/">TJWS</a></p>
+</li>
+<li>
+<p>REST-API    : <a href="http://resteasy.jboss.org/">Jboss RestEasy</a></p>
+</li>
+<li>
+<p>Database    : <a href="http://www.h2database.com/">h2 database</a></p>
+</li>
+<li>
+<p>MQTT Broker : <a href="http://andsel.github.io/moquette/">andsel/moquette</a></p>
+</li>
+<li>
+<p>Front-end   : <a href="https://angularjs.org/">AngularJS</a>, <a href="https://www.patternfly.org/">PatternFly</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_installation">Installation</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_system_requirements">System Requirements</h3>
+<div class="paragraph">
+<p>MyController.org server is very lightweight, It required very less resource,</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Disk : 50 MB (may require more space, when we store metrics data for long time)</p>
+</li>
+<li>
+<p>RAM : 100 MB</p>
+</li>
+<li>
+<p>Java SE : 1.8 or later</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Test done up to 10 nodes and 30 sensors with the above configuration._
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_supported_platforms">Supported Platforms</h3>
+<div class="paragraph">
+<p>We can run it in any platform which supports Java. So far it has been tested in the
+following platforms, Kindly share your success stories on other platforms we can add it
+here.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Linux</p>
+</li>
+<li>
+<p>Windows</p>
+</li>
+<li>
+<p>Raspberry PI (Oracle Java recommend)</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_download">Download</h3>
+<div class="paragraph">
+<p>Executable download is available in two formats, zip and tar.gz. You can download
+suitable compressed flavor of yours.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://github.com/mycontroller-org/mycontroller/releases/download/0.0.3.Alpha2/mycontroller-dist-standalone-0.0.3.Alpha2-bundle.zip">mycontroller-dist-standalone-0.0.3.Alpha2-bundle.zip</a></p>
+</li>
+<li>
+<p><a href="https://github.com/mycontroller-org/mycontroller/releases/download/0.0.3.Alpha2/mycontroller-dist-standalone-0.0.3.Alpha2-bundle.tar.gz">mycontroller-dist-standalone-0.0.3.Alpha2-bundle.tar.gz</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Kindly visit <a href="https://github.com/mycontroller-org/mycontroller/releases">releases page</a> of MyController.org to get latest version.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_configuration">Configuration</h3>
+<div class="paragraph">
+<p>Extract downloaded bundle where exactly do you want to run.
+Configuration file is located in <code>mycontroller/conf</code></p>
+</div>
+<div class="paragraph">
+<p>File name: <code>mycontroller.properties</code></p>
+</div>
+<div class="sect3">
+<h4 id="_temporary_file">Temporary file</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code>mcc.tmp.location=tmp/</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You can change default location and file name. This file used as server temporary location and
+for the operation such as backup, restore, etc.,</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_database_configuration">Database Configuration</h4>
+<div class="paragraph">
+<p>For supports only for H2DB, We have a <a href="https://github.com/mycontroller-org/mycontroller/issues/154">request</a>
+ to support other RDMS databases</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code>mcc.db.h2db.location=../conf/mycontroller <i class="conum" data-value="1"></i><b>(1)</b></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>You can change default location and file name. File will be stored with the file extension
+<code>.h2.db</code>. Do not add file extension here.</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Database username and password are pre-configured. We cannot change it for now.
+Username: <code>mycontroller</code> and password is <code>mycontroller</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_web_server_configuration">Web server configuration</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code>mcc.web.bind.address=0.0.0.0 <i class="conum" data-value="1"></i><b>(1)</b>
+mcc.web.enable.https=true  <i class="conum" data-value="2"></i><b>(2)</b>
+mcc.web.http.port=8443  <i class="conum" data-value="3"></i><b>(3)</b>
+mcc.web.file.location=../www/  <i class="conum" data-value="4"></i><b>(4)</b>
+mcc.web.ssl.keystore.file=../conf/keystore.jks  <i class="conum" data-value="5"></i><b>(5)</b>
+mcc.web.ssl.keystore.password=mycontroller  <i class="conum" data-value="5"></i><b>(5)</b>
+mcc.web.ssl.keystore.type=JKS  <i class="conum" data-value="5"></i><b>(5)</b></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>bind interface address. by default it will bind with all the available interface.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Enable/disable https. Only one protocol supported at a time. true - <code>https</code>, false - <code>http</code>.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>Port number of <code>http/https</code> to access MyController.org server.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td>web files location, no need to touch this one.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="5"></i><b>5</b></td>
+<td>If <code>https</code> is enabled these fields are mandatory.</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Default URL: <code><a href="https://&lt;ip&gt;:8443" class="bare">https://&lt;ip&gt;:8443</a></code> (ex: <code><a href="https://localhost:8443" class="bare">https://localhost:8443</a></code>)</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Default username/password: <code>admin/admin</code>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><strong>Important</strong>: Change default <code>mcc.web.ssl.keystore.file</code> and <code>mcc.web.ssl.keystore.password</code> and <code>https</code> protocol is
+recommended</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_logger_configuration">Logger configuration</h4>
+<div class="paragraph">
+<p>Configuration File Name: <code>logback.xml</code></p>
+</div>
+<div class="paragraph">
+<p>Default log file location: <code>logs/mycontroller.log</code></p>
+</div>
+<div class="paragraph">
+<p>When to change log level, you can change it for specific package.
+Supported log levels are</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>TRACE</code> - It prints all the available logs</p>
+</li>
+<li>
+<p><code>DEBUG</code> - It prints only debug, info, warn and error logs</p>
+</li>
+<li>
+<p><code>INFO</code> - It prints only info, warn and error logs</p>
+</li>
+<li>
+<p><code>WARN</code> - It prints only warn and error logs</p>
+</li>
+<li>
+<p><code>ERROR</code> - It prints only error logs</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_start_stop_server">Start/Stop Server</h4>
+<div class="paragraph">
+<p>Executable scripts are located under <code>mycontroller/bin/</code></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Linux</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Start : <code>./start.sh</code></p>
+</li>
+<li>
+<p>Stop : <code>./stop.sh</code></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Windows</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Start : Double click on <code>start.bat</code></p>
+</li>
+<li>
+<p>Stop : <code>Ctrl+C</code></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Other Platforms</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Execute from 'mycontroller/bin/'</p>
+</li>
+<li>
+<p><code>java -Xms8m -Xmx100m -Dlogback.configurationFile=../conf/logback.xml
+-Dmc.conf.file=../conf/mycontroller.properties -cp "../lib/*" org.mycontroller.standalone.StartApp</code></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Assigning <code>-cp</code> <code>classpath</code> might vary on platforms, kindly refer java documents to know for your platform
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_login">Login</h2>
+<div class="sectionbody">
+<div class="imageblock" style="text-align: left">
+<div class="content">
+<img src="../../images/releases/0.0.3.Alpha2/login.png" alt="login">
+</div>
+</div>
+<div class="paragraph">
+<p>Enter valid username and password to log in to MyController.org server.</p>
+</div>
+<div class="paragraph">
+<p>Default username is <code>admin</code> and password is <code>admin</code></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_menus">Menus</h2>
+<div class="sectionbody">
+<div class="imageblock" style="text-align: left">
+<div class="content">
+<img src="../../images/releases/0.0.3.Alpha2/main-menu.png" alt="main menu">
+</div>
+</div>
+<div class="paragraph">
+<p>Menu divided in to two parts.</p>
+</div>
+<div class="sect2">
+<h3 id="_utility_menu">Utility menu</h3>
+<div class="imageblock" style="text-align: left">
+<div class="content">
+<img src="../../images/releases/0.0.3.Alpha2/utility-menu.png" alt="utility menu">
+</div>
+</div>
+<div class="paragraph">
+<p>You can perform changing display language(locale), changing password, email of logged in user, logout actions</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_main_menu">Main menu</h3>
+<div class="imageblock" style="text-align: left">
+<div class="content">
+<img src="../../images/releases/0.0.3.Alpha2/main-menu-1.png" alt="main menu 1">
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_sub_menu">Sub menu</h3>
+<div class="paragraph">
+<p>When you click on main menu you get list of sub menus list related to main menu.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_across_pages">Across pages</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You can see the following icons across pages.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><span class="image"><img src="../../images/releases/0.0.3.Alpha2/filter-menu.png" alt="filter-menu"></span> - Filters</p>
+<div class="ulist">
+<ul>
+<li>
+<p>You change filter with available options.</p>
+</li>
+<li>
+<p>Filter works with AND operation and case sensitive.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><span class="image"><img src="../../images/releases/0.0.3.Alpha2/sort-menu.png" alt="sort-menu"></span> - Sort</p>
+<div class="ulist">
+<ul>
+<li>
+<p>you can sort based on fields listed in this menu</p>
+</li>
+<li>
+<p><span class="image"><img src="../../images/releases/0.0.3.Alpha2/sort-ascending.png" alt="sort-ascending"></span> - Ascending order</p>
+</li>
+<li>
+<p><span class="image"><img src="../../images/releases/0.0.3.Alpha2/sort-descending.png" alt="sort-descending"></span> - Descending order</p>
+</li>
+<li>
+<p>To change order click on this icon</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><span class="image"><img src="../../images/releases/0.0.3.Alpha2/view-details-icon.png" alt="view-details-icon"></span> - View details</p>
+<div class="ulist">
+<ul>
+<li>
+<p>click this icon to know more about specified item</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><span class="image"><img src="../../images/releases/0.0.3.Alpha2/actions-menu.png" alt="actions-menu"></span> - Actions</p>
+<div class="ulist">
+<ul>
+<li>
+<p>page to page list of actions will be different</p>
+</li>
+<li>
+<p>Select item(s) and perform action with this menu</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Icons</p>
+<div class="ulist">
+<ul>
+<li>
+<p><span class="image"><img src="../../images/releases/0.0.3.Alpha2/enabled.png" alt="enabled"></span> - Enabled</p>
+</li>
+<li>
+<p><span class="image"><img src="../../images/releases/0.0.3.Alpha2/disabled.png" alt="disabled"></span> - Disabled</p>
+</li>
+<li>
+<p><span class="image"><img src="../../images/releases/0.0.3.Alpha2/up.png" alt="up"></span> - Up</p>
+</li>
+<li>
+<p><span class="image"><img src="../../images/releases/0.0.3.Alpha2/down.png" alt="down"></span> - Down</p>
+</li>
+<li>
+<p><span class="image"><img src="../../images/releases/0.0.3.Alpha2/unavailable.png" alt="unavailable"></span> - Unavailable</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_language_locale">Language (locale)</h2>
+<div class="sectionbody">
+<div class="imageblock" style="text-align: left">
+<div class="content">
+<img src="../../images/releases/0.0.3.Alpha2/locale-main.png" alt="locale main">
+</div>
+</div>
+<div class="paragraph">
+<p>MyController supports multiple locales. You can change to your language by selecting top right corner of language menu.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_support">Support</h2>
+<div class="sectionbody">
+<div class="imageblock" style="text-align: left">
+<div class="content">
+<img src="../../images/releases/0.0.3.Alpha2/support.png" alt="support">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Releases</code> - take you to MyController.org releases page</p>
+</li>
+<li>
+<p><code>Documents</code> - take you to MyController.org documents page</p>
+</li>
+<li>
+<p><code>Source code</code> - take you to MyController.org source code page</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_utility_menu_2">Utility menu</h2>
+<div class="sectionbody">
+<div class="imageblock" style="text-align: left">
+<div class="content">
+<img src="../../images/releases/0.0.3.Alpha2/utility-menu.png" alt="utility menu">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Profile</code> - take you to profile page. you can change password, email id and name.</p>
+</li>
+<li>
+<p><code>Log out</code> - safely log out from MyController.org server</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_dashboards">Dashboards</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>MyController dashboard supports for many number of widgets. If you do not find suitable on for you,
+you can use custom widget and use scripts for your requirements.</p>
+</div>
+<div class="paragraph">
+<p>You can keep any number of dashboards. By default maximum dashboard count is set as 5. You can change
+this settings under <code>Settings &gt;&gt; System &gt;&gt; MyController</code>.</p>
+</div>
+<div class="paragraph">
+<p>To remove a dashboard, select dashboard and click on <code>Delete dashboard</code>.</p>
+</div>
+<div class="sect3">
+<h4 id="_add_new_widgets">Add new widgets</h4>
+<div class="paragraph">
+<p>To add new widgets click on <span class="image"><img src="../../images/releases/0.0.3.Alpha2/dashboard-edit.png" alt="dashboard-edit"></span> edit dashboard
+and select <span class="image"><img src="../../images/releases/0.0.3.Alpha2/dashboard-add-widgets.png" alt="dashboard-add-widgets"></span></p>
+</div>
+<div class="paragraph">
+<p><strong>Type of widgets</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Sensors</code></p>
+</li>
+<li>
+<p><code>A sensor graphical view</code></p>
+</li>
+<li>
+<p><code>Grouped sensors graph</code></p>
+</li>
+<li>
+<p><code>Mixed sensors graph</code></p>
+</li>
+<li>
+<p><code>Sensors bullet graph</code></p>
+</li>
+<li>
+<p><code>Heatmap chart</code></p>
+</li>
+<li>
+<p><code>Sensors custom button</code></p>
+</li>
+<li>
+<p><code>Display image file</code></p>
+</li>
+<li>
+<p><code>Groups</code></p>
+</li>
+<li>
+<p><code>MyController time</code></p>
+</li>
+<li>
+<p><code>Sunrise and Sunset time</code></p>
+</li>
+<li>
+<p><code>News</code></p>
+</li>
+<li>
+<p><code>Custom widget</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Common settings across widgets</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Title</code> - widget title</p>
+</li>
+<li>
+<p><code>Refresh time</code> - refresh widget content, in seconds</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_sensors">Sensors</h4>
+<div class="paragraph">
+<p>You can select any number of sensors to be displayed on this widget.
+You can limit number items per row by setting <code>Items per row</code></p>
+</div>
+<div class="imageblock" style="text-align: left">
+<div class="content">
+<img src="../../images/releases/0.0.3.Alpha2/dashboard-sensors.png" alt="dashboard sensors">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_a_sensor_graphical_view">A sensor graphical view</h4>
+<div class="paragraph">
+<p>When you want to show only one <code>Sensor variable</code> graph you can use this widget.</p>
+</div>
+<div class="imageblock" style="text-align: left">
+<div class="content">
+<img src="../../images/releases/0.0.3.Alpha2/dashboard-a-sensor.png" alt="dashboard a sensor">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_grouped_sensors_graph">Grouped sensors graph</h4>
+<div class="paragraph">
+<p>You can group similar type of <code>Sensor variable</code> with this widget.
+In this example I have added all the <code>Temperature</code> sensor variables.</p>
+</div>
+<div class="imageblock" style="text-align: left">
+<div class="content">
+<img src="../../images/releases/0.0.3.Alpha2/dashboard-grouped-sensor.png" alt="dashboard grouped sensor">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_mixed_sensors_graph">Mixed sensors graph</h4>
+<div class="paragraph">
+<p>You can mix two types of sensors with this widget.
+One will be shown in <code>Y1</code> axis and another will be in <code>Y2</code> axis</p>
+</div>
+<div class="imageblock" style="text-align: left">
+<div class="content">
+<img src="../../images/releases/0.0.3.Alpha2/dashboard-mixed-sensor.png" alt="dashboard mixed sensor">
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+There is an open <a href="https://github.com/mycontroller-org/mycontroller/issues/165">issue</a> on this widget
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_sensors_bullet_graph">Sensors bullet graph</h4>
+<div class="paragraph">
+<p>Bullet graph used to watch current status, last value and average value.</p>
+</div>
+<div class="imageblock" style="text-align: left">
+<div class="content">
+<img src="../../images/releases/0.0.3.Alpha2/dashboard-bullet.png" alt="dashboard bullet">
+</div>
+</div>
+<div class="paragraph">
+<p>Displays like this,</p>
+</div>
+<div class="imageblock" style="text-align: left">
+<div class="content">
+<img src="../../images/releases/0.0.3.Alpha2/dashboard-bullet1.png" alt="dashboard bullet1">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_heatmap_chart">Heatmap chart</h4>
+<div class="paragraph">
+<p>Heatmap chart used to show resources status in single with with different colors.</p>
+</div>
+<div class="imageblock" style="text-align: left">
+<div class="content">
+<img src="../../images/releases/0.0.3.Alpha2/dashboard-heatmap.png" alt="dashboard heatmap">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_sensors_custom_button">Sensors custom button</h4>
+<div class="imageblock" style="text-align: left">
+<div class="content">
+<img src="../../images/releases/0.0.3.Alpha2/dashboard-custom-button.png" alt="dashboard custom button">
+</div>
+</div>
+<div class="paragraph">
+<p>Buttons detail should be in <code>JSON</code> format.
+To create <code>json</code> configuration error free way use <a href="http://www.jsoneditoronline.org/" class="bare">http://www.jsoneditoronline.org/</a>
+We can include button names as HTML or icons(recommended: font awesome icons)</p>
+</div>
+<div class="paragraph">
+<p>In configuration <code>name</code> and <code>payload</code> are mandatory fields.
+<code>btnType</code> is optional and can be any one of <code>default</code>, <code>primary</code>, <code>success</code>,
+<code>info</code>, <code>warning</code>, <code>danger</code></p>
+</div>
+<div class="paragraph">
+<p>Example <code>json</code> as follows,</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code>[
+   {
+    "name": "&lt;i class='fa fa-power-off'&gt;&lt;/i&gt;",
+    "payload": "P",
+    "btnType": "danger"
+  },
+{
+    "name": "&lt;i class='fa fa-play'&gt;&lt;/i&gt;",
+    "payload": "PL",
+    "btnType":"success"
+  },
+  {
+    "name": "&lt;i class='fa fa-pause'&gt;&lt;/i&gt;",
+    "payload": "PA",
+    "btnType":"warning"
+  },
+ {
+    "name": "1",
+    "payload": "1"
+  },
+  {
+    "name": "2",
+    "payload": "2"
+  },
+  {
+    "name": "3",
+    "payload": "3"
+  },
+  {
+    "name": "4",
+    "payload": "4"
+  },
+  {
+    "name": "5",
+    "payload": "5"
+  },
+  {
+    "name": "6",
+    "payload": "6"
+  },
+  {
+    "name": "7",
+    "payload": "7"
+  },
+  {
+    "name": "8",
+    "payload": "8"
+  },
+  {
+    "name": "9",
+    "payload": "9"
+  },
+{
+    "name": "TXT",
+    "payload": "TXT",
+    "btnType":"primary"
+  },
+  {
+    "name": "0",
+    "payload": "0"
+  },
+{
+    "name": "SUB",
+    "payload": "SUB",
+    "btnType":"primary"
+  }
+]</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Example produces,</p>
+</div>
+<div class="imageblock" style="text-align: left">
+<div class="content">
+<img src="../../images/releases/0.0.3.Alpha2/dashboard-custom-button1.png" alt="dashboard custom button1">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_display_image_file">Display image file</h4>
+<div class="paragraph">
+<p>When you want to display image file from an <code>url</code> for from local <code>disk</code> you can use this widget.
+This can be used when you are updating image file with some other services and want to show in MyController dashboard.</p>
+</div>
+<div class="imageblock" style="text-align: left">
+<div class="content">
+<img src="../../images/releases/0.0.3.Alpha2/dashboard-display-image.png" alt="dashboard display image">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_groups">Groups</h4>
+<div class="paragraph">
+<p>When you want to control you groups from dashboard, you can use this widget.</p>
+</div>
+<div class="imageblock" style="text-align: left">
+<div class="content">
+<img src="../../images/releases/0.0.3.Alpha2/dashboard-groups.png" alt="dashboard groups">
+</div>
+</div>
+<div class="imageblock" style="text-align: left">
+<div class="content">
+<img src="../../images/releases/0.0.3.Alpha2/dashboard-groups1.png" alt="dashboard groups1">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_mycontroller_time">MyController time</h4>
+<div class="paragraph">
+<p>Displays MyController time where MyController server is running.</p>
+</div>
+<div class="imageblock" style="text-align: left">
+<div class="content">
+<img src="../../images/releases/0.0.3.Alpha2/dashboard-mc-time.png" alt="dashboard mc time">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_sunrise_and_sunset_time">Sunrise and Sunset time</h4>
+<div class="paragraph">
+<p>Displays <code>Sunrise</code> and <code>Sunset</code> time based on location settings</p>
+</div>
+<div class="imageblock" style="text-align: left">
+<div class="content">
+<img src="../../images/releases/0.0.3.Alpha2/dashboard-sr-time.png" alt="dashboard sr time">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_news">News</h4>
+<div class="paragraph">
+<p>Add <code>rss</code> feed and displays news from the feed.</p>
+</div>
+<div class="imageblock" style="text-align: left">
+<div class="content">
+<img src="../../images/releases/0.0.3.Alpha2/dashboard-news.png" alt="dashboard news">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_custom_widgets">Custom widgets</h4>
+<div class="paragraph">
+<p>With the custom widget you can add on your interest.
+You have to write script for your custom widget.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_rooms_detail">Rooms detail</h3>
+<div class="paragraph">
+<p>When you mapped your sensors with room. You can access your room and get your sensors easily.
+You can perform actions also on sensor.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_topology">Topology</h3>
+<div class="paragraph">
+<p>In topology graph you can see how the things connected in a quick view.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Realtime</code> - How is connected on real time (for now mysensors only supports)
+When you uncheck this option,shows how the things connected in MyController database.</p>
+</li>
+<li>
+<p>By clicking on top legends, you can show hide type of resource.</p>
+</li>
+<li>
+<p>You may notices that circle color for nodes and gateways, If node or gateways is <code>UP</code> shows in green, other wise based on status.</p>
+</li>
+<li>
+<p>Mouse over to resource, displays status of resource as tooltip</p>
+</li>
+<li>
+<p><code>Display names</code> - Check/Uncheck to display/hide resources names</p>
+</li>
+<li>
+<p>When you click refresh topology graph gets refreshed (also doing automatic refresh also)</p>
+</li>
+<li>
+<p>You can filter resources on graph based on name</p>
+</li>
+<li>
+<p>When you double click on resources it wll take you to resource details page.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock" style="text-align: left">
+<div class="content">
+<img src="../../images/releases/0.0.3.Alpha2/topology-page.png" alt="topology page">
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_resources">Resources</h2>
+<div class="sectionbody">
+<div class="imageblock" style="text-align: left">
+<div class="content">
+<img src="../../images/releases/0.0.3.Alpha2/resources.png" alt="resources">
+</div>
+</div>
+<div class="paragraph">
+<p>Under resources you can do almost all actions related to sensors.
+can do actions on Gateways, Nodes, Sensors,Rules, Timers, Operations, Forward payload, Groups, Rooms.</p>
+</div>
+<div class="sect2">
+<h3 id="_gateways">Gateways</h3>
+<div class="imageblock" style="text-align: left">
+<div class="content">
+<img src="../../images/releases/0.0.3.Alpha2/gateway-menu.png" alt="gateway menu">
+</div>
+</div>
+<div class="paragraph">
+<p>You can add remove any number of gateways.
+Supports 2 type of networks</p>
+</div>
+<div class="sect3">
+<h4 id="_mysensors">MySensors</h4>
+<div class="paragraph">
+<p>When you choose MySensors network type it supports 3 types</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Serial gateway</p>
+</li>
+<li>
+<p>Ethernet gateway</p>
+</li>
+<li>
+<p>MQTT gateway</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_sparkfun_phant_io">Sparkfun [phant.io]</h4>
+<div class="paragraph">
+<p>It support REST API. Polls on configured REST API for every <code>N</code> seconds with <code>X</code> limits of data.
+It will not add duplicate data</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_add_gateway">Add gateway</h4>
+<div class="imageblock" style="text-align: left">
+<div class="content">
+<img src="../../images/releases/0.0.3.Alpha2/gateway-add.png" alt="gateway add">
+</div>
+</div>
+<div class="paragraph">
+<p>Navigate to <code>Gateways</code> menu and click <code>Add gateway</code>.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_gateways_actions">Gateways actions</h4>
+<div class="imageblock" style="text-align: left">
+<div class="content">
+<img src="../../images/releases/0.0.3.Alpha2/gateway-actions.png" alt="gateway actions">
+</div>
+</div>
+<div class="paragraph">
+<p>Gateway supports multiple actions. Select an item from the list and choose the desired action.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Reload</code> - reload operation performs stop and start of the gateways.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<code>Reload</code> can happen only for enabled gateways.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+When you delete gateway. All the resources belongs to the gateways will be removed permanently. Always do backup when you perform this kind of operation.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_discover">Discover</h4>
+<div class="imageblock" style="text-align: left">
+<div class="content">
+<img src="../../images/releases/0.0.3.Alpha2/gateway-discover.png" alt="gateway discover">
+</div>
+</div>
+<div class="paragraph">
+<p>Sends broadcast packet to all the node on this gateway.
+Will receive parent node details. Used in Topology page to show real time connection</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<code>Discover</code> action supports only for MySensors
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_node">Node</h3>
+<div class="imageblock" style="text-align: left">
+<div class="content">
+<img src="../../images/releases/0.0.3.Alpha2/nodes-menu.png" alt="nodes menu">
+</div>
+</div>
+<div class="paragraph">
+<p>Under this page you can see node information&#8217;s like, Node EUI(Node Id), Node Name, Node Type,
+Firmware Version, Core lib Version, Battery Level, Assigned firmware, etc.,</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+By default <code>Register nodes automatically</code> will be enabled under <code>Settings &gt;&gt; System &gt;&gt; MyController</code>.
+If this option is disabled, sensor data of the node will not be added in to MyController
+until node <code>Registration status</code> changed to <code>Registered</code>.
+You can also change a node <code>Registration status</code> to one of <code>New</code>, <code>Registered</code> or <code>Blocked</code>
+</td>
+</tr>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_add_manually">Add manually</h4>
+<div class="paragraph">
+<p>Navigate to node page, by clicking <span class="image"><img src="../../images/releases/0.0.3.Alpha2/node-add.png" alt="node-add"></span> button you can add new node.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_actions">Actions</h4>
+<div class="imageblock" style="text-align: left">
+<div class="content">
+<img src="../../images/releases/0.0.3.Alpha2/node-actions.png" alt="node actions">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Delete</code> - delete node</p>
+</li>
+<li>
+<p><code>Erase configuration</code> - Ask node to erase complete configuration.</p>
+</li>
+<li>
+<p><code>Reboot</code> - reboot the node</p>
+</li>
+<li>
+<p><code>Upload firmware</code> - Request node to get firmware update</p>
+</li>
+<li>
+<p><code>Refresh nodes info</code> - Requests presentation details from selected nodes</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+When you delete a node. All the resources belongs to the node will be removed permanently. Always do backup when you perform this kind of operation.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_node_details">Node details</h4>
+<div class="paragraph">
+<p>When you click <span class="image"><img src="../../images/releases/0.0.3.Alpha2/view-details-icon.png" alt="view-details-icon"></span> icon you will complete node details. includes battery usage report.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_mapping_firmware">Mapping Firmware</h4>
+<div class="paragraph">
+<p>Before doing this action, firmware should be added in MyController.org. Refer Firmware section to add new firmware.
+To update selected firmware in to selected node perform <code>Reboot</code> or <code>Update firmware</code> action.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_sensors_2">Sensors</h3>
+<div class="imageblock">
+<div class="content">
+<img src="../../images/releases/0.0.3.Alpha2/sensors-menu.png" alt="sensors menu">
+</div>
+</div>
+<div class="paragraph">
+<p>Navigate to sensors Page. In this page you see sensor details like Gateway Id, Node EUI, Sensor Id, Name, Type, Variable Type, Last seen.
+You can add, edit and delete sensors from here.</p>
+</div>
+<div class="sect3">
+<h4 id="_add_sensor">Add sensor</h4>
+<div class="paragraph">
+<p>We can add sensors in two methods, via node and manually.
+If node sends any data related to sensors and if the sensor detail is not available in MyController.org new sensor will added automatically.
+To add new sensor manually click on the buttom <span class="image"><img src="../../images/releases/0.0.3.Alpha2/sensor-add.png" alt="sensor-add"></span></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If MyController.org receives any data related to sensor that you have added already will be overwritten.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_actions_2">Actions</h4>
+<div class="imageblock">
+<div class="content">
+<img src="../../images/releases/0.0.3.Alpha2/sensor-action.png" alt="sensor action">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Delete</code> - delete selected sensor</p>
+</li>
+<li>
+<p><code>Edit</code> - edit selected sensor</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+Deletion sensor will delete all the data relevance to that sensor. We cannot recover it back.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_edit_sensor_variable">Edit Sensor variable</h4>
+<div class="paragraph">
+<p>You can change sensor variable type, metric type, read only, graph type, etc.,
+Go to sensors detail page.</p>
+</div>
+<div class="imageblock" style="text-align: left">
+<div class="content">
+<img src="../../images/releases/0.0.3.Alpha2/sensor-variable-edit.png" alt="sensor variable edit">
+</div>
+</div>
+<div class="paragraph">
+<p>Click on edit on <code>Sensor variable</code> <span class="image"><img src="../../images/releases/0.0.3.Alpha2/sensor-variable-edit1.png" alt="sensor-variable-edit1"></span></p>
+</div>
+<div class="paragraph">
+<p>You can change the following settings,</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Read only</code> - Makes this variable read only, you cannot send payload.</p>
+</li>
+<li>
+<p><code>Metric type</code> - You can change metric type</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>None</code> - When you do not want to record metric of a variable</p>
+</li>
+<li>
+<p><code>Double</code> - Used for double typed variables, like Temperature, Pressure, etc.,</p>
+</li>
+<li>
+<p><code>Binary</code> - Used for ON and OFF devices</p>
+</li>
+<li>
+<p><code>Counter</code> - Used to record counter type devices, like energy meters</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>Unit</code> - You can change any type of units. Can select <code>None</code> of no units measurement</p>
+</li>
+<li>
+<p><code>Offset</code> - Only available for <code>Double</code> types metrics. You can enter <code>+</code> or <code>-</code> values.
+When MyController.org receives a data from this variable this <code>offset</code> will be added with actual value.
+When sending <code>offset</code> will be ignored(offset will not be included).</p>
+</li>
+<li>
+<p><code>Priority</code> - This value used to display variables on different locations.
+When you give lowest number will get higher priority and vice versa.</p>
+</li>
+<li>
+<p><code>Use global</code> - When this option set, will use global graph settings.
+Or you can override with your custom settings.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock" style="text-align: left">
+<div class="content">
+<img src="../../images/releases/0.0.3.Alpha2/sensor-variable-edit2.png" alt="sensor variable edit2">
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_rules">Rules</h3>
+<div class="paragraph">
+<p>Formally called <code>Alarms</code></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../../images/releases/0.0.3.Alpha2/rules-menu.png" alt="rules menu">
+</div>
+</div>
+<div class="paragraph">
+<p>Click on the button <span class="image"><img src="../../images/releases/0.0.3.Alpha2/rule-add.png" alt="rule-add"></span> to add new rule.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Name</code> - name of the rule definition</p>
+</li>
+<li>
+<p><code>Enabled</code> - enable/disable this rule definition</p>
+</li>
+<li>
+<p><code>Disable when trigger</code> - will be disabled automatically when triggers</p>
+</li>
+<li>
+<p><code>Ignore duplicate</code> - ignore subsequent triggers. Will trigger again at least condition should not satisfy once.</p>
+</li>
+<li>
+<p><code>Resource</code> - Select a resource, Supported resources,</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Gateway</code> - based on gateway status</p>
+</li>
+<li>
+<p><code>Node</code> - based on node status</p>
+</li>
+<li>
+<p><code>Sensor variable</code> - based on sensor variable value</p>
+</li>
+<li>
+<p><code>Resources group</code> - based on resources group status</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>Trigger when</code> - is a condition.</p>
+</li>
+<li>
+<p><code>Dampening</code> - With dampening feature we can control trigger further. Types,</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>None</code> - dampening option disabled</p>
+</li>
+<li>
+<p><code>Consecutive</code> - If the condition satisfies continuously for N occurrences.</p>
+</li>
+<li>
+<p><code>Last N evaluations</code> - If the condition mets N occurrences in X evaluations.</p>
+</li>
+<li>
+<p><code>Active time</code> - If the condition stays active in the specified time.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>Operations</code> - We can add any number of operations for a rule definition.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><code>Rules</code> are used to trigger set of <code>Operations</code> when a condition met the specification. MyController supports multiple conditions.</p>
+</div>
+<div class="sect4">
+<h5 id="_conditions_type">Conditions type:</h5>
+<div class="ulist">
+<ul>
+<li>
+<p>Compare</p>
+</li>
+<li>
+<p>State</p>
+</li>
+<li>
+<p>Script</p>
+</li>
+<li>
+<p>String</p>
+</li>
+<li>
+<p>Threshold</p>
+</li>
+<li>
+<p>Threshold range</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>To add new <code>Rule</code>, Navigate to <code>Resources</code> &gt;&gt;  <code>Rules</code> &gt;&gt; <code>Add rule</code>.</p>
+</div>
+<div class="paragraph">
+<p>![0_1461341569745_rules-conditions.png](/uploads/files/1461341571011-rules-conditions.png)</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_condition_code_compare_code">Condition - <code>Compare</code></h4>
+<div class="paragraph">
+<p>We can compare <code>Sensor variable1</code> with <code>Sensor variable2</code>.
+<strong>Example:</strong> Hall-temperature &gt;= 20% outside-temperature</p>
+</div>
+<div class="imageblock" style="text-align: left">
+<div class="content">
+<img src="../../images/releases/0.0.3.Alpha2/rules-compare.png" alt="rules compare">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_condition_code_state_code">Condition - <code>State</code></h4>
+<div class="paragraph">
+<p>With this condition we con monitor state of <code>Binary</code> type sensor variables, <code>Node</code>, <code>Gateway</code> and <code>Resources group</code>.
+<strong>Example for <code>Sensor variable</code></strong></p>
+</div>
+<div class="imageblock" style="text-align: left">
+<div class="content">
+<img src="../../images/releases/0.0.3.Alpha2/rules-state1.png" alt="rules state1">
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Example for <code>Node</code></strong></p>
+</div>
+<div class="imageblock" style="text-align: left">
+<div class="content">
+<img src="../../images/releases/0.0.3.Alpha2/rules-state2.png" alt="rules state2">
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Example for <code>Gateway</code></strong></p>
+</div>
+<div class="imageblock" style="text-align: left">
+<div class="content">
+<img src="../../images/releases/0.0.3.Alpha2/rules-state3.png" alt="rules state3">
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Example for <code>Resources group</code></strong></p>
+</div>
+<div class="imageblock" style="text-align: left">
+<div class="content">
+<img src="../../images/releases/0.0.3.Alpha2/rules-state4.png" alt="rules state4">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_condition_code_threshold_code">Condition - <code>Threshold</code></h4>
+<div class="paragraph">
+<p>With this condition we can monitor <code>Sensor variable</code> values with a static value or with another <code>Sensor variable</code> value</p>
+</div>
+<div class="paragraph">
+<p><strong>Example with static value:</strong></p>
+</div>
+<div class="imageblock" style="text-align: left">
+<div class="content">
+<img src="../../images/releases/0.0.3.Alpha2/rules-threshold1.png" alt="rules threshold1">
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Example with another Sensor variable:</strong></p>
+</div>
+<div class="imageblock" style="text-align: left">
+<div class="content">
+<img src="../../images/releases/0.0.3.Alpha2/rules-threshold2.png" alt="rules threshold2">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_condition_code_threshold_range_code">Condition - <code>Threshold range</code></h4>
+<div class="paragraph">
+<p>With this condition we can monitor <code>Sensor variable</code> value <strong>Is in range?</strong> or <strong>Is in outside range?</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Threshold value low</code> (1) - low value of threshold</p>
+</li>
+<li>
+<p><code>Threshold value high</code> (2) - high value of threshold</p>
+</li>
+<li>
+<p><code>Include threshold low</code> - When we check this field included (1) in boundary</p>
+</li>
+<li>
+<p><code>Include threshold high</code> - When we check this field included (2) in boundary</p>
+</li>
+<li>
+<p><code>In range</code> - When you check this box will be act as <code>In range</code> check, otherwise <code>Out side range</code> check</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Example:</strong> X inside [10,56], X outside [45, 200]</p>
+</div>
+<div class="paragraph">
+<p><strong>Example for <code>In range</code>:</strong></p>
+</div>
+<div class="imageblock" style="text-align: left">
+<div class="content">
+<img src="../../images/releases/0.0.3.Alpha2/rules-thresholdrange1.png" alt="rules thresholdrange1">
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Example for <code>Out side range</code>:</strong></p>
+</div>
+<div class="imageblock" style="text-align: left">
+<div class="content">
+<img src="../../images/releases/0.0.3.Alpha2/rules-thresholdrange1.png" alt="rules thresholdrange1">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_actions_3">Actions</h4>
+<div class="imageblock">
+<div class="content">
+<img src="../../images/releases/0.0.3.Alpha2/rule-actions.png" alt="rule actions">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Enable</code> - enable selected items</p>
+</li>
+<li>
+<p><code>Disable</code> - disable selected items</p>
+</li>
+<li>
+<p><code>Delete</code> - delete selected item</p>
+</li>
+<li>
+<p><code>Clone</code> - clone the selected rule and create duplicate</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_operations">Operations</h3>
+<div class="paragraph">
+<p>Formally called <code>Notifications</code></p>
+</div>
+<div class="imageblock" style="text-align: left">
+<div class="content">
+<img src="../../images/releases/0.0.3.Alpha2/operations-menu.png" alt="operations menu">
+</div>
+</div>
+<div class="paragraph">
+<p>You can define any number of operations here. These operations will be mapped with <code>Rules</code> and <code>Timers</code>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+When a operation is in <code>Disabled</code> state,
+ Even it&#8217;s configured active <code>Rules</code> or <code>Timers</code> will no trigger disabled operations.
+</td>
+</tr>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_add_operation">Add operation</h4>
+<div class="paragraph">
+<p>To add new operation click on the button <span class="image"><img src="../../images/releases/0.0.3.Alpha2/operation-add.png" alt="operation-add"></span></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Name</code> - name of the notification</p>
+</li>
+<li>
+<p><code>Enabled</code> - enable/disable notification.</p>
+</li>
+<li>
+<p><code>Public access</code> - allow to use other users</p>
+</li>
+<li>
+<p><code>Type</code> - type of operations</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Send payload</code> - Do resource operations.</p>
+</li>
+<li>
+<p><code>Request payload</code> - Do resource operations.</p>
+</li>
+<li>
+<p><code>Send SMS</code> - send SMS</p>
+</li>
+<li>
+<p><code>Send email</code> - send email</p>
+</li>
+<li>
+<p><code>Pushbullet note</code> - send pushbullet note</p>
+</li>
+<li>
+<p><code>Execute script</code> - Executes mentioned script</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="sect4">
+<h5 id="_send_payload">Send payload</h5>
+<div class="ulist">
+<ul>
+<li>
+<p>Select resource and update payload</p>
+</li>
+<li>
+<p><code>delay time in seconds</code> update this field with delay time.
+Using this option payload will send to the resource after x seconds of delay. If you do not want delay leave this field as blank.</p>
+</li>
+<li>
+<p>on the payload you can use <code>Special operations</code>. Refer Special operations section for further details.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_request_payload">Request payload</h5>
+<div class="ulist">
+<ul>
+<li>
+<p>Select a sensor variable to request current payload</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+This type supports only for MySensors
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_send_sms">Send SMS</h5>
+<div class="paragraph">
+<p>For SMS we can use <a href="https://www.plivo.com/">Plivo</a> or <a href="https://www.twilio.com/">Twilio</a> vendors. When you create trail account you will get some credit.
+To use SMS notifications you should configure either Plivo or Twilio SMS API settings
+under <code>Settings-&#8594;Notifications-&#8594;SMS</code>.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Phone numbers</code> - Give destination numbers with '+' with country code then mobile number without any space. If you want to give more than one number use comma(,)</p>
+</li>
+<li>
+<p><code>Custom message</code> - If you leave this field blank, default message will be generated.
+===== Send email
+To send email, SMTP email settings should be configured under "Settings-&#8594;Notifications-&#8594;Email"</p>
+</li>
+<li>
+<p><code>Subject</code> - subject of this email. Mandatory field. You can apply <code>keys</code> for this filed.</p>
+</li>
+<li>
+<p><code>Email(s)</code> - list of email address with comma(,) separated.
+Email subject as well as body message supports for `key&#8217;s</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_pushbullet_note">Pushbullet note</h5>
+<div class="paragraph">
+<p>To send pushbullet note, Pushbullet settings should be configured under  "Settings-&#8594;Notifications-&#8594;Pushbullet"</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Devices</code> - comma(,) separated device <code>iden</code>. If you leave blank will send to all the devices.</p>
+</li>
+<li>
+<p><code>Title</code> - Title of the pushbullet note. You can apply <code>keys</code> for this filed.</p>
+</li>
+<li>
+<p><code>Custom message</code> - You can add your own custom message. If you leave this field blank default message will be taken. You can apply <code>keys</code> for this filed.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<code>SMS</code>, <code>Email</code>, <code>Pushbullet note</code> supports for custom messages with <code>keys</code>. `key&#8217;s will be replaced with actual value on runtime.'
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_supported_keys_on_custom_messages">Supported keys on custom messages</h5>
+<div class="paragraph">
+<p>You can apply the following <code>keys</code> for this filed.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>notification.ruleName</code> - Rule definition name</p>
+</li>
+<li>
+<p><code>notification.ruleCondition</code> - Rule condition details</p>
+</li>
+<li>
+<p><code>notification.actualValue</code> - Actual value of the resource at the time of trigger</p>
+</li>
+<li>
+<p><code>notification.triggeredAt</code> - Rule trigger time</p>
+</li>
+<li>
+<p><code>notification.operationName</code> - Operation name</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Custom message example:</strong> <code>Inside temperature goes too high! Current temperature is ${notification.actualValue}</code></p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_special_operations">Special operations</h3>
+<div class="paragraph">
+<p>While defining payload you can assign following special operations,
+All the special operation reads last received/sent value from target senor and doing this operation on top of that value and sends to target sensor.</p>
+</div>
+<div class="sect3">
+<h4 id="_toggle">Toggle</h4>
+<div class="paragraph">
+<p>By assigning the value: <code>Toggle</code> You can select this operation. It is doing toggle operation.
+This will be useful for 'BINARY' devices. For example if switch is <code>ON</code> it will be turned <code>OFF</code> vise versa.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_increment">Increment</h4>
+<div class="paragraph">
+<p>By assigning the value: <code>++</code> You can select this operation. Adding 1 with the value.
+Example: last rx/tx value is 45, on resulting this operation will send 46 to target sensor.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_decrement">Decrement</h4>
+<div class="paragraph">
+<p>By assigning the value: <code>--</code> You can select this operation. Subtracting 1 with the value.
+Example: last rx/tx value is 45, on resulting this operation will send 44 to target sensor.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_addition">Addition</h4>
+<div class="paragraph">
+<p>By assigning the value: <code>+3</code> You can select this operation. Here + meant for addition and 3 is the value should add.
+Example: last rx/tx value is 45, on resulting this operation will send 48 to target sensor.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_subtraction">Subtraction</h4>
+<div class="paragraph">
+<p>By assigning the value: <code>-4</code> You can select this operation. Here - meant for addition and 3 is the value should add.
+Example: last rx/tx value is 45, on resulting this operation will send 48 to target sensor.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_multiplication">Multiplication</h4>
+<div class="paragraph">
+<p>By assigning the value: <code>*2</code> You can select this operation. Here * meant for multiplication and 2 is the value should multiple.
+Example: last rx/tx value is 45, on resulting this operation will send 90 to target sensor.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_division">Division</h4>
+<div class="paragraph">
+<p>By assigning the value: <code>/3</code> You can select this operation. Here / meant for division and 3 is the value should divide by.
+Example: last rx/tx value is 45, on resulting this operation will send 15 to target sensor.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_modulus">Modulus</h4>
+<div class="paragraph">
+<p>By assigning the value: <code>%4</code> You can select this operation. Here % meant for modulus and 3 is the value used for modulus.
+Example: last rx/tx value is 45, on resulting this operation will send 1 to target sensor.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_start">Start</h4>
+<div class="paragraph">
+<p>By assigning the value: <code>start</code> You can select this operation.
+On this operation target resource will be started.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_stop">Stop</h4>
+<div class="paragraph">
+<p>By assigning the value: <code>stop</code> You can select this operation.
+On this operation target resource will be rebooted.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_reboot">Reboot</h4>
+<div class="paragraph">
+<p>By assigning the value: <code>reboot</code> You can select this operation.
+On this operation target resource will be rebooted.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_reload">Reload</h4>
+<div class="paragraph">
+<p>By assigning the value: <code>reload</code> You can select this operation.
+On this operation target resource will be rebooted.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_enable">Enable</h4>
+<div class="paragraph">
+<p>By assigning the value: <code>enable</code> You can select this operation.
+On this operation target resource will be enabled.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_disabled">Disabled</h4>
+<div class="paragraph">
+<p>By assigning the value: <code>disable</code> You can select this operation.
+On this operation target resource will be disabled.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_on">ON</h4>
+<div class="paragraph">
+<p>By assigning the value: <code>ON</code> You can select this operation.
+On this operation target resource will be ON.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_off">OFF</h4>
+<div class="paragraph">
+<p>By assigning the value: <code>OFF</code> You can select this operation.
+On this operation target resource will be OFF.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_timers">Timers</h3>
+<div class="paragraph">
+<p>MyController.org using <a href="https://github.com/timmolter/Sundial">Sundial</a> scheduler which foked from <a href="http://www.quartz-scheduler.org/">Quartz Scheduler</a></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../../images/releases/0.0.3.Alpha2/timers-menu.png" alt="timers menu">
+</div>
+</div>
+<div class="paragraph">
+<p>With the timer you can schedule timely operations for resources which configurable in <code>Operations</code>.
+Different types of timers are supported by MyController.org.
+You can schedule a timer till seconds(via API only, in GUI supports only till minutes only except <code>cron</code> type). Means you can schedule a task for time <code>21:45:23</code> like that.
+By Clicking button <span class="image"><img src="../../images/releases/0.0.3.Alpha2/timer-add.png" alt="timer-add"></span> you will be taken to add timer page.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Name</code> - name of the timer</p>
+</li>
+<li>
+<p><code>Enabled</code> - enable/disable the timer</p>
+</li>
+<li>
+<p><code>Timer type</code> - type of the timer</p>
+</li>
+<li>
+<p><code>Validity</code> - validity of the timer. If you leave blank never get expired.</p>
+</li>
+<li>
+<p><code>Operations</code> - Select list of operations that you want to run when this timer triggers</p>
+</li>
+</ul>
+</div>
+<div class="sect3">
+<h4 id="_timer_types">Timer types</h4>
+<div class="imageblock">
+<div class="content">
+<img src="../../images/releases/0.0.3.Alpha2/timer-types.png" alt="timer types">
+</div>
+</div>
+<div class="sect4">
+<h5 id="_simple">Simple</h5>
+<div class="paragraph">
+<p>Simple timer operates with <code>Repeat interval</code> and <code>Repeat count</code>. Specify repeat interval in seconds. If you want to run this job count less specify <code>Repeact count</code> as <code>-1</code></p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_normal">Normal</h5>
+<div class="paragraph">
+<p>Normal is a very basic and classic timer. You can select <code>Normal</code> in the type drop down.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_cron">Cron</h5>
+<div class="paragraph">
+<p>Cron is for advanced users. It is simple and easy.
+Visit <a href="http://www.quartz-scheduler.org/documentation/quartz-1.x/tutorials/crontrigger">Quartz-Scheduler</a> page for further detailed configuration</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Quartz-Scheduler cron supports from seconds.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_before_sunrise_after_sunrise_before_sunset_and_after_sunset">Before Sunrise, After Sunrise, Before Sunset and After Sunset</h5>
+<div class="paragraph">
+<p>If your task based on Sunrise or Sunset you have to go with this option.
+Say you want to control your garden light based on your location sun rise and sun set time. You can use this option.
+You can specify time offset.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_frequency">Frequency</h5>
+<div class="paragraph">
+<p>3 types of frequencies supported by MyController.org</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Daily – you can select all the 7 days or day(s) only you want to run</p>
+</li>
+<li>
+<p>Weekly – Select a day in week</p>
+</li>
+<li>
+<p>Monthly – Select a day in month</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_time">Time</h5>
+<div class="paragraph">
+<p>Time format: <code>HH:mm:ss</code></p>
+</div>
+<div class="paragraph">
+<p><code>HH</code> – hour in 24 hours format (0~23)</p>
+</div>
+<div class="paragraph">
+<p><code>mm</code> – minutes (0~59)</p>
+</div>
+<div class="paragraph">
+<p><code>ss</code> – seconds (0~59)</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+For sunrise and sunset options "Time" will react differently.
+If you select After Sunrise and After Sunset time offset will be added with "Time"  mentioned in task + "Sunrise" or "Sunset" time.
+If you select "Before Sunrise or Before Sunset" "Time" mentioned in task time offset will be subtracted from actual
+"Sunrise or Sunset" time.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_validity">Validity</h5>
+<div class="paragraph">
+<p>You may feel you do not want to run this job all the time and want to run only on particular window period. In that case you can select validity.
+You can select "Validity From" and "Validity To" or only either or nothing.
+If you do not select any validity that job will be treating like never end.
+If you select only "Validity From" job will run from that date and never end.
+If you select only "Validity To" that job will start immediately and will end on the specified date.</p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_operations_2">Operations</h4>
+<div class="paragraph">
+<p>You can select <code>N</code> number of operations for a timer. All the operations will be executed when a timer triggers</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_forward_payload">Forward Payload</h3>
+<div class="imageblock">
+<div class="content">
+<img src="../../images/releases/0.0.3.Alpha2/forward-payload-menu.png" alt="forward payload menu">
+</div>
+</div>
+<div class="paragraph">
+<p>You can forward the data received by this sensor to another sensor directly without any condition.
+This will be useful when you want to send your sensor data to multiple sensors.
+No need to do any code change on sensor side. Simply add an entry in MyController.org and be
+happy, MyController.org will take care rest of the things.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+This operation supported across gateways too. Which means you can forward data from one network to another network.
+</td>
+</tr>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_add_new_entry">Add new entry</h4>
+<div class="paragraph">
+<p>To add new entry click on the button <span class="image"><img src="../../images/releases/0.0.3.Alpha2/forward-payload-add.png" alt="forward-payload-add"></span></p>
+</div>
+<div class="imageblock" style="text-align: left">
+<div class="content">
+<img src="../../images/releases/0.0.3.Alpha2/forward-payload-add1.png" alt="forward payload add1">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_actions_4">Actions</h4>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Delete</code> - Delete selected entries</p>
+</li>
+<li>
+<p><code>Edit</code> - If there is a change required</p>
+</li>
+<li>
+<p><code>Disable</code> - Temporarily you do not want to forward</p>
+</li>
+<li>
+<p><code>Enable</code> - Enable disabled entries</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_groups_2">Groups</h3>
+<div class="imageblock">
+<div class="content">
+<img src="../../images/releases/0.0.3.Alpha2/groups-menu.png" alt="groups menu">
+</div>
+</div>
+<div class="paragraph">
+<p><code>Groups</code> is the place where you want to keep group of resources and perform actions on all resources on single click.
+Generally it needs <code>On paylaod</code> and <code>Off payload</code> for each resource.</p>
+</div>
+<div class="sect3">
+<h4 id="_add_group">Add group</h4>
+<div class="paragraph">
+<p>To add new group click on the button <span class="image"><img src="../../images/releases/0.0.3.Alpha2/group-add.png" alt="group-add"></span> and update <code>Name</code> of the group and group <code>Description</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_add_resource">Add resource</h4>
+<div class="paragraph">
+<p>Supports for resource <code>Gateway</code>, <code>Node</code> and <code>Sensor variable</code>.
+To add resources in to a groups click on <span class="image"><img src="../../images/releases/0.0.3.Alpha2/view-details-icon.png" alt="view-details-icon"></span> of the groups. Then click on <span class="image"><img src="../../images/releases/0.0.3.Alpha2/group-add-resource.png" alt="group-add-resource"></span></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../../images/releases/0.0.3.Alpha2/group-add-resource1.png" alt="group add resource1">
+</div>
+</div>
+<div class="sect4">
+<h5 id="_payloads_for_gateway">Payloads for Gateway</h5>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Start</code></p>
+</li>
+<li>
+<p><code>Stop</code></p>
+</li>
+<li>
+<p><code>Enable</code></p>
+</li>
+<li>
+<p><code>Disable</code></p>
+</li>
+<li>
+<p><code>Reload</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_payloads_for_node">Payloads for Node</h5>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Reboot</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_rooms">Rooms</h3>
+<div class="imageblock" style="text-align: left">
+<div class="content">
+<img src="../../images/releases/0.0.3.Alpha2/rooms-menu.png" alt="rooms menu">
+</div>
+</div>
+<div class="paragraph">
+<p>Rooms is used to organize your sensors as you see in your home/office. You can create nested rooms also.
+Example: <code>Floor1 &gt;&gt; Hall &gt;&gt; TV</code></p>
+</div>
+<div class="sect3">
+<h4 id="_add_room">Add room</h4>
+<div class="paragraph">
+<p>To add new room click on the button <span class="image"><img src="../../images/releases/0.0.3.Alpha2/room-add.png" alt="room-add"></span> and update <code>Name</code> of the room and room <code>Description</code>
+If it is nested room, select parent room. You can select <code>Sensor</code> from here as well as from sensors page.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+A sensor can be mapped with only one room!
+</td>
+</tr>
+</table>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../../images/releases/0.0.3.Alpha2/room-add1.png" alt="room add1">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_action_board">Action board</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You can perform set of actions here.</p>
+</div>
+<div class="sect2">
+<h3 id="_sensors_action">Sensors action</h3>
+<div class="imageblock" style="text-align: left">
+<div class="content">
+<img src="../../images/releases/0.0.3.Alpha2/sensors-action-menu.png" alt="sensors action menu">
+</div>
+</div>
+<div class="paragraph">
+<p>All available sensors will be listed here. You can perform any action on any sensor.
+This board can be changed to <code>List view</code> (default) or in <code>Card view</code>.
+You can change view by selecting menu on top right corner of the page.</p>
+</div>
+<div class="sect3">
+<h4 id="_list_view">List view</h4>
+<div class="imageblock" style="text-align: left">
+<div class="content">
+<img src="../../images/releases/0.0.3.Alpha2/sensors-action-list-view.png" alt="sensors action list view">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_card_view">Card view</h4>
+<div class="imageblock" style="text-align: left">
+<div class="content">
+<img src="../../images/releases/0.0.3.Alpha2/sensors-action-card-view.png" alt="sensors action card view">
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_send_raw_message">Send raw message</h3>
+<div class="imageblock" style="text-align: left">
+<div class="content">
+<img src="../../images/releases/0.0.3.Alpha2/send-raw-message-menu.png" alt="send raw message menu">
+</div>
+</div>
+<div class="paragraph">
+<p>You can send any type of message from here to your sensor.
+Goal of this page to send not supported types by MyController and user can
+do some manual test on sensors network</p>
+</div>
+<div class="sect4">
+<h5 id="_example">Example</h5>
+<div class="imageblock" style="text-align: left">
+<div class="content">
+<img src="../../images/releases/0.0.3.Alpha2/send-raw-message.png" alt="send raw message">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_status">Status</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>With status pages to can get status about your sensors and MyController.
+In simple word this is the place to debug the things.</p>
+</div>
+<div class="sect2">
+<h3 id="_about">About</h3>
+<div class="imageblock" style="text-align: left">
+<div class="content">
+<img src="../../images/releases/0.0.3.Alpha2/about-menu.png" alt="about menu">
+</div>
+</div>
+<div class="paragraph">
+<p>About page lists quick details about MyController&#8217;s configurations.</p>
+</div>
+<div class="imageblock" style="text-align: left">
+<div class="content">
+<img src="../../images/releases/0.0.3.Alpha2/about-detail.png" alt="about detail">
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_system_status">System status</h3>
+<div class="imageblock" style="text-align: left">
+<div class="content">
+<img src="../../images/releases/0.0.3.Alpha2/system-status-menu.png" alt="system status menu">
+</div>
+</div>
+<div class="paragraph">
+<p>System status page lists bit more about MyController different configurations like,</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Java virtual machine specification</p>
+</li>
+<li>
+<p>Operating system</p>
+</li>
+<li>
+<p>Script engines</p>
+</li>
+</ul>
+</div>
+<div class="sect3">
+<h4 id="_java_virtual_machine_specification">Java virtual machine specification</h4>
+<div class="paragraph">
+<p>Lists detail about JVM. You can perform <code>Run garbage collection</code> from this page by clicking on <span class="image"><img src="../../images/releases/0.0.3.Alpha2/jvm-run-gc.png" alt="jvm-run-gc"></span></p>
+</div>
+<div class="imageblock" style="text-align: left">
+<div class="content">
+<img src="../../images/releases/0.0.3.Alpha2/system-status-jvm.png" alt="system status jvm">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_operating_system">Operating system</h4>
+<div class="paragraph">
+<p>Gives detail about current operating system.</p>
+</div>
+<div class="imageblock" style="text-align: left">
+<div class="content">
+<img src="../../images/releases/0.0.3.Alpha2/system-status-os.png" alt="system status os">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_script_engines">Script engines</h4>
+<div class="paragraph">
+<p>Gives detail about supported script engines.
+By default following script engines are shipped with MyController,</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Oracle Nashorn</code> - Supports to execute <code>Java scripts</code></p>
+</li>
+<li>
+<p><code>Groovy Scripting Engine</code> - Supports to execute <code>Groovy</code> scripts</p>
+</li>
+<li>
+<p><code>freemarker</code> - It is template engine used across MyController</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>You can add any number of script engines. If it supports for <a href="https://jcp.org/en/jsr/detail?id=223"><code>JSR 223</code></a> specifications.</p>
+</div>
+<div class="imageblock" style="text-align: left">
+<div class="content">
+<img src="../../images/releases/0.0.3.Alpha2/system-status-script-engines.png" alt="system status script engines">
+</div>
+</div>
+<div class="sect4">
+<h5 id="_steps_to_add_new_script_engine">Steps to add new script engine</h5>
+<div class="paragraph">
+<p>Download jar file and place it under <code>mycontroller/lib/</code> and restart MyController services.</p>
+</div>
+<div class="paragraph">
+<p>For example if you want to add <code>Python</code> support on MyController, you need to add <code>Jython</code> library.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Download <code>jython-standalone-*.jar</code> from <a href="http://www.jython.org/downloads.html">Jython</a> website.</p>
+</li>
+<li>
+<p>Place it under <code>mycontroller/lib/</code></p>
+</li>
+<li>
+<p>Stop MyContorller</p>
+</li>
+<li>
+<p>Start MyController</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_resources_logs">Resources logs</h3>
+<div class="imageblock" style="text-align: left">
+<div class="content">
+<img src="../../images/releases/0.0.3.Alpha2/resources-logs-menu.png" alt="resources logs menu">
+</div>
+</div>
+<div class="paragraph">
+<p>In this page you can understand whats going on about your sensors network.
+It a is good place to do debugging about your sensors.</p>
+</div>
+<div class="paragraph">
+<p>By clicking <code>Purge</code> button on this page,
+you can remove all existing logs or selected logs with filter.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_mycontroller_server_log">MyController server log</h3>
+<div class="imageblock">
+<div class="content">
+<img src="../../images/releases/0.0.3.Alpha2/mycontroller-log-menu.png" alt="mycontroller log menu">
+</div>
+</div>
+<div class="paragraph">
+<p>In this page you can watch backend log file <code>mycontroller/log/mycontroller.log</code> from GUI.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_utilities">Utilities</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Under utilities you can store scripts, templates, additional headers, variables repository, UID tags, firmwares, external serves details.</p>
+</div>
+<div class="sect2">
+<h3 id="_scripts">Scripts</h3>
+<div class="imageblock" style="text-align: left">
+<div class="content">
+<img src="../../images/releases/0.0.3.Alpha2/script-menu.png" alt="script menu">
+</div>
+</div>
+<div class="paragraph">
+<p>MyController supports for custom scripts, they can be used to perform any kind of operation
+or in <code>Rule</code>. MyController gives set of API for your needs.
+With this API&#8217;s you can query/set data in MyController.</p>
+</div>
+<div class="paragraph">
+<p>Two types of scripts are available,</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Condition</p>
+</li>
+<li>
+<p>Operation</p>
+</li>
+</ul>
+</div>
+<div class="sect3">
+<h4 id="_condition">Condition</h4>
+<div class="paragraph">
+<p>Condition scripts are used for <code>Rule</code> engine. If you are not satisfied with pre defined rule conditions you can write your own script.
+Your script should return either <code>true</code> or <code>false</code> or inside script set <code>mcResult</code> variable as boolean value.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+In python return <code>true</code> or <code>false</code> will not work. set your result in <code>mcResult</code> variable.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_operation">Operation</h4>
+<div class="paragraph">
+<p>Operation scripts are used for other than <code>Rule</code> engine condition type. Can be used on <code>Operation</code>, <code>Dashboard</code>, etc.,</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_script_examples">Script examples</h4>
+<div class="paragraph">
+<p>Script&#8217;s API: <a href="http://www.mycontroller.org/files/docs/javadoc/apidocs/index.html?org/mycontroller/standalone/scripts/api/McScriptApi.html">javadoc</a>
+API&#8217;s are added in script environment. You can access any supported API&#8217;s with mcApi object.</p>
+</div>
+<div class="sect4">
+<h5 id="_java_script">Java script</h5>
+<div class="paragraph">
+<p>Take an example I want to display last seen of node details in dashboard.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code>var myImports = new JavaImporter(java.io, java.lang, java.util); <i class="conum" data-value="1"></i><b>(1)</b>
+
+with(myImports) { <i class="conum" data-value="2"></i><b>(2)</b>
+  var options = new HashMap(); <i class="conum" data-value="3"></i><b>(3)</b>
+  //Sort by lastSeen.
+  options.put("orderBy", "lastSeen"); <i class="conum" data-value="4"></i><b>(4)</b>
+  //Order by descending
+  options.put("order", "desc"); <i class="conum" data-value="5"></i><b>(5)</b>
+  //Page limit, only 5 result
+  options.put("pageLimit", new Long(5)); <i class="conum" data-value="6"></i><b>(6)</b>
+  //Get nodes data
+  var nodes = mcApi.node().getAll(options); <i class="conum" data-value="7"></i><b>(7)</b>
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Import required packages for our coding. <code>JavaImporter</code> is used to import packages.
+You can import any numbe of packages with comma separated.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Add our imports <code>with</code> loop</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>Create a <code>HashMap</code> to add our query filter values.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td>Adding a filter <code>orderBy</code> as <code>lastSeen</code></td>
+</tr>
+<tr>
+<td><i class="conum" data-value="5"></i><b>5</b></td>
+<td>Adding another filter <code>order</code> as <code>desc</code></td>
+</tr>
+<tr>
+<td><i class="conum" data-value="6"></i><b>6</b></td>
+<td>Adding another filter <code>pageLimit</code> as <code>5</code></td>
+</tr>
+<tr>
+<td><i class="conum" data-value="7"></i><b>7</b></td>
+<td>Store queried results in the variable <code>nodes</code>, can be used in templates(refer templates section)
+<code>mcApi</code> already binded with script engine, you can use it to query/set values from/to MyController.</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_groovy_script">Groovy script</h5>
+<div class="paragraph">
+<p>I want to print serial gateways on MyController log file.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code>import org.mycontroller.standalone.gateway.GatewayUtils.GATEWAY_TYPE <i class="conum" data-value="1"></i><b>(1)</b>
+def filters = [name: 'Serial-gateway',  pageLimit: 10L, type: GATEWAY_TYPE.SERIAL] <i class="conum" data-value="2"></i><b>(2)</b>
+def queryResponse = mcApi.gateway().getAll(filters) <i class="conum" data-value="3"></i><b>(3)</b>
+mcApi.logger().info("Quesry Response:{}", queryResponse) <i class="conum" data-value="4"></i><b>(4)</b></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Import <code>GATEWAY_TYPE</code> enum, will be used to filter</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Create filter list with filter values, Filtering with gateway
+<code>name</code> contains <code>Serial-gateway</code> (case sensitive), <code>type</code> as <code>GATEWAY_TYPE.SERIAL</code>
+ and limiting count on request as 10 <code>10L</code> with the key <code>pageLimit</code></td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>Calling MyController API(`mcApi.gateway().getAll(filters) `) with our filter</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td>Printing result under <code>mycontroller/log/mycontroller.log</code> as <code>INFO</code> log.</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+When log level set at <code>ERROR</code>, <code>INFO</code> logs will not be printed!
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_python_script">Python script</h5>
+<div class="paragraph">
+<p>In this script we are getting gateways detail and printing in log file.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code>from java.util import HashMap <i class="conum" data-value="1"></i><b>(1)</b>
+from java.lang import Long <i class="conum" data-value="2"></i><b>(2)</b>
+options = {'pageLimit': Long(20)} <i class="conum" data-value="3"></i><b>(3)</b>
+gateways = mcApi.gateway().getAll(HashMap(options)) <i class="conum" data-value="4"></i><b>(4)</b>
+mcApi.logger().info("Quesry Response:{}", gateways) <i class="conum" data-value="5"></i><b>(5)</b></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Import <code>HashMap</code> should be used to send filter queries</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Import <code>Long</code> used to send java <code>Long</code> type</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>Create filter with <code>pageLimit</code> of <code>20</code></td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td>Query MyController with <code>McApi</code> and store result in <code>gateways</code></td>
+</tr>
+<tr>
+<td><i class="conum" data-value="5"></i><b>5</b></td>
+<td>Print result in <code>mycontroller/log/mycontroller.log</code> file.</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_add_script">Add script</h4>
+<div class="paragraph">
+<p>To add new script click on <span class="image"><img src="../../images/releases/0.0.3.Alpha2/script-add.png" alt="script-add"></span>
+Enter <code>Name</code> of the script, <code>Extension</code> type, script type(<code>Type</code>) and script content.
+You can select script from files also.</p>
+</div>
+<div class="paragraph">
+<p>Once you have added script you may want to test, is it working as expected. To test script
+Select your script and click on <span class="image"><img src="../../images/releases/0.0.3.Alpha2/script-runnow.png" alt="script-runnow"></span> from actions list.
+You will get a page to feed bindings options as displayed here,</p>
+</div>
+<div class="imageblock" style="text-align: left">
+<div class="content">
+<img src="../../images/releases/0.0.3.Alpha2/script-runnow1.png" alt="script runnow1">
+</div>
+</div>
+<div class="paragraph">
+<p>You can feed <code>script bindings</code> and click on <code>Run</code> Result(<code>json</code> format)
+will be displayed on the same page as follows,</p>
+</div>
+<div class="imageblock" style="text-align: left">
+<div class="content">
+<img src="../../images/releases/0.0.3.Alpha2/script-runnow2.png" alt="script runnow2">
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+script bindings should be in <code>JSON</code> format.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_templates">Templates</h3>
+<div class="imageblock" style="text-align: left">
+<div class="content">
+<img src="../../images/releases/0.0.3.Alpha2/templates-menu.png" alt="templates menu">
+</div>
+</div>
+<div class="paragraph">
+<p>Templates are used to send email and in dashboard for custom widgets.
+MyController uses <a href="http://freemarker.org/">freemarker</a> as template engine.
+Refer the <a href="http://freemarker.org/docs/index.html">docs</a> for the complete format supports.</p>
+</div>
+<div class="sect4">
+<h5 id="_syntax_example">Syntax example</h5>
+<div class="paragraph">
+<p>This template used to display nodes status on dashboard.
+To run this template you have to select example scripts that queries node status.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code>&lt;table class="table table-hover table-bordered table-striped mc-table"&gt;
+  &lt;thead&gt;
+    &lt;th&gt;Status&lt;/th&gt;
+    &lt;th&gt;EUI&lt;/th&gt;
+    &lt;th&gt;Name&lt;/th&gt;
+    &lt;th&gt;Type&lt;/th&gt;
+    &lt;th&gt;Battery level&lt;/th&gt;
+    &lt;th&gt;Last seen&lt;/th&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;#list nodes.data as item&gt; <i class="conum" data-value="1"></i><b>(1)</b>
+      &lt;tr&gt;
+        &lt;td class="text-center"&gt;
+          &lt;#if item.state == "UNAVAILABLE"&gt; <i class="conum" data-value="1"></i><b>(1)</b>
+            &lt;i class="pficon pficon-help text-color-gray fa-lg"&gt;&lt;/i&gt;
+          &lt;#elseif item.state == "DOWN"&gt;
+            &lt;i class="pficon pficon-error-circle-o fa-lg"&gt;&lt;/i&gt;
+          &lt;#elseif item.state == "UP"&gt;
+            &lt;i class="pficon pficon-ok fa-lg"&gt;&lt;/i&gt;
+          &lt;/#if&gt;
+        &lt;/td&gt;
+        &lt;td&gt;${item.eui}&lt;/td&gt;
+        &lt;td&gt;${item.name}&lt;/td&gt;
+        &lt;td&gt;${item.type.text}&lt;/td&gt; <i class="conum" data-value="3"></i><b>(3)</b>
+        &lt;#if item.batteryLevel??&gt;
+          &lt;td&gt;&lt;span&gt;${(item.batteryLevel)!"-"} %&lt;/span&gt;&lt;/td&gt; <i class="conum" data-value="4"></i><b>(4)</b>
+        &lt;#else&gt;
+          &lt;td&gt;&lt;span&gt;-&lt;/span&gt;&lt;/td&gt;
+        &lt;/#if&gt;
+        &lt;td&gt;&lt;span uib-tooltip="{{${(item.lastSeen)!} | date:mchelper.cfg.dateFormat:mchelper.cfg.timezone}}" tooltip-placement="left" am-time-ago="${(item.lastSeen)!'Never'}"&gt;&lt;/span&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/#list&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>for loop in template, from script we will get <code>nodes</code> object and fetching items one by one.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td><code>if</code> condition, checks node state (enum type)</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>we can call methods with <code>.</code>(DOT) notation. <code>${item.type.text}</code> is equalient to <code>item.getType().getText()</code></td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td>Ignore <code>null</code> and assign default value.</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+To allow <code>null</code> you have to add <code>!</code> at the end of statement &gt;&gt; <code>${(item.lastSeen)!}</code>,
+If you want to put default value on <code>null</code> value &gt;&gt; <code>${(item.lastSeen)!"-"}</code>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_add_template">Add template</h5>
+<div class="paragraph">
+<p>To add new template click on <span class="image"><img src="../../images/releases/0.0.3.Alpha2/template-add.png" alt="template-add"></span> and save with template <code>Name</code> and <code>Content</code> as shown in syntax example</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_run_template">Run template</h5>
+<div class="paragraph">
+<p>You may want to test your template immediately. For this go to list templates page and select your template and click on <span class="image"><img src="../../images/releases/0.0.3.Alpha2/script-runnow.png" alt="script-runnow"></span> you will get a popup.
+You have select supported script for this template. If script is not required for this template leave this as blank. And add <code>json</code> buindings if needed.</p>
+</div>
+<div class="imageblock" style="text-align: left">
+<div class="content">
+<img src="../../images/releases/0.0.3.Alpha2/templates-runnow.png" alt="templates runnow">
+</div>
+</div>
+<div class="paragraph">
+<p>When you click <code>Run</code> selected script executed with <code>Script bindings</code> on back-end and
+script out put will be passed to template. Final result will be displayed on the pop-up as shown below.</p>
+</div>
+<div class="imageblock" style="text-align: left">
+<div class="content">
+<img src="../../images/releases/0.0.3.Alpha2/templates-runnow1.png" alt="templates runnow1">
+</div>
+</div>
+<div class="paragraph">
+<p>if you do not select any script, <code>Script bindings</code> directly passed to template engine.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_html_additional_headers">HTML additional headers</h3>
+<div class="imageblock" style="text-align: left">
+<div class="content">
+<img src="../../images/releases/0.0.3.Alpha2/html-additional-headers-menu.png" alt="html additional headers menu">
+</div>
+</div>
+<div class="paragraph">
+<p>When there is situation like you have different widgets available on different sites and you want to use
+there own <code>js</code> or <code>css</code> along with MyController, here is the place to add those scripts and style sheets.
+You can also add your own custom <code>angular JS controllers</code></p>
+</div>
+<div class="imageblock" style="text-align: left">
+<div class="content">
+<img src="../../images/releases/0.0.3.Alpha2/html-additional-headers1.png" alt="html additional headers1">
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+When you do changes in <code>HTML additional header</code>, once you saved the changes,
+to reflect changes on your current browser session do browser refresh <code>F5</code>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_variables_repository">Variables repository</h3>
+<div class="imageblock" style="text-align: left">
+<div class="content">
+<img src="../../images/releases/0.0.3.Alpha2/variables-repository-menu.png" alt="variables repository menu">
+</div>
+</div>
+<div class="paragraph">
+<p>With the support of variables repository you can keep some configurations here and use
+it across in scripts and templates.</p>
+</div>
+<div class="paragraph">
+<p>Each reference has 4 fields, <code>key</code>, <code>value</code>, <code>value2</code> and <code>value3</code>.</p>
+</div>
+<div class="sect4">
+<h5 id="_add_a_variable">Add a variable</h5>
+<div class="paragraph">
+<p>To add a variable click on <span class="image"><img src="../../images/releases/0.0.3.Alpha2/variables-repository-add1.png" alt="variables-repository-add1"></span> buttons and</p>
+</div>
+<div class="imageblock" style="text-align: left">
+<div class="content">
+<img src="../../images/releases/0.0.3.Alpha2/variables-repository-add.png" alt="variables repository add">
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_example_javascript">Example(JavaScript):</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code>var variable = mcApi.variable().get("myKey"); <i class="conum" data-value="1"></i><b>(1)</b>
+variable.getKey() <i class="conum" data-value="2"></i><b>(2)</b>
+variable.getValue() <i class="conum" data-value="3"></i><b>(3)</b>
+variable.getValue2() <i class="conum" data-value="4"></i><b>(4)</b>
+variable.getValue3() <i class="conum" data-value="5"></i><b>(5)</b></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Get variable called <code>myKey</code></td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Get the <code>key</code> for this variable, must be <code>myKey</code></td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>Get <code>value</code></td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td>Get <code>value2</code></td>
+</tr>
+<tr>
+<td><i class="conum" data-value="5"></i><b>5</b></td>
+<td>Get <code>value3</code></td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+There is no field called <code>value1</code>. Do not try to call <code>value1</code>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_uid_tags">UID Tags</h3>
+<div class="imageblock" style="text-align: left">
+<div class="content">
+<img src="../../images/releases/0.0.3.Alpha2/uid-tags-menu.png" alt="uid tags menu">
+</div>
+</div>
+<div class="paragraph">
+<p>By script calling sensors variables you need lot of info like <code>gateway</code> details, <code>node</code> details etc.,
+To bypass this we can <code>tag</code> a sensor variable with <code>String</code> <code>UID</code> and called from your script with this <code>UID</code></p>
+</div>
+<div class="sect3">
+<h4 id="_add_new_entry_2">Add new entry</h4>
+<div class="paragraph">
+<p>To add new entry click on <span class="image"><img src="../../images/releases/0.0.3.Alpha2/uid-tags-add-an-entry.png" alt="uid-tags-add-an-entry"></span> and follow,</p>
+</div>
+<div class="imageblock" style="text-align: left">
+<div class="content">
+<img src="../../images/releases/0.0.3.Alpha2/uid-tags-add.png" alt="uid tags add">
+</div>
+</div>
+<div class="sect4">
+<h5 id="_in_script_java_script">In script (Java script)</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code>var sensorVariable = mcApi.uidTag().getByUid("temperature-out"); <i class="conum" data-value="1"></i><b>(1)</b>
+mcApi.logger().info("Sensor variable Details: {}", sensorVariable); <i class="conum" data-value="2"></i><b>(2)</b></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Get <code>Sensor variable</code> object with UID <code>temperature-out</code></td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Print received object on logger file (<code>mycontroller/log/mycontroller.log</code>)</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_firmware">Firmware</h3>
+<div class="paragraph">
+<p>You can control node firmware with the help of MYSBootloader or DualOptiboot-bootloader.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Your node should be running with the bootloader either <code>MYSBootloader</code> or <code>DualOptiboot-bootloader</code>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>What you can do?</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Upload new firmware</p>
+</li>
+<li>
+<p>Change existing firmware to new latest</p>
+</li>
+<li>
+<p>Maintain nodes firmware up to date</p>
+</li>
+</ul>
+</div>
+<div class="imageblock" style="text-align: left">
+<div class="content">
+<img src="../../images/releases/0.0.3.Alpha2/firmwares-menu.png" alt="firmwares menu">
+</div>
+</div>
+<div class="paragraph">
+<p>Each <code>firmware</code> is maintainable with <code>Type</code> and <code>Version</code>.
+You can keep <code>N</code> number of version on each type.</p>
+</div>
+<div class="sect3">
+<h4 id="_add_firmware_type">Add Firmware Type</h4>
+<div class="imageblock" style="text-align: left">
+<div class="content">
+<img src="../../images/releases/0.0.3.Alpha2/firmwares-type.png" alt="firmwares type">
+</div>
+</div>
+<div class="paragraph">
+<p>Click on <code>Type</code> you will get firmware type page.
+Clicking <code>Add firmware type</code> you can add new firmware type.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<code>Id</code> for the firmware type will be generated automatically.
+If you leave 'Type Id' as blank.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_add_firmware_version">Add Firmware Version</h4>
+<div class="imageblock" style="text-align: left">
+<div class="content">
+<img src="../../images/releases/0.0.3.Alpha2/firmwares-version.png" alt="firmwares version">
+</div>
+</div>
+<div class="paragraph">
+<p>Click on <code>Version</code> you will get firmware version page.
+Clicking on <code>Add firmware version</code> you can add new firmware version.
+While adding firmware version you can leave 'Version Id' as blank. Id will generated automatically.
+If you have any requirement for specified id add it.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<code>Id</code> for the firmware version will be generated automatically.
+If you leave 'Version Id' as blank.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_add_firmware">Add Firmware</h4>
+<div class="paragraph">
+<p>When you click <code>Firmwares</code> on top menu, you will landed on firmwares page.
+If you are in firmwares <code>Type</code> or <code>Version</code> page you will reach by clicking on <span class="image"><img src="../../images/releases/0.0.3.Alpha2/firmwares.png" alt="firmwares"></span>
+Clicking <code>Add firmware</code> you can add new firmware.
+Select Firmware type and version from the pop-up and select .hex from your local computer.
+Finally click Add. Your firmware is ready for actions.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_external_servers">External servers</h3>
+<div class="imageblock" style="text-align: left">
+<div class="content">
+<img src="../../images/releases/0.0.3.Alpha2/external-servers.png" alt="external servers">
+</div>
+</div>
+<div class="paragraph">
+<p>When there is need to keep all your sensors metrics on external servers. You have to put an entry here.</p>
+</div>
+<div class="sect3">
+<h4 id="_supported_external_servers">Supported external servers</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Emoncms.org</p>
+</li>
+<li>
+<p>Influxdb</p>
+</li>
+<li>
+<p>Sparkfun [phant.io]</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>You can add any of the supported server on this page and map your resources with your server.
+MyController will take care rest of things.</p>
+</div>
+<div class="paragraph">
+<p>To add external servers click on <code>Add external server</code></p>
+</div>
+<div class="paragraph">
+<p>Common fields across servers,</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Name</code> - Name it your server</p>
+</li>
+<li>
+<p><code>Type</code> - select your server type</p>
+</li>
+<li>
+<p><code>URL</code> - Your server url</p>
+</li>
+<li>
+<p><code>Trust host</code> - select trust host type</p>
+</li>
+<li>
+<p><code>Key format</code> - How your resource <code>key</code> should be formed,
+Supported variables <code>$nodeName</code>, <code>$nodeEui</code>, <code>$sensorName</code>, <code>$sensorId</code> and <code>$variableType</code></p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+When your external server configured with <code>SSL</code> certificate,
+connection will fail. To bypass <code>SSL</code> certificate use <code>Any</code> as <code>Trust host</code>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_emoncms_org_server">Emoncms.org server</h4>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Write API key</code> - get this key from Emoncms.org server account page.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock" style="text-align: left">
+<div class="content">
+<img src="../../images/releases/0.0.3.Alpha2/external-servers-emoncms.png" alt="external servers emoncms">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_influcxdb_server">Influcxdb server</h4>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Username</code> - username of influxdb</p>
+</li>
+<li>
+<p><code>Password</code> - Password of influxdb</p>
+</li>
+<li>
+<p><code>Database</code> - Database name of influxdb</p>
+</li>
+<li>
+<p><code>Tags</code> - You can assign any number of tags with comma separated.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+You can leave <code>username</code> and <code>password</code> fields as blank if you do not have
+</td>
+</tr>
+</table>
+</div>
+<div class="imageblock" style="text-align: left">
+<div class="content">
+<img src="../../images/releases/0.0.3.Alpha2/external-servers-influxdb.png" alt="external servers influxdb">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_sparkfun_server">Sparkfun server</h4>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Public key</code> - Public key of your Sparkfun account</p>
+</li>
+<li>
+<p><code>Private key</code> - Private key of your Sparkfun account</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+You have to create Sparkfun account with only one field.
+If you have more than one field sending will failed. Because MyController sends only one sensor variable data with timestamp.
+Kindly note <code>key</code> is case sensitive in Sparkfun.
+</td>
+</tr>
+</table>
+</div>
+<div class="imageblock" style="text-align: left">
+<div class="content">
+<img src="../../images/releases/0.0.3.Alpha2/external-servers-sparkfun.png" alt="external servers sparkfun">
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_resources_data">Resources data</h3>
+<div class="imageblock" style="text-align: left">
+<div class="content">
+<img src="../../images/releases/0.0.3.Alpha2/resources-data-menu.png" alt="resources data menu">
+</div>
+</div>
+<div class="paragraph">
+<p>Once you have created <code>External servers</code>, now it&#8217;s time to configure what are
+resources data to be sent to external server and to who are all.
+For all these you have to configure <code>Resources data</code></p>
+</div>
+<div class="paragraph">
+<p>Supports for 4 types of resources,</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Gateway</code> - Sends all the <code>Sensor variable&#8217;s data under this `Gateway</code> to external server(s)</p>
+</li>
+<li>
+<p><code>Node</code> - Sends all the <code>Sensor variable&#8217;s data under this `Node</code> to external server(s)</p>
+</li>
+<li>
+<p><code>Sensor</code> - Sends all the <code>Sensor variable&#8217;s data under this `Sensor</code> to external server(s)</p>
+</li>
+<li>
+<p><code>Sensor variable</code> - Sends only this data to external server(s)</p>
+</li>
+</ul>
+</div>
+<div class="sect3">
+<h4 id="_add_resources_data">Add resources data</h4>
+<div class="paragraph">
+<p>To add new entry click on <code>Add Resource</code> and follow as shown bellow,</p>
+</div>
+<div class="imageblock" style="text-align: left">
+<div class="content">
+<img src="../../images/releases/0.0.3.Alpha2/resources-data-add.png" alt="resources data add">
+</div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+You can disable sending data at any time. We can do disable in two locations.
+If you do not want to send data to particular server, do disable on <code>External servers</code> page.
+If you do not want to send particular resource data, do disable on <code>Resources data</code> page
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_settings">Settings</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This is the location where you can control various global settings.</p>
+</div>
+<div class="sect2">
+<h3 id="_profile">Profile</h3>
+<div class="paragraph">
+<p>You can change your logged in user <code>Full name</code>, <code>Email</code>, <code>Password</code> here.</p>
+</div>
+<div class="imageblock" style="text-align: left">
+<div class="content">
+<img src="../../images/releases/0.0.3.Alpha2/settings-profile.png" alt="settings profile">
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_system">System</h3>
+<div class="paragraph">
+<p>Under system, you can see location settings and MyController settngs</p>
+</div>
+<div class="sect3">
+<h4 id="_location">Location</h4>
+<div class="paragraph">
+<p>You can see <code>Sunrise</code> and <code>Sunset</code> on <code>Rule</code>. Time will be calculated based on this location settings.
+By clicking <code>Update</code> current location will be taken from your browser and will be updated.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+You need internet connection to get current location from browser.
+however to calculate <code>sunrise</code> and <code>sunset</code> time, internet is not required.
+</td>
+</tr>
+</table>
+</div>
+<div class="imageblock" style="text-align: left">
+<div class="content">
+<img src="../../images/releases/0.0.3.Alpha2/system-location.png" alt="system location">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_mycontroller">MyController</h4>
+<div class="paragraph">
+<p>Here you can set meny settings, which used globally.</p>
+</div>
+<div class="imageblock" style="text-align: left">
+<div class="content">
+<img src="../../images/releases/0.0.3.Alpha2/system-mycontroller.png" alt="system mycontroller">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Nodes alive check interval</code> - Every 30 minutes (default) once nodes alive status will be calculated.
+MyController will send <code>Ping</code> to all the nodes. If there is not data for last 30 minutes,
+node will be marked as down. You can change this interval.</p>
+</li>
+<li>
+<p><code>Execute discover interval</code> - Every 30 minutes once this util will be executed.
+By executing this util real time topology page will be updated.</p>
+</li>
+<li>
+<p><code>Units configuration</code> - You have to define here that you want to use <code>Metric</code> or <code>Imperial</code></p>
+</li>
+<li>
+<p><code>Register nodes automatically</code> - When you disable this button, when new nodes added automatically,
+<code>Registration status</code> will be kept as <code>New</code>, data will not be logged from this node until the
+ registration status changed to <code>Registered</code>.</p>
+</li>
+<li>
+<p><code>Resource logs level</code> - You can define here, what time of sensors logs should be captured.</p>
+</li>
+<li>
+<p><code>Maximum dashboards allowed</code> - You can change this settings when you required more than 5 dashboards.</p>
+</li>
+<li>
+<p><code>Table rows limit</code> - This settings used across all the tables on MyController</p>
+</li>
+<li>
+<p><code>Global page refresh time</code> - Where and all auto page refresh is happening, this interval will be used.</p>
+</li>
+<li>
+<p><code>Language</code> - MyController supports many locale. You can set parmenantely your language here.</p>
+</li>
+<li>
+<p><code>Time format</code> - You can set MyController should you 12 hours format or 24 hours format</p>
+</li>
+<li>
+<p><code>Grant access to chield resources</code> - When you create role, if you assign a <code>Gateway</code>
+do you want to control only the <code>Gateway</code> or all the resources on the <code>Gateway</code>.
+This is applicable for nodes too.</p>
+</li>
+<li>
+<p><code>Widget image file disk location</code> - There is widget on dashboard <code>display static image</code>.
+Local images are taken from this location. Due to JVM memory issue. There is a restriction on image size. allowed size only up to 7 MB.</p>
+</li>
+<li>
+<p><code>Login message</code> - You can sent your own login message. This message will be displayed on login page.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Don&#8217;t you see you language? Or not fully changed to your locale? Please contribute on <a href="https://www.transifex.com/mycontrollerorg/multi-locale/">Locale project</a>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<code>Resource logs level</code> is different than MyController logs. To change MyController log level change it on <code>mycontroller/conf/logback.xml</code>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_notifications">Notifications</h3>
+<div class="paragraph">
+<p>In this page you can set <code>Email</code>, <code>SMS</code> and <code>Pushbullet</code> access settings.</p>
+</div>
+<div class="sect3">
+<h4 id="_email">Email</h4>
+<div class="imageblock" style="text-align: left">
+<div class="content">
+<img src="../../images/releases/0.0.3.Alpha2/notifications-email.png" alt="notifications email">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>SMTP host</code> - Enter SMTP host of your emails service provider</p>
+</li>
+<li>
+<p><code>SMTP port</code> - port number of email server</p>
+</li>
+<li>
+<p><code>From address</code> - When sending email from MyController this address will be added as from address</p>
+</li>
+<li>
+<p><code>Enable SSL</code> - If your email server supports for SSL, you should enable this option
+and select use only <code>SSL</code> or <code>STARTTLS</code></p>
+</li>
+<li>
+<p><code>SMTP username</code> - username for your email server</p>
+</li>
+<li>
+<p><code>SMTP password</code> - password for your email server</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Before adding email server settings detail. You can test settings by
+clicking on <code>Test connection</code>. This action will send an email to your <code>From address</code>.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_pushbullet">Pushbullet</h4>
+<div class="imageblock" style="text-align: left">
+<div class="content">
+<img src="../../images/releases/0.0.3.Alpha2/notifications-pushbullet.png" alt="notifications pushbullet">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Access token</code> - add access token from your Pushbullet account and click on save.
+Other settings will be added automatically.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_sms">SMS</h4>
+<div class="imageblock" style="text-align: left">
+<div class="content">
+<img src="../../images/releases/0.0.3.Alpha2/notifications-sms.png" alt="notifications sms">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Vendor</code> - Currently supports for <code>Plivo</code> and <code>Twilio</code>. You can choose either for SMS service.</p>
+</li>
+<li>
+<p><code>Auth id/sid</code> - Get from your vendor account details</p>
+</li>
+<li>
+<p><code>Auth token</code> - Get from your vensor account details</p>
+</li>
+<li>
+<p><code>From phton number</code> - number displayed as from phone number.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_mqtt_broker">MQTT broker</h3>
+<div class="imageblock" style="text-align: left">
+<div class="content">
+<img src="../../images/releases/0.0.3.Alpha2/mqtt-broker.png" alt="mqtt broker">
+</div>
+</div>
+<div class="paragraph">
+<p>MQTT broker settings can be changed here. You can do enable or disable MQTT broker without restarting MyController server.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Status</code> - Current status of MQTT broker. You can do enable or disable</p>
+</li>
+<li>
+<p><code>Allow anonymous</code> - Allow users without authentication(no user name and password)</p>
+</li>
+<li>
+<p><code>Bind address</code> - Broker service should be binded with the IP address. <code>0.0.0.0</code> meant bind will all interfaces</p>
+</li>
+<li>
+<p><code>HTTP port</code> - MQTT broker HTTP/TCP port</p>
+</li>
+<li>
+<p><code>Websocket port</code> - websocket port of MQTT broker</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_metrics">Metrics</h3>
+<div class="paragraph">
+<p>Under metrics settings you can change graph settings and data retention settings</p>
+</div>
+<div class="sect3">
+<h4 id="_graphs_settings">Graphs settings</h4>
+<div class="paragraph">
+<p>You can change global graph settings here.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Enable Min/Max</code> - Enable or disable Minimum and Maximum graph settings. If you disable this. shows only Average.</p>
+</li>
+<li>
+<p><code>Default time range</code> - default time range in all graphs</p>
+</li>
+<li>
+<p><code>Battery</code> - battery graph settings</p>
+</li>
+<li>
+<p>Sensor variables - set sensor variables graph settings for each type.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock" style="text-align: left">
+<div class="content">
+<img src="../../images/releases/0.0.3.Alpha2/metrics-graphs.png" alt="metrics graphs">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_data_retention_settings">Data retention settings</h4>
+<div class="paragraph">
+<p>This settings tell how long you want to keep data in MyController.</p>
+</div>
+<div class="imageblock" style="text-align: left">
+<div class="content">
+<img src="../../images/releases/0.0.3.Alpha2/metrics-data-retention.png" alt="metrics data retention">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Raw data</code> - how long do you want to keep raw data</p>
+</li>
+<li>
+<p><code>One minute data</code> - Every one minute <code>Raw data</code> will be calculated</p>
+</li>
+<li>
+<p><code>Five minutes data</code> - Five minutes data will be calculated from <code>One minute data</code></p>
+</li>
+<li>
+<p><code>One hour data</code> - One hour data will be calculated from <code>Five minutes data</code></p>
+</li>
+<li>
+<p><code>Six hours data</code> - calculated from <code>One hour data</code></p>
+</li>
+<li>
+<p><code>Twelve hours data</code> - calculated from <code>Six hours data</code></p>
+</li>
+<li>
+<p><code>One day day</code> - calculated from <code>Twelve hours data</code></p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+Before do changes in <code>Data retention settings</code>, do a MyController backup.
+ If anything you set wrongly can lead data loss. You can avoid this by taking backup.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_mysensors_2">MySensors</h3>
+<div class="paragraph">
+<p>On this page you can set default firmware.</p>
+</div>
+<div class="imageblock" style="text-align: left">
+<div class="content">
+<img src="../../images/releases/0.0.3.Alpha2/mysensors.png" alt="mysensors">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Default firmware</code> - select a default firmware, When there is request from MySensors network for firmware. this default firmware will be sent</p>
+</li>
+<li>
+<p><code>Enable default on no firmware</code> - When there is request for specified firmware
+and that firmware is not available in system send default firmware when this option is enabled.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_variable_mapper">Variable mapper</h3>
+<div class="paragraph">
+<p>You can map `Sensor variable&#8217;s for each sensor types. This can be changed based on your requirement.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_users">Users</h3>
+<div class="paragraph">
+<p>You can add/edit/remove users.</p>
+</div>
+<div class="sect3">
+<h4 id="_add_user">Add user</h4>
+<div class="paragraph">
+<p>To add new user click on <code>Add user</code>.</p>
+</div>
+<div class="paragraph">
+<p>You can assign roles from here or on roles page.</p>
+</div>
+<div class="imageblock" style="text-align: left">
+<div class="content">
+<img src="../../images/releases/0.0.3.Alpha2/user-add.png" alt="user add">
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_roles">Roles</h3>
+<div class="paragraph">
+<p>3 types of roles supported by MyController.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Super admin</p>
+</li>
+<li>
+<p>User</p>
+</li>
+<li>
+<p>MQTT user</p>
+</li>
+</ul>
+</div>
+<div class="sect3">
+<h4 id="_super_admin">Super admin</h4>
+<div class="paragraph">
+<p>Super admin user can do anything on the controller. Only one super admin role
+created by controller on installation and you cannot create any new role with <code>Super admin</code> power.</p>
+</div>
+<div class="imageblock" style="text-align: left">
+<div class="content">
+<img src="../../images/releases/0.0.3.Alpha2/role-super-admin.png" alt="role super admin">
+</div>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+Do not delete <code>Super admin</code> role. If you delete <code>Super admin</code> role, you cannot login.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_user">User</h4>
+<div class="paragraph">
+<p>You can add any number of user role(s) with different access. You can assign resources
+for access when user logged in with this role.</p>
+</div>
+<div class="imageblock" style="text-align: left">
+<div class="content">
+<img src="../../images/releases/0.0.3.Alpha2/role-user.png" alt="role user">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_mqtt_user">MQTT user</h4>
+<div class="paragraph">
+<p>You can add any user for <code>MQTT</code> authentication. Also you can restrict topics to <code>subscribe</code> and <code>publish</code>.</p>
+</div>
+<div class="imageblock" style="text-align: left">
+<div class="content">
+<img src="../../images/releases/0.0.3.Alpha2/role-mqtt-user.png" alt="role mqtt user">
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_backup">Backup</h3>
+<div class="paragraph">
+<p>You can do backup and restore from here. By clicking <code>Run backup</code>,
+backup will be triggered and stored on <code>backup file location</code>. can be changed on backup settings.
+Manual backup always starts with <code>on-demand_*</code></p>
+</div>
+<div class="sect3">
+<h4 id="_automatic_backup">Automatic backup</h4>
+<div class="paragraph">
+<p>You can set automatic backup on clicking <code>Settings</code> on backup page.</p>
+</div>
+<div class="imageblock" style="text-align: left">
+<div class="content">
+<img src="../../images/releases/0.0.3.Alpha2/backup-settings.png" alt="backup settings">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Backup location</code> - location where do you want to keep backup files.</p>
+</li>
+<li>
+<p><code>Status</code> - do <code>ON</code> or <code>OFF</code> automatic backup</p>
+</li>
+<li>
+<p><code>Backup file prefix</code> - on automatic backup this prefix will be added on file name.</p>
+</li>
+<li>
+<p><code>Backup every</code> - do backup every <code>Minutes</code>, <code>Hours</code> or <code>Days</code></p>
+</li>
+<li>
+<p><code>Retain maximum #</code> - Retain maximum number automatic backups. For example if you set 2, only recent 2 automatic backups only kept.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<code>Retain maximum #</code> settings not applicable for manual backup files.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_restore">Restore</h4>
+<div class="paragraph">
+<p>To do restore a backup file, select a backup file and click on <code>Restore</code> on actions menu. Restore should be triggered immediately.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<strong>After a successful restore you have to start the server manually from back-end.</strong>
+You have to check restore status on <code>mycontroller/log/mycontroller.log</code>.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_source_code">Source Code</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>MyController.org is an Open Source project. You can contribute/download
+source code from <a href="https://github.com/mycontroller-org/mycontroller">Github</a> repository</p>
+</div>
+<div class="sect2">
+<h3 id="_issue_management">Issue management</h3>
+<div class="paragraph">
+<p>Are you facing issue? Wan to file new feature request? Want to give ideas?
+You are welcome to <a href="https://github.com/mycontroller-org/mycontroller/issues">Github Issues page</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_license">License</h3>
+<div class="paragraph">
+<p><a href="http://www.apache.org/licenses/LICENSE-2.0">Apache License version 2.0</a></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code>                    Apache License
+             Version 2.0, January 2004
+           http://www.apache.org/licenses/
+
+  TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
+
+  1. Definitions.
+
+     "License" shall mean the terms and conditions for use, reproduction,
+     and distribution as defined by Sections 1 through 9 of this document.
+
+     "Licensor" shall mean the copyright owner or entity authorized by
+     the copyright owner that is granting the License.
+
+     "Legal Entity" shall mean the union of the acting entity and all
+     other entities that control, are controlled by, or are under common
+     control with that entity. For the purposes of this definition,
+     "control" means (i) the power, direct or indirect, to cause the
+     direction or management of such entity, whether by contract or
+     otherwise, or (ii) ownership of fifty percent (50%) or more of the
+     outstanding shares, or (iii) beneficial ownership of such entity.
+
+     "You" (or "Your") shall mean an individual or Legal Entity
+     exercising permissions granted by this License.
+
+     "Source" form shall mean the preferred form for making modifications,
+     including but not limited to software source code, documentation
+     source, and configuration files.
+
+     "Object" form shall mean any form resulting from mechanical
+     transformation or translation of a Source form, including but
+     not limited to compiled object code, generated documentation,
+     and conversions to other media types.
+
+     "Work" shall mean the work of authorship, whether in Source or
+     Object form, made available under the License, as indicated by a
+     copyright notice that is included in or attached to the work
+     (an example is provided in the Appendix below).
+
+     "Derivative Works" shall mean any work, whether in Source or Object
+     form, that is based on (or derived from) the Work and for which the
+     editorial revisions, annotations, elaborations, or other modifications
+     represent, as a whole, an original work of authorship. For the purposes
+     of this License, Derivative Works shall not include works that remain
+     separable from, or merely link (or bind by name) to the interfaces of,
+     the Work and Derivative Works thereof.
+
+     "Contribution" shall mean any work of authorship, including
+     the original version of the Work and any modifications or additions
+     to that Work or Derivative Works thereof, that is intentionally
+     submitted to Licensor for inclusion in the Work by the copyright owner
+     or by an individual or Legal Entity authorized to submit on behalf of
+     the copyright owner. For the purposes of this definition, "submitted"
+     means any form of electronic, verbal, or written communication sent
+     to the Licensor or its representatives, including but not limited to
+     communication on electronic mailing lists, source code control systems,
+     and issue tracking systems that are managed by, or on behalf of, the
+     Licensor for the purpose of discussing and improving the Work, but
+     excluding communication that is conspicuously marked or otherwise
+     designated in writing by the copyright owner as "Not a Contribution."
+
+     "Contributor" shall mean Licensor and any individual or Legal Entity
+     on behalf of whom a Contribution has been received by Licensor and
+     subsequently incorporated within the Work.
+
+  2. Grant of Copyright License. Subject to the terms and conditions of
+     this License, each Contributor hereby grants to You a perpetual,
+     worldwide, non-exclusive, no-charge, royalty-free, irrevocable
+     copyright license to reproduce, prepare Derivative Works of,
+     publicly display, publicly perform, sublicense, and distribute the
+     Work and such Derivative Works in Source or Object form.
+
+  3. Grant of Patent License. Subject to the terms and conditions of
+     this License, each Contributor hereby grants to You a perpetual,
+     worldwide, non-exclusive, no-charge, royalty-free, irrevocable
+     (except as stated in this section) patent license to make, have made,
+     use, offer to sell, sell, import, and otherwise transfer the Work,
+     where such license applies only to those patent claims licensable
+     by such Contributor that are necessarily infringed by their
+     Contribution(s) alone or by combination of their Contribution(s)
+     with the Work to which such Contribution(s) was submitted. If You
+     institute patent litigation against any entity (including a
+     cross-claim or counterclaim in a lawsuit) alleging that the Work
+     or a Contribution incorporated within the Work constitutes direct
+     or contributory patent infringement, then any patent licenses
+     granted to You under this License for that Work shall terminate
+     as of the date such litigation is filed.
+
+  4. Redistribution. You may reproduce and distribute copies of the
+     Work or Derivative Works thereof in any medium, with or without
+     modifications, and in Source or Object form, provided that You
+     meet the following conditions:
+
+     (a) You must give any other recipients of the Work or
+         Derivative Works a copy of this License; and
+
+     (b) You must cause any modified files to carry prominent notices
+         stating that You changed the files; and
+
+     (c) You must retain, in the Source form of any Derivative Works
+         that You distribute, all copyright, patent, trademark, and
+         attribution notices from the Source form of the Work,
+         excluding those notices that do not pertain to any part of
+         the Derivative Works; and
+
+     (d) If the Work includes a "NOTICE" text file as part of its
+         distribution, then any Derivative Works that You distribute must
+         include a readable copy of the attribution notices contained
+         within such NOTICE file, excluding those notices that do not
+         pertain to any part of the Derivative Works, in at least one
+         of the following places: within a NOTICE text file distributed
+         as part of the Derivative Works; within the Source form or
+         documentation, if provided along with the Derivative Works; or,
+         within a display generated by the Derivative Works, if and
+         wherever such third-party notices normally appear. The contents
+         of the NOTICE file are for informational purposes only and
+         do not modify the License. You may add Your own attribution
+         notices within Derivative Works that You distribute, alongside
+         or as an addendum to the NOTICE text from the Work, provided
+         that such additional attribution notices cannot be construed
+         as modifying the License.
+
+     You may add Your own copyright statement to Your modifications and
+     may provide additional or different license terms and conditions
+     for use, reproduction, or distribution of Your modifications, or
+     for any such Derivative Works as a whole, provided Your use,
+     reproduction, and distribution of the Work otherwise complies with
+     the conditions stated in this License.
+
+  5. Submission of Contributions. Unless You explicitly state otherwise,
+     any Contribution intentionally submitted for inclusion in the Work
+     by You to the Licensor shall be under the terms and conditions of
+     this License, without any additional terms or conditions.
+     Notwithstanding the above, nothing herein shall supersede or modify
+     the terms of any separate license agreement you may have executed
+     with Licensor regarding such Contributions.
+
+  6. Trademarks. This License does not grant permission to use the trade
+     names, trademarks, service marks, or product names of the Licensor,
+     except as required for reasonable and customary use in describing the
+     origin of the Work and reproducing the content of the NOTICE file.
+
+  7. Disclaimer of Warranty. Unless required by applicable law or
+     agreed to in writing, Licensor provides the Work (and each
+     Contributor provides its Contributions) on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+     implied, including, without limitation, any warranties or conditions
+     of TITLE, NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A
+     PARTICULAR PURPOSE. You are solely responsible for determining the
+     appropriateness of using or redistributing the Work and assume any
+     risks associated with Your exercise of permissions under this License.
+
+  8. Limitation of Liability. In no event and under no legal theory,
+     whether in tort (including negligence), contract, or otherwise,
+     unless required by applicable law (such as deliberate and grossly
+     negligent acts) or agreed to in writing, shall any Contributor be
+     liable to You for damages, including any direct, indirect, special,
+     incidental, or consequential damages of any character arising as a
+     result of this License or out of the use or inability to use the
+     Work (including but not limited to damages for loss of goodwill,
+     work stoppage, computer failure or malfunction, or any and all
+     other commercial damages or losses), even if such Contributor
+     has been advised of the possibility of such damages.
+
+  9. Accepting Warranty or Additional Liability. While redistributing
+     the Work or Derivative Works thereof, You may choose to offer,
+     and charge a fee for, acceptance of support, warranty, indemnity,
+     or other liability obligations and/or rights consistent with this
+     License. However, in accepting such obligations, You may act only
+     on Your own behalf and on Your sole responsibility, not on behalf
+     of any other Contributor, and only if You agree to indemnify,
+     defend, and hold each Contributor harmless for any liability
+     incurred by, or claims asserted against, such Contributor by reason
+     of your accepting any such warranty or additional liability.
+
+  END OF TERMS AND CONDITIONS
+
+  APPENDIX: How to apply the Apache License to your work.
+
+     To apply the Apache License to your work, attach the following
+     boilerplate notice, with the fields enclosed by brackets "{}"
+     replaced with your own identifying information. (Don't include
+     the brackets!)  The text should be enclosed in the appropriate
+     comment syntax for the file format. We also recommend that a
+     file or class name and description of purpose be included on the
+     same "printed page" as the copyright notice for easier
+     identification within third-party archives.
+
+  Copyright {yyyy} {name of copyright owner}
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><em>Copyright ©2015-2016, All Rights Reserved, <a href="http://www.mycontroller.org" class="bare">http://www.mycontroller.org</a></em></p>
+</div>
+</div>
+</div>
+</div></p>
+
+	<hr />
+
