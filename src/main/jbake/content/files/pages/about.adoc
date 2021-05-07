@@ -8,6 +8,11 @@
         <h3><img src="images/logo-mycontroller.org_full.png" height="65" width="344"></h3>
       </div>
 
+      <div style="font-size:18px;">
+        MyController 2.0 is in development phase. This webpage will be replaced with MyController 2.0 page as soon it is available.
+        <br><a href="https://v2.mycontroller.org">Participate in the early access of MyController 2.0 program.</a> Thanks!
+      </div>
+
      <div class="jumbotron">
        <h1>Welcome to MyController.org <i class="fa fa-smile-o" style="vertical-align: middle;"></i>
        <br><b>Let's Have Fun!</b></h1>
