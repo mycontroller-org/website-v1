@@ -8,9 +8,13 @@
         <h3><img src="images/logo-mycontroller.org_full.png" height="65" width="344"></h3>
       </div>
 
-      <div style="font-size:18px;">
-        MyController 2.0 is in development phase. This webpage will be replaced with MyController 2.0 page as soon it is available.
-        <br><a href="https://v2.mycontroller.org">Participate in the early access of MyController 2.0 program.</a> Thanks!
+      <div class="alert" role="alert" style="background-color: #beedf9; font-size: 21px;font-weight: bold;">
+        <span style="color: #a30000;">IMPORTANT NOTICE!</span>
+        <span style="font-weight: normal;">
+          <br>MyController 2.0 is in development phase.
+          <br>This webpage will be replaced with MyController 2.0 on it's first release.
+        </span>
+        <br><a href="https://v2.mycontroller.org">To participate in the early access of MyController 2.0 program</a>
       </div>
 
      <div class="jumbotron">
@@ -20,10 +24,9 @@
           MyController.org is an IoT automation controller for home, office or any place. Primarly this project was started to support  <a href="http://www.mysensors.org/">MySensors</a>. Later it was expanded to support other networks also. MyController.org was designed to run with limited resources. For instance, it can run on the first generation Raspberry Pi.
        </p>
        <div style="height:7px">
-         <iframe class="pull-left" src="https://ghbtns.com/github-btn.html?user=mycontroller-org&repo=mycontroller&type=star&count=true&size=large" frameborder="0" scrolling="0" width="160px" height="30px"></iframe>
-         <iframe class="pull-left" src="https://ghbtns.com/github-btn.html?user=mycontroller-org&repo=mycontroller&type=fork&count=true&size=large" frameborder="0" scrolling="0" width="158px" height="30px"></iframe>
+         <iframe class="pull-left" src="https://ghbtns.com/github-btn.html?user=mycontroller-org&repo=mycontroller-v1-legacy&type=star&count=true&size=large" frameborder="0" scrolling="0" width="160px" height="30px"></iframe>
+         <iframe class="pull-left" src="https://ghbtns.com/github-btn.html?user=mycontroller-org&repo=mycontroller-v1-legacy&type=fork&count=true&size=large" frameborder="0" scrolling="0" width="158px" height="30px"></iframe>
          <p class="pull-left" style="width:120px"><span class="image"><a class="image" href="https://gitter.im/mycontroller-org/mycontroller?utm_source=badge&amp;utm_medium=badge&amp;utm_campaign=pr-badge&amp;utm_content=badge"><img src="https://badges.gitter.im/Join%20Chat.svg" alt="Join%20Chat"></a></span></p>
-         <p class="pull-left" ><span class="image"><a class="image" href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=CHWAXCBVHTC64"><img src="https://www.paypalobjects.com/en_US/CH/i/btn/btn_donateCC_LG.gif" alt="btn_donateCC_LG"></a></span></p>
        </div>
      </div>
 ++++
