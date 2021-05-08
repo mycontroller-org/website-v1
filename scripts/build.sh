@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # build
-podman run --rm --name jdk --volume $PWD:/source -w /source docker.io/library/maven:3.6.3-openjdk-8 mvn install -B
+docker run --rm --name jdk --volume $PWD:/source -w /source docker.io/library/maven:3.6.3-openjdk-8 mvn install -B
 
 # container registry
 REGISTRY='quay.io/mycontroller-org'
