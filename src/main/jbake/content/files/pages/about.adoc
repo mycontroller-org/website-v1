@@ -14,7 +14,7 @@
           <br>MyController 2.0 is in development phase.
           <br>This webpage will be replaced with MyController 2.0 on it's first release.
         </span>
-        <br><a href="https://v2.mycontroller.org">To participate in the early access of MyController 2.0 program</a>
+        <br><a href="https://v2.mycontroller.org">Are you interested in MyController 2.0? Click Here</a>
       </div>
 
      <div class="jumbotron">
