@@ -4,3 +4,4 @@ git checkout pages && mvn install -B && git checkout master && cp target/website
 
 # back to pages branch
 git checkout pages;
+
